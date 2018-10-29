@@ -68,12 +68,26 @@ iii) Per un segnale in ingresso di circa $1.60$ \si{\volt}pp si iniziano a veder
 iv)\begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.5]{clipping.png}
-
+\end{figure}
+\section{Diagramma di Bode}
+ Campionando in un intervallo di frequenze che spazia da 1\si{\hertz} a 1\si{\kilo\hertz}, abbiamo costruito un diagramma di Bode del guadagno. I punti sperimentali sono riportati in seguito.
+ \begin{figure}[h]
+ 	\centering
+ 	\includegraphics[scale=0.5]{dataBodeplot.png}
 	
 	
 \end{figure}
-
-	
+Visivamente l'andamento sembra quello tipico di un passabanda, eppure, oltre alla traslazione del guadagno massimo (che in questo caso è > 1, grazie al transistor), l'andamento asintotico ai due estremi non è di $\pm 20 dB/Decade$, come nel caso di passa basso e alto in cascata, bensì di circa $-15 \pm0.3dB/Decade $ per basse frequenze e $ 17.7\pm0.2 dB/Decade$ per alte frequenze.
+Questi numeri sono ottenuti da fit lineari nelle tre regioni:
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{fit.png}
+\end{figure}
+Lo smorzamento per basse frequenze lo riteniamo dovuto sostanzialmente all'effetto di $C_{IN}$ che si comporta come un passa alto. Trascuro l'effetto di $C_{OUT}$, almeno alle frequenze considerate, dato che $|Z_{oscilloscopio}|\approx1 M\Omega\gg \frac{1}{\omega C_{OUT}}\approx31k\Omega$
+Facendo dei conti, si ricava che lo smorzamento è del tipo:\[A=\frac{1}{\sqrt{1+(f_t/f)^2}}\] con $f_t=(2\pi R_{eq} C_{IN})$ e $R_{eq}$ è il parallelo fra R1,RE + la resistenza dinamica del diodo, R2.
+Tuttavia l'andamento che segue la curva  non è esattamente, come preannunciato, quello atteso. Questo non può che essere spiegato se non con un aumento del guadagno del diodo per ampiezze più piccole. dato che la diminuzione del guadagno verso basse frequenze è più di quanto attesa.
+Viceversa supponiamo che,ad  alte frequenze, l'andamento da passa basso sia dovuto agli effetti induttivi non trascurabili del circuito, ed in particolare della basetta.
+Lo smorzamento, di nuovo non è esattamente di $-20 dB/Decade$, supponiamo, di nuovo, a causa del comportamento non lineare del transistor.
 
 \section*{Dichiarazione}
 I firmatari di questa relazione dichiarano che il contenuto della relazione \`e originale, con misure effettuate dai membri del gruppo, e che tutti i firmatari hanno contribuito alla elaborazione della relazione stessa.
