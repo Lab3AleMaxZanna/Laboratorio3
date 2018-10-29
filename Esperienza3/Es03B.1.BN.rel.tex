@@ -25,7 +25,8 @@ Abbiamo scelto una frequenza di lavoro intorno ai $7.40$ \si{\kilo\hertz}.
 
 a) 
 \vspace{0.5cm}
-i)  Abbiamo verificato l'inversione di fase per VOUT rispetto a VIN
+
+i)  Abbiamo verificato l'inversione di fase per VOUT, la figura sotto riporta quanto osservato.
 
 \begin{figure}[h]
 	\centering
@@ -35,22 +36,32 @@ i)  Abbiamo verificato l'inversione di fase per VOUT rispetto a VIN
 	
 \end{figure}
 
-ii)
+ii)  Facendo una media dei guadagni per piccole  ampiezze diverse di VIN, otteniamo :\[A_v= (9.76\pm0.01) \]
+  (VIN e VOUT sono stati misurati sui due canali differenti dell'oscilloscopio,per questo abbiamo considerato gli errori scorrelati)
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|}
 		\hline 
 		 VIN (\si{\volt}) &  VOUT (\si{\volt})   & VOUT/VIN\\
 		\hline 
-	0.228 & 2.20& 9.65 \\
-	0.320 & 3.12 & 9.75 \\
-	0.528 & 5.14 & 9.73 \\
-	0.752& 7.32 & 9.73\\
-	1.02 & 10.2& 10 \\
-	1.27& 12.3 & 9.69 \\
+	$0.228 \pm  0.06 $& $2.20\pm 0.06$& $9.65 \pm 0.04$\\
+	$0.320\pm 0.08 $& $3.12 \pm 0.08$& $9.75 \pm0.04$\\
+	$0.528\pm 0.015 $& $5.14 \pm 0.15$& $9.73\pm 0.04$ \\
+	$0.752\pm 0.021$& $7.32\pm 0.21$ & $9.73\pm 0.04$\\
+	$1.02\pm 0.03 $& $10.2\pm 0.3$& $10\pm 0.04 $\\
+	$1.27\pm 0.04$ & $12.3\pm 0.4 $& $9.69\pm 0.04 $\\
+
 		\hline 
 	\end{tabular} 
 \end{table}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{guadagno.png}
+
+	
+	
+\end{figure}
 
 iii) Per un segnale in ingresso di circa $1.60$ \si{\volt}pp si iniziano a vedere distorsioni per VOUT.
 
