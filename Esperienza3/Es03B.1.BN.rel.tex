@@ -18,6 +18,39 @@
 
 \date{4 ottobre 2018}
 \maketitle
+\section{montaggio del circuito e verifica del punto di lavoro}
+
+Le misure dei componenti tramite multimetro :
+
+$ R_1 = (178.2\pm 1.4)\si{\kilo\ohm}$, $ R_2 = (19.20\pm 0.15)\si{\kilo\ohm}$, $ R_C = (9.99\pm 0.08)\si{\kilo\ohm}$, $ R_E = (0.986\pm 0.008)\si{\kilo\ohm}$,
+
+ $ C_{IN} = (216 \pm 9)\si{\nano\farad}$, $ C_{OUT} = (105\pm 4)\si{\nano\farad}$
+
+Infine la tensione del generatore è  $V_{CC} = (20.7\pm 0.1)\si{\volt}$.
+
+
+a) La tensione  di lavoro risulta  $V_{CE}^Q = (7.41 \pm 0.04) \si{\volt}$ e  la corrente di collettore (misurata come caduta di d.d.p. ai capi di $R_C$) è $I_C^Q = (1.22\pm 0.01) \si{\milli\ampere}$. 
+Teoricamente ci si aspetta  $V_{CE}^Q + I_C^Q(R_C+ R_E)= V_{CC}$  (si è assunto $I_C^Q \simeq I_E^Q$, l'errore derivante  da questa approssimazione è dell' $1 \%$ se si considera un guadagno in continua attorno a $100$ )
+; inserendo i valori, la parte a destra dell'equazione è uguale a $(20.8\pm 0.2)\si{\volt}$ che è compatibile con il valore di $V_{CC}$.
+
+Se è vero che  $I_B \ll$ della corrente che scorre nel ramo di $R_2$, allora vale $I_C^Q \simeq (V_{BB}-V_{BE})/R_E$ dove            
+
+$V_{BB}= V_{CC}/(1+ R_1/R_2)$, ma $(V_{BB}-V_{BE})/R_E= 1.41 \si{\milli\ampere}$ ed essendo tutti gli errori intorno all' $1\%$ è incompatibile con il valore misurato di $I_C^Q$; questo significa che non è vera l'approssimazione sopra.
+
+
+b) Le tensioni misurate sono $V_B = (1.82\pm 0.01)\si{\volt}$,  $V_E = (1.21\pm 0.01)\si{\volt}$,  $V_{BE} = (0.61\pm 0.01)\si{\volt}$,  $V_C = (8.61\pm 0.05)\si{\volt}$.
+
+c) Dal datasheet del transistor il valore di $h_{FE}$ per il nostro punto di lavoro dovrebbe essere compreso tra 80 e 130.
+
+Segue che il valore della corrente di base dovrebbe essere compreso tra $0.009\si{\milli\ampere} < I_B< 0.015\si{\milli\ampere} $.
+
+Le correnti che scorrono nei rami di $R_1$, $R_2$ sono rispettivamente $I_{R_1} = (V_{CC}-V_{B})/R_1 = (0.106\pm 0.002)\si{\milli\ampere}  $, $I_{R_2} = V_{B}/R_2=(0.095\pm 0.001)\si{\milli\ampere} $ .
+
+Dalla differenza si ottiene $I_B = (0.011\pm 0.002) \si{\milli\ampere} $ che è circa 10 volte inferiore alla corrente che scorre nel partitore.
+
+Continuando la parte finale del punto a), questo si traduce nel fatto che nel calcolo di $V_{BB}$ al posto di $R_2 $ andrebbe messa la resistenza equivalente che è più piccola di circa il $10\%$. Questo comporta un errore del $10\% $ sul calcolo di $V_{BB}\simeq 2\si{\volt}$ che a questo punto diventa compatibile con $V_{B}$ misurato.
+
+
 
 \section{Risposta a segnali sinusoidali di frequenza fissa}
 
@@ -57,7 +90,7 @@ ii)  Facendo una media dei guadagni per piccole  ampiezze diverse di VIN, otteni
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{guadagno.png}
+	\includegraphics[scale=0.4]{guadagno.png}
 
 	
 	
