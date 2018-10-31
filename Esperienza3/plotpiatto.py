@@ -8,7 +8,7 @@ dz= 0.04* np.ones(6)
 pylab.errorbar(x,y/x,dz ,linestyle = '', color = 'black' , marker = 'o')
 pylab.xlabel('$v_{in} (V)$')
 pylab.ylabel('$v_{out}/v_{in}$')
-pylab.rc('font',size = 18)
+pylab.rc('font',size = 30)
 pylab.title('$A_v$')
 pylab.minorticks_on()
 
