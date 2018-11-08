@@ -65,7 +65,7 @@ i)  Abbiamo verificato l'inversione di fase per VOUT, la figura sotto riporta qu
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{oscilloscopio.png}
+	\includegraphics[scale=0.7]{oscilloscopio.png}
 
 	
 	
@@ -112,8 +112,12 @@ Il segnale con clipping è asimmetrico, dato che il passaggio alla zona di inter
 
 \begin{figure}[h]
 	\centering
+<<<<<<< HEAD
 	\includegraphics[scale=0.5]{clipping.png}
 	\label{Clipping osservato (inferiore e superiore)}
+=======
+	\includegraphics[scale=0.7]{clipping.png}
+>>>>>>> 2b459b5bcb603668ba24658e91209c434155c9ec
 \end{figure}
 \section{Diagramma di Bode}
  Campionando in un intervallo di frequenze che spazia da 1\si{\hertz} a 1\si{\kilo\hertz}, abbiamo costruito un diagramma di Bode del guadagno. I punti sperimentali sono riportati in seguito.
@@ -131,9 +135,9 @@ Questi numeri sono ottenuti da fit lineari nelle tre regioni:
 	\caption{fit del passa banda}
 \end{figure}
 Lo smorzamento per basse frequenze lo riteniamo dovuto sostanzialmente all'effetto di $C_{IN}$ che si comporta come un passa alto. Trascuro l'effetto di $C_{OUT}$, dato che $|Z_{oscilloscopio}|\approx1 M\Omega$, la frequenza di taglio associata a questo passa-alto è $f_t = 1 /(2\pi R_{oscill} C_{out}) \simeq 1.7 \si{\hertz}$.
-La funzione di trasferimento del passa-alto  è del tipo:\[A=\frac{1}{\sqrt{1+(f_t/f)^2}}\] con $f_t=1/(2\pi R_{eq} C_{IN})$ e  nell'approssimazione in cui l'impedenza dei rami del collettore ed emettitore sia molto più grande di $R_2$, posso considerare il passa-alto e il transistor in cascata e quindi $R_{eq} \sim R_2$ per cui si ottiene $ f_t \sim 40 \si{\hertz}$.
+La funzione di guadagno del passa-alto  è del tipo:\[A=\frac{1}{\sqrt{1+(f_t/f)^2}}\] con $f_t=1/(2\pi R_{eq} C_{IN})$ e  nell'approssimazione in cui l'impedenza dei rami del collettore ed emettitore sia molto più grande di $R_2$, posso considerare il passa-alto e il transistor in cascata e quindi $R_{eq} \sim R_2$ per cui si ottiene $ f_t \sim 40 \si{\hertz}$ (la frequenza di taglio sarà un po' più grande perchè $R_{eq}$ è sicuramente minore di $R_2$ .
 
-Tuttavia l'andamento che segue la curva  non è esattamente, come preannunciato, quello atteso. La pendenza minoreper basse frequenze  potrebbe  essere spiegata  con un aumento del guadagno del transistor. 
+Tuttavia l'andamento che segue la curva  non è esattamente, come preannunciato, quello atteso. La pendenza minore per basse frequenze  è imputabile alla presenza del transistor. 
 Viceversa supponiamo che,ad  alte frequenze, l'andamento da passa basso sia dovuto agli effetti induttivi non trascurabili del circuito, ed in particolare della basetta.
 Lo smorzamento, di nuovo non è esattamente di $-20 dB/Decade$, supponiamo, di nuovo, a causa del comportamento non lineare del transistor.
 
