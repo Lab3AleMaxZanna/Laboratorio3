@@ -16,7 +16,7 @@
 
 \begin{document}
 
-\date{4 ottobre 2018}
+\date{31 ottobre 2018}
 \maketitle
 \section{montaggio del circuito e verifica del punto di lavoro}
 
@@ -100,20 +100,20 @@ Il valore atteso per il guadagno è $A_{v,att} \simeq \frac{R_C}{R_E}= 10.1\pm 0
 	
 \end{figure}
 
-iii) Prima degli 1.3 \si{\volt}pp come si vede dalla tabella l'amplificazione del segnale è entro i limiti lineare,  per un segnale in ingresso di circa $1.60$ \si{\volt}pp si iniziano a vedere distorsioni per VOUT.
- 
+iii) Prima degli 1.3 \si{\volt}pp come si vede dalla tabella l'amplificazione del segnale è entro i limiti lineare,  per un segnale in ingresso di circa $1.60$ \si{\volt}pp si iniziano a vedere distorsioni per VOUT, in particolare si nota inizialmente clipping inferiore, mentre per tensioni ancora superiori si vede un clipping superiore.
 
 iv) Nella figura si vede il clipping inferiore; è dovuto al fatto che il transistor passa dal regime attivo al regime di saturazione, e questo accade perchè quando $v_{in}$ è massimo e la sua ampiezza sufficientemente grande $ V_{CB}$ diventa negativo.
 In questo regime $|V_{CE}|\ll  V_{CC}$, quindi $ I_C \simeq V_{CC}/(R_E+R_C)$ e  se chiamo $V_{out,min}$ il valore a cui viene tagliato il segnale vale \[V_{out,min} -V_C= - I_C R_C = - V_{CC}\frac{R_C}{R_E+R_C}\]
 da cui 
 $V_{out,min} = -(6.74\pm 0.14) \si{\volt}$; questo valore non torna con il valore misurato, che è $V_{out,clip} = -(8.5\pm 0.2) \si{\volt}$.
 
-Ci si aspetta anche una distorsione per i picchi superiori di $V_{out}$, infatti nel caso   $V_{in}$ abbia un'ampiezza grande, quando è minimo può far assumere a  $V_{B}$ valori negatvi e portare così il transistor in interdizione.
-
+Ci si aspetta anche una distorsione per i picchi superiori di $V_{out}$ (il clipping superiore osservato), infatti nel caso   $V_{in}$ abbia un'ampiezza grande, quando è minimo può far assumere a  $V_{B}$ valori negatvi e portare così il transistor in interdizione.
+Il segnale con clipping è asimmetrico, dato che il passaggio alla zona di interdizione per il clipping superiore avviene per segnali in ingresso più ampi rispetto al clipping inferiore, che quindi si manifesta prima.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.5]{clipping.png}
+	\label{Clipping osservato (inferiore e superiore)}
 \end{figure}
 \section{Diagramma di Bode}
  Campionando in un intervallo di frequenze che spazia da 1\si{\hertz} a 1\si{\kilo\hertz}, abbiamo costruito un diagramma di Bode del guadagno. I punti sperimentali sono riportati in seguito.
@@ -127,7 +127,8 @@ Visivamente l'andamento sembra quello tipico di un passabanda, eppure, oltre all
 Questi numeri sono ottenuti da fit lineari nelle tre regioni:
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=0.5]{fit.png}
+	\includegraphics[scale=1]{fit.png}
+	\caption{fit del passa banda}
 \end{figure}
 Lo smorzamento per basse frequenze lo riteniamo dovuto sostanzialmente all'effetto di $C_{IN}$ che si comporta come un passa alto. Trascuro l'effetto di $C_{OUT}$, dato che $|Z_{oscilloscopio}|\approx1 M\Omega$, la frequenza di taglio associata a questo passa-alto è $f_t = 1 /(2\pi R_{oscill} C_{out}) \simeq 1.7 \si{\hertz}$.
 La funzione di trasferimento del passa-alto  è del tipo:\[A=\frac{1}{\sqrt{1+(f_t/f)^2}}\] con $f_t=1/(2\pi R_{eq} C_{IN})$ e  nell'approssimazione in cui l'impedenza dei rami del collettore ed emettitore sia molto più grande di $R_2$, posso considerare il passa-alto e il transistor in cascata e quindi $R_{eq} \sim R_2$ per cui si ottiene $ f_t \sim 40 \si{\hertz}$.
