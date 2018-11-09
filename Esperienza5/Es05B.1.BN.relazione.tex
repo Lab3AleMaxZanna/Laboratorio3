@@ -77,7 +77,9 @@
 	%
 	
 	Variando l'~ampiezza di $V_{in}$ si misura $V_{out}$ ed il relativo guadagno $A_V=V_{out}/V_{in}$ riportando i dati ottenuti in tabella~\ref{tab:guadagno} 
-	e mostrandone un grafico in Fig. \ref{fig:lin}. 
+	e mostrandone un grafico in Fig. \ref{fit}. 
+	Il fit è stato ottenuto mediante media pesata dei valori del guadagno; si può osservare come, alzando l'ampiezza, il guadagno diminuisca impercettibilmente. Trovandosi il tutto dentro una barra d'errore, non è considerabile un effetto significativo.
+	L'incertezza sul guadagno è stato ottenuta sommando in quadratura le incertezze su Vin e Vout, dato che queste, essendo state misurate su canali diversi, si assumono scorrelate (anche l'incertezza sul digit è scorrelata).
 	
 	\begin{table}[h]
 		\caption{$V_{out}$ in funzione di $V_{in}$ e relativo rapporto.}
@@ -88,41 +90,45 @@
 				$V_{in}$ (V) & $V_{out}$ (V)  & $A_V$ \\
 				\hline
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn$ \\
+				$ 0.50\pm 0.01 $ & $5.12 \pm 0.1 $ & $10.3 \pm 0.4 $ \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$0.71 \pm 0.02 $ & $7.4 \pm 0.2 $ & $10.4 \pm 0.4 $ \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$0.90 \pm 0.03 $ & $9.4 \pm 0.3 $ & $10.4 \pm 0.4 $ \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$1.2 \pm 0.03 $ & $12.4 \pm 0.3 $ & $10.3 \pm 0.4 $ \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$1.46 \pm 0.04 $ & $15.1 \pm 0.4 $ & $10.3 \pm 0.4 $ \\
+				\hline
+				$1.58 \pm 0.05 $ & $16.3 \pm 0.5 $ & $10.3 \pm 0.4 $ \\
+				\hline
+				$1.82 \pm 0.06 $ & $18.5 \pm 0.6 $ & $10.2 \pm 0.4 $ \\
+				\hline
+				$1.98 \pm 0.06 $ & $20.2 \pm 0.6 $ & $10.2 \pm 0.4 $ \\
+				\hline
+				$2.18 \pm 0.06 $ & $22.2 \pm 0.6 $ & $10.2 \pm 0.4 $ \\
+				\hline
+				$2.46 \pm 0.07 $ & $24.8 \pm 0.7 $ & $10.1 \pm 0.4 $ \\
+				\hline
+				$2.68 \pm 0.08 $ & $27.2 \pm 0.8 $ & $10.1 \pm 0.4 $ \\
 				\hline
 			\end{tabular}
 		\end{center}
 	\end{table}
-	\begin{figure}
+	\begin{figure}\centering
 			\includegraphics[scale=0.5]{fit.png}
+				\caption{\small Linearit\`a dell'~amplificatore invertente}
+			\label{fit}
 	\end{figure}
-	\rem{Indicare in che modo si fa il fit, se sulla retta $V_{out}$ vs. $V_{in}$ oppure sui valori di $A_V$   }
+
 	
 	Si determina il guadagno mediante fit dei dati ottenuti:
 	\[
-	A_{best} = \exn \pm \exn \quad  \chi^2 = \exn
+	A_{best} = 10.258 \pm 0.001 \quad  \chi^2/ndof = 0.06
 	\]
-	\begin{figure}[t]
-		\begin{center}
-			\framebox(200,200){Inserire grafico con di $V_{out}$ e $V_{in}$}
-			%\includegraphics[0.8\textwidth]{}
-		\end{center}
-		\caption{\small Linearit\`a dell'~amplificatore invertente}
-		\label{fig:lin}
-	\end{figure}
-	%
-	
-	\rem{Fino a quale tensione il circuito si comporta linearmente? Provare (facoltativamente) a ridurre la 
-		tensione di alimentazione dell'~integrato ed a verificarne la correlazione con la tensione di 
-		\emph{clipping} dell'~uscita. Commentare quanto osservato }
+
+	Quindi gli errori sono stati sovrastimati.
+	Cambiando la tensione dell'integrato si osserva clipping circa quando la tensione in uscita è pari a quella di alimentazione (in realtà un po' prima).
 	
 	%%%%%%%%%%%%%%%%%%
 	%
@@ -199,6 +205,7 @@
 	SR_\mathrm{misurato} = (12.5 \pm 0.5 )\,\mathrm{V/\mu s} \quad \mathrm{valore \; tipico}\, (13 )\,\mathrm{V/\mu s}\
 	\]
 Abbiamo misurato nel  punto a pendenza massima di $V_{out}$, che si trova proprio all'inizio dell'onda quadra, subito dopo la pendenza diminuisce di circa 0.5 $ \mathrm{V/\mu s}$
+
 	%
 	\section{Circuito integratore}
 	Si monta il circuito integratore con i seguenti valori  dei componenti indicati: 
