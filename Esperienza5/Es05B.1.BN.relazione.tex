@@ -11,14 +11,14 @@
 \newcommand{\exn}{\phantom{xxx}}
 \renewcommand{\thesubsection}{\thesection.\alph{subsection}}  %% use 1.a numbering
 
-\author{Gruppo 1x.By \\ Mario Rossi, Anna Bianchi \rem{non dimenticate i nomi}}
+\author{Gruppo 1G.BN \\ Massimo Bilancioni, Alessandro Foligno, Giuseppe Zanichelli }
 \title{Es05B: Circuiti lineari con Amplificatori Operazionali}
 \begin{document}
-	\date{23 ottembre 2150}
+	\date{8 novembre 2018}
 	\maketitle
 	
 	
-	\section*{Scopo dell'~esperienza}
+	\section*{Scopo dell' esperienza}
 	Misurare le caratteristiche di circuiti lineari realizzati con un op-amp TL081 alimentati tra +15 V e -15 V.
 	
 	\section{Amplificatore invertente}
@@ -141,21 +141,41 @@
 		\caption{\small Guadagno dell'~amplificatore invertente in funzione della frequenza.}
 		\label{tab:bodeinv}
 		\begin{center}
-			\begin{tabular}{|c|c|c|}
-				\hline
+			\begin{tabular}{|c|c|c|}	\hline
 				$f_{in}$ (kHz) & $V_{out}$ (V) & $A$ (dB) \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $\\
+				$\exn0.753 \pm \exn $ & $\exn10.4 \pm \exn $ & $\exn 1.01\pm \exn $\\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $\\
+				$\exn 1.76\pm \exn $ & $\exn 10.5\pm \exn $ & $\exn 1.01\pm \exn $\\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $\\
+				$\exn 2.90\pm \exn $ & $\exn 10.5\pm \exn $ & $\exn 1.01\pm \exn $\\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $\\
+				$\exn 6.22\pm \exn $ & $\exn 10.7\pm \exn $ & $\exn 1.01\pm \exn $\\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $\\
+				$\exn 12.2\pm \exn $ & $\exn 10.7\pm \exn $ & $\exn 1.00\pm \exn $\\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $\\
+				$\exn22.5 \pm \exn $ & $\exn 10.6\pm \exn $ & $\exn1.00\pm \exn $\\
+				\hline
+				$\exn44.9 \pm \exn $ & $\exn10.5 \pm \exn $ & $\exn 1.00\pm \exn $\\
+				\hline
+				$\exn 86.7\pm \exn $ & $\exn9.92 \pm \exn $ & $\exn 0.971 \pm \exn $\\
+				\hline
+				$\exn 166\pm \exn $ & $\exn8.48 \pm \exn $ & $\exn 0.903 \pm \exn $\\
+				\hline
+				$\exn 350\pm \exn $ & $\exn 4.02\pm \exn $ & $\exn0.714\pm \exn $\\
+				\hline
+				$\exn 435\pm \exn $ & $\exn 3\pm \exn $ & $\exn 0.639\pm \exn $\\
+				\hline
+				$\exn555 \pm \exn $ & $\exn2.44 \pm \exn $ & $\exn 0.545 \pm \exn $\\
+				\hline
+				$\exn 729\pm \exn $ & $\exn 2.22\pm \exn $ & $\exn 0.452 \pm \exn $\\
+				\hline
+				$\exn 1220\pm \exn $ & $\exn 1.38\pm \exn $ & $\exn 0.237\pm \exn $\\
+				\hline
+				$\exn212\pm \exn $ & $\exn4.96 \pm \exn $ & $\exn 0.858 \pm \exn $\\
+				\hline
+				$\exn251 \pm \exn $ & $\exn4.44 \pm \exn $ & $\exn 0.815\pm \exn $\\
+
 				\hline
 			\end{tabular}
 		\end{center}
@@ -165,8 +185,8 @@
 	
 	\begin{figure}[h]
 		\begin{center}
-			\framebox(200,200){Inserire plot di Bode dell'~invertente.}
-			%\includegraphics[width=0.7\textwidth]{}
+			
+			\includegraphics[width=0.7\textwidth]{bodeInvertente}
 			\caption{\small Plot di Bode in ampiezza per l'~amplificatore invertente.}
 			\label{fig:bodeinv}
 		\end{center}
