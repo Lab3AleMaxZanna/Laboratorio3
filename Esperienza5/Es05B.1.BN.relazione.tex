@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 \usepackage{amsmath}
+\usepackage{circuitikz}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -26,21 +27,24 @@
 	
 	\subsection{Scelta dei componenti}
 	
-	Si monta il circuito secondo lo schema mostrato in figura \ref{fig:ampinv}, utilizzando la barra di 
+	Si monta il circuito secondo lo schema mostrato in figura, utilizzando la barra di 
 	distribuzione verde per la tensione negativa, quella rosso per la tensione positiva, e quella nera per 
 	la massa.
 	
-	\rem{Indicare i criteri di scelta delle resistenze ed i valori desiderati}
-	%
-	\begin{figure}[h]
-		\begin{center}
-			%\includegraphics[width=0.4\linewidth]{schema-inv.png}
-			\framebox(200,200){Inserire schema circuitale}
-			\caption{\small Schema di un amplificatore invertente}
-			\label{fig:ampinv}
-		\end{center}
-	\end{figure}
-	%
+	\rem{Indicare i criteri di scelta delle resistenze ed i valori desiderati}\\
+\begin{center}
+	\begin{circuitikz}\draw
+	(3,-0.5) node[op amp] (opamp) {}
+	(opamp.-) to[R=R1] (0,-0)
+	(2,0) --	(2,2) to[R=R2] (4.15,2) to(opamp.out) -- (6,-0.5) node[right] {$v_{out}$}
+	(0,0) node[left] {\textnormal{$v_{in}$}}
+	(opamp.up) --++(0,1) node[circ]{15\,\textnormal{V}}
+		(opamp.down) --++(0,-2) node[circ] {} node[left]{  -15\,\textnormal{V}}
+
+	(opamp.+) to (0,-1) node[ground] {};	
+	\end{circuitikz}
+\end{center}
+
 	
 	Le resistenze selezionate hanno i seguenti valori, misurati con il multimetro digitale, con il corrispondente valore atteso 
 	del guadagno in tensione dell'~amplificatore.
@@ -51,18 +55,19 @@
 	\]
 	
 	\subsection{Montaggio circuito}
-	
+	Il circuito è stato montato nella basetta come riportato in figura.
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\subsection{Linearit\`a e misura del guadagno}
 	Si fissa la frequenza del segnale ad $f_{in} = (2.597 \pm 0.011)$ kHz e si invia all'~ingresso dell'~amplificatore.	L'uscita dell'~amplificatore \`e mostrata qualitativativamente in Fig. \ref{fig:oscinv} per due 
-	differenti ampiezze di $V_{in}$ (circa $xxx$~Vpp e $xxx$~Vpp). 
-	Nel primo caso l'~OpAmp si comporta in modo lineare mentre nel secondo caso si osserva clipping. Il datasheet riporta uno Slew rate di $13 V/\mu s$ che è quindi trascurabile a questa frequenza fino ad un'ampiezza di circa 103 V.
+	differenti ampiezze di $V_{in}$ (circa $1.26$~Vpp e $7.20$~Vpp). 
+	Nel primo caso l'~OpAmp si comporta in modo lineare mentre nel secondo caso si osserva clipping. Il datasheet riporta uno Slew rate di $13 V/\mu s$ che è quindi trascurabile a questa frequenza .
 	%
 	\begin{figure}[h]
 		\begin{center}
-			\framebox(200,200){Screenshot oscillografo con $V_{out}$ lineare}
-			\framebox(200,200){Screenshot oscillografo con clipping di $V_{out}$}
-			%\includegraphics[0.45\textwidth]{}
+		
+			\includegraphics[scale=0.7]{foto1.jpg}
+			\includegraphics[scale=0.7]{foto2.jpg}
+			\caption{screenshot dei segnali con e senza clipping}
 			%\includegraphics[0.45\textwidth]{}
 		\end{center}
 		\caption{\small Ingresso (in alto) ed uscita (in basso) di un amplificatore invertente con OpAmp, in 
@@ -96,7 +101,9 @@
 			\end{tabular}
 		\end{center}
 	\end{table}
-	
+	\begin{figure}
+			\includegraphics[scale=0.5]{fit.png}
+	\end{figure}
 	\rem{Indicare in che modo si fa il fit, se sulla retta $V_{out}$ vs. $V_{in}$ oppure sui valori di $A_V$   }
 	
 	Si determina il guadagno mediante fit dei dati ottenuti:
@@ -178,7 +185,7 @@ Abbiamo misurato nel  punto a pendenza massima di $V_{out}$, che si trova propri
 	\[
 	R_1 = (0.997 \pm 0.008 \;) \,\mathrm{k}\Omega, \:\:\;\:\exn 
 	R_2 = (9.92 \pm 0.08 \;) \,\mathrm{k}\Omega, \:\:\;\:\exn 
-	C = (50.4 \pm 2.03 \;\;)\,\mathrm{nF}
+	C = (50.4 \pm 2.3 \;\;)\,\mathrm{nF}
 	\]
 	
 	\subsection{Risposta in frequenza}
