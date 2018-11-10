@@ -31,7 +31,7 @@
 	distribuzione verde per la tensione negativa, quella rosso per la tensione positiva, e quella nera per 
 	la massa.
 	
-	\rem{Indicare i criteri di scelta delle resistenze ed i valori desiderati}\\
+
 
 	
 	Le resistenze selezionate hanno i seguenti valori, misurati con il multimetro digitale, con il corrispondente valore atteso 
@@ -39,7 +39,7 @@
 	\[
 	R_1 = ( 1.466 \pm 0.012) \,\mathrm{k}\Omega, \quad 
 	R_2 = (15.24  \pm 0.12) \,\mathrm{k}\Omega, \quad 
-	A_{exp} = ( -10.39 \pm 0.11)
+	A_{exp} = -(10.39 \pm 0.11)
 	\]
 	
 	\subsection{Montaggio circuito}
@@ -142,7 +142,7 @@ La frequenza di taglio è stata ricavata come l'intersezione delle due rette fit
 \hline
 
 
-				\hline
+			
 				$\exn 2.90\pm0.06 \exn $ & $\exn1.03 \pm 0.03\exn$ & $\exn 10.5\pm 0.3 \exn $ & $\exn 20.2\pm0.26 \exn $\\
 				\hline
 				$\exn 6.22\pm0.12 \exn $ & $\exn1.05 \pm0.03 \exn $& $\exn 10.7\pm 0.3 \exn $ & $\exn 20.2\pm0.26 \exn $\\
@@ -216,60 +216,189 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	
 	\subsection{Risposta in frequenza}
 	
-	Si invia un'~onda sinusoidale e si misura la risposta in frequenza dell'~amplificazione e della fase riportandoli 
-	nella tabella \ref{tab:bodeinte} e in un diagramma di Bode in Fig. \ref{fig:bodeinte}. 
-	\[
-	V_{in} = (\exn \pm \exn )\,\mathrm{V}
-	\]
-	\rem{La fase pu\'o essere indicata in gradi, radianti, oppure come frazione $\phi/2\pi$}
+	Si invia un'~onda sinusoidale e si misura la risposta in frequenza dell'~amplificazione e della fase
+	
 	%
+
+
+
+
+
 	\begin{table}[h]
-		\caption{Guadagno e fase dell'~integratore invertente in funzione della frequenza.}
+		\caption{Guadagno  dell'~integratore invertente in funzione della frequenza.}
 		\label{tab:bodeinte}
 		\begin{center}
-			\begin{tabular}{|c|c|c|c|c|}
+			\begin{tabular}{|c|c|c|c|}
 				\hline
-				$f_{in}$ (kHz) & $V_{out}$ (V) & $A$ (dB) & $\Delta t (\mu s)$ & $\phi$ \\
+				$f_{in}$ (kHz) &$V_{in}$(V) & $V_{out}$ (V) & $A$ (dB)  \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+
+
+				$\exn0.0156 \pm0.0003 \exn $ &$\exn0.580 \pm 0.017\exn $ & $\exn5.12 \pm 0.15\exn $ & $\exn 18.9\pm0.26 \exn $ \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$\exn 0.0257\pm0.0005 \exn $ &$\exn0.580 \pm 0.017 \exn $ & $\exn5.44 \pm0.15 \exn $ & $\exn 19.4\pm 0.26\exn $ \\
+
+					
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$\exn0.0287 \pm0.0006 \exn $ &$\exn 0.580\pm0.017\exn $ & $\exn 5.52 \pm0.15 \exn $ & $\exn 19.6\pm0.26 \exn $ \\
+
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$\exn 0.0479\pm0.0001 \exn $ &$\exn1.53 \pm 0.05\exn $ & $\exn 14.6 \pm0.5 \exn $ & $\exn 19.6\pm 0.26\exn $  \\
+				
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$\exn 0.092\pm 0.002\exn $ &$\exn1.54\pm 0.05\exn $ & $\exn 14.3\pm0.4\exn $ & $\exn 19.4\pm 0.26\exn $ \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+
+				$\exn0.172 \pm0.003 \exn $ &$\exn1.54 \pm0.05 \exn $ & $\exn 13.2 \pm 0.4\exn $ & $\exn 18.7\pm0.26 \exn $  \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$\exn0.306 \pm0.006 \exn $ &$\exn 1.53\pm0.05 \exn $ & $\exn 10.9\pm 0.3\exn $ & $\exn 17.0\pm0.26 \exn $  \\
 				\hline
+				
+				
+				
+				$\exn 0.460\pm0.05 \exn $ &$\exn 0.704 \pm0.021 \exn $ & $\exn3.92 \pm 0.12\exn $ & $\exn14.9 \pm0.26 \exn $  \\
+				\hline
+				$\exn 1.14\pm 0.02\exn $ &$\exn 0.7\pm0.021 \exn $ & $\exn 1.94\pm0.08 \exn $ & $\exn8.85 \pm0.26 \exn $ \\
+				\hline
+				$\exn 1.88\pm0.04 \exn $ &$\exn 0.696 \pm0.020 \exn $ & $\exn1.22 \pm 0.04 \exn $ & $\exn4.87 \pm0.26 \exn $  \\
+				\hline
+				$\exn 3.46\pm 0.07 \exn $ &$\exn 0.704 \pm0.020 \exn $ & $\exn 0.656\pm0.018 \exn $ & $\exn-0.613 \pm 0.26\exn $\\
+				\hline
+				$\exn4.57 \pm0.09 \exn $ &$\exn 1.56\pm 0.05\exn $ & $\exn1.07 \pm 0.3\exn $ & $\exn-3.27 \pm 0.26\exn $ \\
+				\hline
+
+				$\exn 9.14\pm 0.20\exn $ &$\exn 0.712\pm0.021 \exn $ & $\exn0.255 \pm 0.007\exn $ & $\exn -8.92\pm 0.26\exn $  \\
+				\hline
+
+				$\exn 12.9\pm 0.2 \exn $ &$\exn 1.55\pm0.05 \exn $ & $\exn0.380 \pm 0.012\exn $ & $\exn -12.2\pm 0.26\exn $  \\
+				\hline
+				$\exn 17.7\pm 0.3\exn $ &$\exn 3.92\pm0.12 \exn $ & $\exn 0.688\pm 0.020\exn $ & $\exn -15.1\pm 0.26\exn $ \\
+
+				\hline
+				$\exn 33\pm 0.6\exn $ &$\exn 3.92 \pm 0.12\exn $ & $\exn0.380 \pm 0.012\exn $ & $\exn -20.2\pm0.26 \exn $ \\
+				\hline
+				$\exn 56\pm 1 \exn $ &$\exn 0.696\pm0.020 \exn $ & $\exn 0.0448\pm0.0012 \exn $ & $\exn-23.8\pm 0.26\exn $ \\
+				
+				
+				\hline
+				$\exn 66.1\pm 1.2\exn $ &$\exn 3.86\pm 0.12\exn $ & $\exn0.212 \pm0.006 \exn $ & $\exn -25.2\pm0.26 \exn $  \\
+			
+				
+				\hline
+				
+				
+				
+				
 			\end{tabular}
 		\end{center}
 	\end{table} 
+
+
+\begin{table}[h]
+		\caption{ fase dell'~integratore invertente in funzione della frequenza.}
+		\label{tab:bodeinte}
+		\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				$f_{in}$ (kHz)  & $\Delta t (\mu s)$ & $\phi \,(\,\,^\circ)$ \\
+				\hline
+
+
+				$\exn0.0156 \pm0.0003 \exn $& $\exn 28400\pm 1100  \exn $ & $\exn160 \pm6\exn $ \\
+				\hline
+				$\exn 0.0257\pm0.0005 \exn $ &$\exn 18200\pm 700 \exn $ & $\exn169 \pm 7 \exn $ \\
+
+					
+				\hline
+				$\exn0.0287 \pm0.0006 \exn $  & $\exn16400 \pm   700\exn $ & $\exn 170\pm 7\exn $ \\
+
+				\hline
+				$\exn 0.0479\pm0.0001 \exn $ & $\exn10400 \pm 400 \exn $ & $\exn 180\pm 7 \exn $ \\
+				
+				\hline
+				$\exn 0.092\pm 0.002\exn $  & $\exn 5100\pm 200\exn $ & $\exn169\pm7\exn $ \\
+				\hline
+
+				$\exn0.172 \pm0.003 \exn $  & $\exn 2490\pm   100  \exn $ & $\exn 154\pm6 \exn $ \\
+				\hline
+				$\exn0.306 \pm0.006 \exn $  & $\exn1250 \pm 50 \exn $ & $\exn138 \pm 6\exn $ \\
+				\hline
+				
+				
+				
+				$\exn 0.460\pm0.05 \exn $& $\exn785 \pm 30 \exn $ & $\exn130 \pm5  \exn $ \\
+				\hline
+				$\exn 1.14\pm 0.02\exn $  & $\exn258 \pm  10  \exn $ & $\exn106 \pm 4\exn $ \\
+				\hline
+				$\exn 1.88\pm0.04 \exn $  & $\exn 149 \pm  6 \exn $ & $\exn101 \pm 4 \exn $ \\
+				\hline
+				$\exn 3.46\pm 0.07 \exn $  & $\exn 76.3 \pm3
+   \exn $ & $\exn95 \pm 4\exn $ \\
+				\hline
+				$\exn4.57 \pm0.09 \exn $  & $\exn 57.1 \pm  2.3    \exn $ & $\exn94 \pm4\exn $ \\
+				\hline
+
+				$\exn 9.14\pm 0.20\exn $ & $\exn28.2 \pm 1.1   \exn $ & $\exn 93 \pm 4 \exn $ \\
+				\hline
+
+				$\exn 12.9\pm 0.2 \exn $  & $\exn 19.6 \pm 0.8 \exn $ & $\exn 91 \pm  4\exn $ \\
+				\hline
+				$\exn 17.7\pm 0.3\exn $ & $\exn14.4\pm 0.6 \exn $ & $\exn 92\pm4\exn $ \\
+
+				\hline
+				$\exn 33\pm 0.6\exn $& $\exn7.58 \pm  0.3
+   \exn $ & $\exn90 \pm 4 \exn $ \\
+				\hline
+				$\exn 56\pm 1 \exn $  & $\exn 4.47\pm0.18   \exn $ & $\exn 90\pm 4\exn $ \\
+				
+				
+				\hline
+				$\exn 66.1\pm 1.2\exn $ & $\exn3.76 \pm  0.15 \exn $ & $\exn90 \pm 4\exn $ \\
+			
+				
+				\hline
+				
+				
+				
+				
+			\end{tabular}
+		\end{center}
+	\end{table} 
+
+
 	%
 	\begin{figure}[htb]
 		\begin{center}
-			\framebox(200,200){Inserire plot di Bode in ampiezza}
-			\framebox(200,200){Analogo in fase}
+			
+			\includegraphics[width=0.7\textwidth]{bodeint}
+			
+	\end{center}
+		\caption{\small Plot di Bode dell' ampiezza  per il circuito integratore.}
+		\label{fig:bodeinte}
+	\end{figure}
+
+\begin{figure}[htb]
+		\begin{center}
+			\includegraphics[width=0.7\textwidth]{fase}
 			%\includegraphics[0.45\textwidth]{}
 			%\includegraphics[0.45\textwidth]{}
 		\end{center}
-		\caption{\small Plot di Bode in ampiezza (a sinistra) e fase (a destra) per il circuito integratore.}
+		\caption{\small Plot di Bode della fase per il circuito integratore: In arancione si vede la funzione teorica per la fase, che è descritta da $\phi = 360/(2\pi)[\pi - \arctan(\exp{(\log f -\log f_t)})]$}
 		\label{fig:bodeinte}
 	\end{figure}
 	%
-	
-	Si ricava una stima delle caratteristiche principali dell'andamento (guadagno a bassa frequenza, frequenza di taglio, e pendenza ad alta frequenza)
-	e si confrontano con quanto atteso. Non si effettua la stima degli errori, trattandosi di misure qualitative.
-	
-	\rem{Indicare brevemente come sono stati ottenuti i valori attesi}
+	 
+	Per la stima del guadagno massimo, si è presa la media dei guadagni delle prime quattro frequenze.
+	Guadagno per quale $f$ il guadagno fosse  $A_M - 3 $dB si è ottenuta una stima della frequenza di taglio.
+	Per la pendenza abbiamo preso una media delle pendenze delle rette passanti per coppie di punti ad alte frequenze.
+
+	Il valore atteso per $A_M $ è $ 20 \log_{10}(R_2/R_1)$; la frequenza di taglio attesa è $f_H = 1/(2\pi R_2 C)$.
+
 	
 	\begin{align*}
-	A_M &= (\exn )\,\mathrm{dB} & \mathrm{atteso} &:\,(\exn  )\, \mathrm{dB}  \\
-	f_H &= (\exn )\,\mathrm{Hz} & \mathrm{atteso} &:\,(\exn  )\, \mathrm{Hz} \\
-	{\mathrm{d}A_V}/{\mathrm{d}f} &= (\exn )\,\mathrm{dB/decade} & \mathrm{atteso} &:\,(\exn  )\, \mathrm{dB/decade}  \\
+	A_M &= (19.4 )\,\mathrm{dB} & \mathrm{atteso} &:\,(20  )\, \mathrm{dB}  \\
+	f_H &= (330 )\,\mathrm{Hz} & \mathrm{atteso} &:\,(318  )\, \mathrm{Hz} \\
+	{\mathrm{d}A_V}/{\mathrm{d}f} &= (-20.1 )\,\mathrm{dB/decade} & \mathrm{atteso} &:\,(-20  )\, \mathrm{dB/decade}  \\
 	\end{align*}
 	
 	
@@ -307,5 +436,8 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 		In particolare: attenuazione ad alte frequenze, dipendenza della fase dalla frequenza, funzione di $R_2$. }
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%
-	
+	\begin{tabular}{cc}
+
+\end{tabular}
+
 \end{document}          
