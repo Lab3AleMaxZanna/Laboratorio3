@@ -112,9 +112,33 @@
 				\hline
 				$2.68 \pm 0.08 $ & $27.2 \pm 0.8 $ & $10.1 \pm 0.4 $ \\
 				\hline
+		
 			\end{tabular}
 		\end{center}
 	\end{table}
+
+		Gli ultimi 4 dati,riportati in tabella \ref{tab:daticlipping} sono stati presi per verificare il clipping, e quindi non considerati per il fit
+		\begin{table}[h]
+	
+			\begin{center}
+				\begin{tabular}{|c|c|c|}
+					\hline
+					$V_{in}$ (V) & $V_{out}$ (V)   \\
+		\hline
+		$2.96 \pm 0.09 $ & $28.8 \pm 0.8 $ \\
+		\hline
+		$3.04 \pm 0.09 $ & $29.3 \pm 0.8  $ \\
+		\hline
+		$3.20 \pm 0.09 $ & $29.4 \pm 0.9  $ \\
+		\hline
+		$3.25 \pm 0.1 $ & $29.5 \pm 0.9 $ \\
+		\hline
+		\end{tabular}
+	\end{center}
+\label{tab:daticlipping}
+\caption{dati del segnale tagliato (clipping)}
+\end{table}
+
 	\begin{figure}\centering
 			\includegraphics[scale=0.5]{fit.png}
 				\caption{\small Linearit\`a dell'~amplificatore invertente}
@@ -252,10 +276,9 @@ Abbiamo misurato nel  punto a pendenza massima di $V_{out}$, che si trova propri
 	%
 	\begin{figure}[htb]
 		\begin{center}
-			\framebox(200,200){Inserire plot di Bode in ampiezza}
-			\framebox(200,200){Analogo in fase}
-			%\includegraphics[0.45\textwidth]{}
-			%\includegraphics[0.45\textwidth]{}
+		
+			\includegraphics[0.45]{bodefrequenza.png}
+			\includegraphics[0.45]{fase.png}
 		\end{center}
 		\caption{\small Plot di Bode in ampiezza (a sinistra) e fase (a destra) per il circuito integratore.}
 		\label{fig:bodeinte}

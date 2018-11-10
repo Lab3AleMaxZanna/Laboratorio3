@@ -1,0 +1,12 @@
+\begin{center}
+	\begin{circuitikz}\draw
+	(3,-0.5) node[op amp] (opamp) {}
+	(opamp.-) to[R=R1] (0,-0)
+	(2,0) --	(2,2) to[R=R2] (4.15,2) to(opamp.out) -- (6,-0.5) node[right] {$v_{out}$}
+	(0,0) node[left] {\textnormal{$v_{in}$}}
+	(opamp.up) --++(0,1) node[circ]{15\,\textnormal{V}}
+		(opamp.down) --++(0,-2) node[circ] {} node[left]{  -15\,\textnormal{V}}
+
+	(opamp.+) to (0,-1) node[ground] {};	
+	\end{circuitikz}
+\end{center}
