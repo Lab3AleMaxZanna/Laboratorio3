@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 \usepackage{amsmath}
+\usepackage{xcolor}
 
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -116,14 +117,15 @@
 	%
 	\section{Risposta in frequenza e \emph{slew rate}}
 	\subsection{Risposta in frequenza del circuito}
-	Non siamo riusciti a vedere la frequenza di taglio inferiore, che tuttavia deve essere   $\l 10\mathrm{Hz}$ visto che per questa frequenza  non si ha una sensibile diminuzione del guadagno.
+	Non siamo riusciti a vedere la frequenza di taglio inferiore, che tuttavia deve essere   $ <10\mathrm{Hz}$ visto che per questa frequenza  non si ha una sensibile diminuzione del guadagno.
 
  Per la frequenza di taglio superiore abbiamo campionato il guadagno per frequenze tra $1\mathrm{kHz}$ e $ 1\mathrm{MHz}.$
 Abbiamo abbassato $V_{in}$ per alte frequenze per evitare per evitare  possibili Slew Rate.
 
 La frequenza di taglio è stata ricavata come l'intersezione delle due rette fittate rispettivamente a bassa e ad alta frequenza.
-(Figura 4)
+(Figura \ref{fig:bodeinv})
 
+\textcolor{red}{errore su fH e dire pendenza per grandi omega}
 
 	
 	\[
@@ -216,8 +218,10 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	
 	\subsection{Risposta in frequenza}
 	
-	Si invia un'~onda sinusoidale e si misura la risposta in frequenza dell'~amplificazione e della fase
-	
+	Si invia un'~onda sinusoidale e si misura la risposta in frequenza dell'~amplificazione e della fase.
+	I dati sono riportati in tabella \ref{tab:bodeinte} e \ref{tab:bodefase}.
+
+         Si vedano le figure \ref{fig:bodeinte} e 7, per i plot di Bode dell'integratore relativi ad ampiezza e fase.
 	%
 
 
@@ -234,19 +238,26 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 				\hline
 
 
-				$\exn0.0156 \pm0.0003 \exn $ &$\exn0.580 \pm 0.017\exn $ & $\exn5.12 \pm 0.15\exn $ & $\exn 18.9\pm0.26 \exn $ \\
+
+
+
+
+
+
+
+				$\exn(1.56 \pm0.03)\cdot 10^{-2} \exn $ &$\exn0.580 \pm 0.017\exn $ & $\exn5.12 \pm 0.15\exn $ & $\exn 18.9\pm0.26 \exn $ \\
 				\hline
-				$\exn 0.0257\pm0.0005 \exn $ &$\exn0.580 \pm 0.017 \exn $ & $\exn5.44 \pm0.15 \exn $ & $\exn 19.4\pm 0.26\exn $ \\
+				$\exn ( 2.57\pm0.05)\cdot 10^{-2} \exn $ &$\exn0.580 \pm 0.017 \exn $ & $\exn5.44 \pm0.15 \exn $ & $\exn 19.4\pm 0.26\exn $ \\
 
 					
 				\hline
-				$\exn0.0287 \pm0.0006 \exn $ &$\exn 0.580\pm0.017\exn $ & $\exn 5.52 \pm0.15 \exn $ & $\exn 19.6\pm0.26 \exn $ \\
+				$\exn(2.87 \pm0.06)\cdot 10^{-2} \exn $ &$\exn 0.580\pm0.017\exn $ & $\exn 5.52 \pm0.15 \exn $ & $\exn 19.6\pm0.26 \exn $ \\
 
 				\hline
-				$\exn 0.0479\pm0.0001 \exn $ &$\exn1.53 \pm 0.05\exn $ & $\exn 14.6 \pm0.5 \exn $ & $\exn 19.6\pm 0.26\exn $  \\
+				$\exn (4.79\pm0.01)\cdot 10^{-2} \exn $ &$\exn1.53 \pm 0.05\exn $ & $\exn 14.6 \pm0.5 \exn $ & $\exn 19.6\pm 0.26\exn $  \\
 				
 				\hline
-				$\exn 0.092\pm 0.002\exn $ &$\exn1.54\pm 0.05\exn $ & $\exn 14.3\pm0.4\exn $ & $\exn 19.4\pm 0.26\exn $ \\
+				$\exn(9.20\pm 0.2)\cdot 10^{-2}\exn $ &$\exn1.54\pm 0.05\exn $ & $\exn 14.3\pm0.4\exn $ & $\exn 19.4\pm 0.26\exn $ \\
 				\hline
 
 				$\exn0.172 \pm0.003 \exn $ &$\exn1.54 \pm0.05 \exn $ & $\exn 13.2 \pm 0.4\exn $ & $\exn 18.7\pm0.26 \exn $  \\
@@ -258,7 +269,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 				
 				$\exn 0.460\pm0.05 \exn $ &$\exn 0.704 \pm0.021 \exn $ & $\exn3.92 \pm 0.12\exn $ & $\exn14.9 \pm0.26 \exn $  \\
 				\hline
-				$\exn 1.14\pm 0.02\exn $ &$\exn 0.7\pm0.021 \exn $ & $\exn 1.94\pm0.08 \exn $ & $\exn8.85 \pm0.26 \exn $ \\
+				$\exn 1.14\pm 0.02\exn $ &$\exn 0.700\pm0.021 \exn $ & $\exn 1.94\pm0.08 \exn $ & $\exn8.85 \pm0.26 \exn $ \\
 				\hline
 				$\exn 1.88\pm0.04 \exn $ &$\exn 0.696 \pm0.020 \exn $ & $\exn1.22 \pm 0.04 \exn $ & $\exn4.87 \pm0.26 \exn $  \\
 				\hline
@@ -277,7 +288,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 				\hline
 				$\exn 33\pm 0.6\exn $ &$\exn 3.92 \pm 0.12\exn $ & $\exn0.380 \pm 0.012\exn $ & $\exn -20.2\pm0.26 \exn $ \\
 				\hline
-				$\exn 56\pm 1 \exn $ &$\exn 0.696\pm0.020 \exn $ & $\exn 0.0448\pm0.0012 \exn $ & $\exn-23.8\pm 0.26\exn $ \\
+				$\exn 56\pm 1 \exn $ &$\exn 0.696\pm0.020 \exn $ & $\exn (4.48\pm0.12)\cdot 10^{-2} \exn $ & $\exn-23.8\pm 0.26\exn $ \\
 				
 				
 				\hline
@@ -296,7 +307,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 
 \begin{table}[h]
 		\caption{ fase dell'~integratore invertente in funzione della frequenza.}
-		\label{tab:bodeinte}
+		\label{tab:bodefase}
 		\begin{center}
 			\begin{tabular}{|c|c|c|}
 				\hline
@@ -304,24 +315,24 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 				\hline
 
 
-				$\exn0.0156 \pm0.0003 \exn $& $\exn 28400\pm 1100  \exn $ & $\exn160 \pm6\exn $ \\
+				$\exn(1.56 \pm0.03)\cdot 10^{-2} \exn $& $\exn (28.4\pm 1.1)\cdot 10^3  \exn $ & $\exn160 \pm6\exn $ \\
 				\hline
-				$\exn 0.0257\pm0.0005 \exn $ &$\exn 18200\pm 700 \exn $ & $\exn169 \pm 7 \exn $ \\
+				$\exn( 2.57\pm0.05)\cdot 10^{-2} \exn $ &$\exn (18.2\pm 0.7)\cdot 10^3  \exn $ & $\exn169 \pm 7 \exn $ \\
 
 					
 				\hline
-				$\exn0.0287 \pm0.0006 \exn $  & $\exn16400 \pm   700\exn $ & $\exn 170\pm 7\exn $ \\
+				$\exn(2.87 \pm0.06)\cdot 10^{-2} \exn $  & $\exn(16.4 \pm   0.7)\cdot 10^3 \exn $ & $\exn 170\pm 7\exn $ \\
 
 				\hline
-				$\exn 0.0479\pm0.0001 \exn $ & $\exn10400 \pm 400 \exn $ & $\exn 180\pm 7 \exn $ \\
+				$\exn (4.79\pm0.01)\cdot 10^{-2} \exn $ & $\exn(10.4 \pm 0.4)\cdot 10^3 \exn $ & $\exn 180\pm 7 \exn $ \\
 				
 				\hline
-				$\exn 0.092\pm 0.002\exn $  & $\exn 5100\pm 200\exn $ & $\exn169\pm7\exn $ \\
+				$\exn (9.20\pm 0.2)\cdot 10^{-2}\exn $  & $\exn (5.1\pm 0.2)\cdot 10^3 \exn $ & $\exn169\pm7\exn $ \\
 				\hline
 
-				$\exn0.172 \pm0.003 \exn $  & $\exn 2490\pm   100  \exn $ & $\exn 154\pm6 \exn $ \\
+				$\exn0.172 \pm0.003 \exn $  & $\exn (2.49\pm   0.1)\cdot 10^3   \exn $ & $\exn 154\pm6 \exn $ \\
 				\hline
-				$\exn0.306 \pm0.006 \exn $  & $\exn1250 \pm 50 \exn $ & $\exn138 \pm 6\exn $ \\
+				$\exn0.306 \pm0.006 \exn $  & $\exn (1.25 \pm 0.05)\cdot 10^3  \exn $ & $\exn138 \pm 6\exn $ \\
 				\hline
 				
 				
@@ -367,7 +378,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 
 
 	%
-	\begin{figure}[htb]
+	\begin{figure}[h]
 		\begin{center}
 			
 			\includegraphics[width=0.7\textwidth]{bodeint}
@@ -377,19 +388,22 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 		\label{fig:bodeinte}
 	\end{figure}
 
-\begin{figure}[htb]
+         \begin{figure}[h]
+                                       
 		\begin{center}
 			\includegraphics[width=0.7\textwidth]{fase}
-			%\includegraphics[0.45\textwidth]{}
-			%\includegraphics[0.45\textwidth]{}
+			 \label{fig:fase}
 		\end{center}
-		\caption{\small Plot di Bode della fase per il circuito integratore: In arancione si vede la funzione teorica per la fase, che è descritta da $\phi = 360/(2\pi)[\pi - \arctan(\exp{(\log f -\log f_t)})]$}
-		\label{fig:bodeinte}
+		\caption{\small Plot di Bode della fase per il circuito integratore}
+		
 	\end{figure}
 	%
 	 
 	Per la stima del guadagno massimo, si è presa la media dei guadagni delle prime quattro frequenze.
-	Guadagno per quale $f$ il guadagno fosse  $A_M - 3 $dB si è ottenuta una stima della frequenza di taglio.
+
+
+	Guardando per quale $f$ il guadagno fosse  $A_M - 3 $dB si è ottenuta una stima della frequenza di taglio.
+
 	Per la pendenza abbiamo preso una media delle pendenze delle rette passanti per coppie di punti ad alte frequenze.
 
 	Il valore atteso per $A_M $ è $ 20 \log_{10}(R_2/R_1)$; la frequenza di taglio attesa è $f_H = 1/(2\pi R_2 C)$.
@@ -434,7 +448,12 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	
 	\rem{Inserire commenti su quanto osservato ed eventuali deviazioni. 
 		In particolare: attenuazione ad alte frequenze, dipendenza della fase dalla frequenza, funzione di $R_2$. }
-	
+
+ Per i valori teorici attesi abbiamo usato $V_{out}= -\frac{Z_2}{Z_1} V_{in}$ e quindi implicitamente abbiamo considerato valida anche ad alte  frequenze l'approssimazione $A_d \gg |\frac{Z_2}{Z_1}|$. Effettivamente per grandi $f$  $A_d\propto 1/f$ (punto 2.a) ma anche l'impedenza del condensatore decresce come $1/f$, di conseguenza l'approssimazione resta valida.
+	In figura 7  la linea arancione rappresenta il comportamento teorico della fase; che è descritto dalla funzione \[ \phi = 360/(2\pi)[\pi - \arctan(\exp{(\log f -\log f_t)})\] 
+
+Per basse frequenze i dati hanno una evidente deviazione da quanto atteso; questo è sicuramente dovuto a un nostro errore di presa dati.
+
 	%%%%%%%%%%%%%%%%%%%%%%%%
 	\begin{tabular}{cc}
 
