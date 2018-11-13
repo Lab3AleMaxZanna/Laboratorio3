@@ -66,7 +66,9 @@
 	%
 	
 	Variando l'~ampiezza di $V_{in}$ si misura $V_{out}$ ed il relativo guadagno $A_V=V_{out}/V_{in}$ riportando i dati ottenuti in tabella~\ref{tab:guadagno} 
-	e mostrandone un grafico in Fig. \ref{fig:lin}. 
+	e mostrandone un grafico in Fig. \ref{fit}. 
+	Il fit è stato ottenuto mediante media pesata dei valori del guadagno; si può osservare come, alzando l'ampiezza, il guadagno diminuisca impercettibilmente. Trovandosi il tutto dentro una barra d'errore, non è considerabile un effetto significativo.
+	L'incertezza sul guadagno è stato ottenuta sommando in quadratura le incertezze su Vin e Vout, dato che queste, essendo state misurate su canali diversi, si assumono scorrelate (anche l'incertezza sul digit è scorrelata).
 	
 	\begin{table}[h]
 		\caption{$V_{out}$ in funzione di $V_{in}$ e relativo rapporto.}
@@ -77,41 +79,69 @@
 				$V_{in}$ (V) & $V_{out}$ (V)  & $A_V$ \\
 				\hline
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn$ \\
+				$ 0.50\pm 0.01 $ & $5.12 \pm 0.1 $ & $10.3 \pm 0.4 $ \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$0.71 \pm 0.02 $ & $7.4 \pm 0.2 $ & $10.4 \pm 0.4 $ \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$0.90 \pm 0.03 $ & $9.4 \pm 0.3 $ & $10.4 \pm 0.4 $ \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$1.2 \pm 0.03 $ & $12.4 \pm 0.3 $ & $10.3 \pm 0.4 $ \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$1.46 \pm 0.04 $ & $15.1 \pm 0.4 $ & $10.3 \pm 0.4 $ \\
 				\hline
+				$1.58 \pm 0.05 $ & $16.3 \pm 0.5 $ & $10.3 \pm 0.4 $ \\
+				\hline
+				$1.82 \pm 0.06 $ & $18.5 \pm 0.6 $ & $10.2 \pm 0.4 $ \\
+				\hline
+				$1.98 \pm 0.06 $ & $20.2 \pm 0.6 $ & $10.2 \pm 0.4 $ \\
+				\hline
+				$2.18 \pm 0.06 $ & $22.2 \pm 0.6 $ & $10.2 \pm 0.4 $ \\
+				\hline
+				$2.46 \pm 0.07 $ & $24.8 \pm 0.7 $ & $10.1 \pm 0.4 $ \\
+				\hline
+				$2.68 \pm 0.08 $ & $27.2 \pm 0.8 $ & $10.1 \pm 0.4 $ \\
+				\hline
+		
 			\end{tabular}
 		\end{center}
 	\end{table}
-	\begin{figure}
+
+		Gli ultimi 4 dati,riportati in tabella \ref{tab:daticlipping} sono stati presi per verificare il clipping, e quindi non considerati per il fit
+		\begin{table}[h]
+	
+			\begin{center}
+				\begin{tabular}{|c|c|c|}
+					\hline
+					$V_{in}$ (V) & $V_{out}$ (V)   \\
+		\hline
+		$2.96 \pm 0.09 $ & $28.8 \pm 0.8 $ \\
+		\hline
+		$3.04 \pm 0.09 $ & $29.3 \pm 0.8  $ \\
+		\hline
+		$3.20 \pm 0.09 $ & $29.4 \pm 0.9  $ \\
+		\hline
+		$3.25 \pm 0.1 $ & $29.5 \pm 0.9 $ \\
+		\hline
+		\end{tabular}
+	\end{center}
+\label{tab:daticlipping}
+\caption{dati del segnale tagliato (clipping)}
+\end{table}
+
+	\begin{figure}\centering
 			\includegraphics[scale=0.5]{fit.png}
+				\caption{\small Linearit\`a dell'~amplificatore invertente}
+			\label{fit}
 	\end{figure}
-	\rem{Indicare in che modo si fa il fit, se sulla retta $V_{out}$ vs. $V_{in}$ oppure sui valori di $A_V$   }
+
 	
 	Si determina il guadagno mediante fit dei dati ottenuti:
 	\[
-	A_{best} = \exn \pm \exn \quad  \chi^2 = \exn
+	A_{best} = 10.258 \pm 0.001 \quad  \chi^2/ndof = 0.06
 	\]
-	\begin{figure}[t]
-		\begin{center}
-			\framebox(200,200){Inserire grafico con di $V_{out}$ e $V_{in}$}
-			%\includegraphics[0.8\textwidth]{}
-		\end{center}
-		\caption{\small Linearit\`a dell'~amplificatore invertente}
-		\label{fig:lin}
-	\end{figure}
-	%
-	
-	\rem{Fino a quale tensione il circuito si comporta linearmente? Provare (facoltativamente) a ridurre la 
-		tensione di alimentazione dell'~integrato ed a verificarne la correlazione con la tensione di 
-		\emph{clipping} dell'~uscita. Commentare quanto osservato }
+
+	Quindi gli errori sono stati sovrastimati.
+	Cambiando la tensione dell'integrato si osserva clipping circa quando la tensione in uscita è pari a quella di alimentazione (in realtà un po' prima).
 	
 	%%%%%%%%%%%%%%%%%%
 	%
@@ -197,6 +227,11 @@ La frequenza di taglio è stata ricavata come l'intersezione delle due rette fit
 	\[
 	SR_\mathrm{misurato} = (12.5 \pm 0.5 )\,\mathrm{V/\mu s} \quad \mathrm{valore \; tipico}\, (13 )\,\mathrm{V/\mu s}\
 	\]
+<<<<<<< HEAD
+Abbiamo misurato nel  punto a pendenza massima di $V_{out}$, che si trova proprio all'inizio dell'onda quadra, subito dopo la pendenza diminuisce di circa 0.5 $ \mathrm{V/\mu s}$
+
+	%
+=======
 Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova proprio  in corrispondenza dell' inizio dell'onda quadra, subito dopo la pendenza diminuisce di circa 0.5 $ \mathrm{V/\mu s}$
 
 \begin{figure}[h]
@@ -208,6 +243,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 		\end{center}
 	\end{figure}
 
+\clearpage
 	\section{Circuito integratore}
 	Si monta il circuito integratore con i seguenti valori  dei componenti indicati: 
 	\[
@@ -218,10 +254,28 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	
 	\subsection{Risposta in frequenza}
 	
+<<<<<<< HEAD
+	Si invia un'~onda sinusoidale e si misura la risposta in frequenza dell'~amplificazione e della fase riportandoli 
+	nella tabella \ref{tab:bodeinte} e in un diagramma di Bode in Fig. \ref{fig:bodeinte}. 
+	\[
+	V_{in} = (\exn \pm \exn )\,\mathrm{V}
+	\]
+	\begin{figure}[h]
+	\begin{center}
+		
+		\includegraphics[scale=0.5]{bodefrequenza.png}		\includegraphics[scale=0.5]{fase.png}
+		
+		
+	\end{center}
+	\caption{\small Plot di Bode in ampiezza (a sinistra) e fase (a destra) per il circuito integratore.}
+	\label{fig:bodeinte}
+\end{figure}
+=======
 	Si invia un'~onda sinusoidale e si misura la risposta in frequenza dell'~amplificazione e della fase.
 	I dati sono riportati in tabella \ref{tab:bodeinte} e \ref{tab:bodefase}.
 
          Si vedano le figure \ref{fig:bodeinte} e 7, per i plot di Bode dell'integratore relativi ad ampiezza e fase.
+>>>>>>> 944b800a0bd2b2e4b90791e23e008fd61e6c60e8
 	%
 
 
@@ -309,6 +363,24 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 		\caption{ fase dell'~integratore invertente in funzione della frequenza.}
 		\label{tab:bodefase}
 		\begin{center}
+<<<<<<< HEAD
+		
+	\includegraphics[scale=0.5]{esempio.png}
+
+		\end{center}
+		\caption{\small andamento dei punti sperimentali e modello per la fase in funzione della frequenza.}
+		
+		\label{esempio}
+
+
+	%
+	
+	Si ricava una stima delle caratteristiche principali dell'andamento (guadagno a bassa frequenza, frequenza di taglio, e pendenza ad alta frequenza)
+	e si confrontano con quanto atteso. Non si effettua la stima degli errori, trattandosi di misure qualitative.
+	La frequenza di taglio viene stimata come al solito con l'intesezione delle due rette; una delle due è stata determinata con un fit lineare, mentre per disegnare la retta del guadagno massimo si è usato il valore misurato in precedenza di $A\approx10.26$. Il valore della frequenza di taglio così ottenuto è $f_t\approx0.32 kHz$, in accordo con la frequenza di taglio che ci si aspetterebbe $f_t=\frac{1}{2\pi R_2C}=0.32\pm0.01 kHz$. Si può trascurare del tutto la frequenza di taglio del'opamp,che è tre decadi più avanti.
+	L'andamento della fase pure è quello che ci si aspetta, dato che per alte frequenze lo sfasamento deve essere di 90 $^{\circ}$ (domina l'impedenza del condensatore che sfasa di j), mentre per basse frequenze è quella solita di 180$^{\circ}$ di un amplificatore invertente. L'andamento teorico può essere descritto da una formula del tipo:\[\Delta\phi=180^{\circ}-arctan(f/f_t)\]. usando il valore di $f_t$ stimato prima si può notare un discreto accordo con i dati, come riportato in figura \ref{esempio}
+	
+=======
 			\begin{tabular}{|c|c|c|}
 				\hline
 				$f_{in}$ (kHz)  & $\Delta t (\mu s)$ & $\phi \,(\,\,^\circ)$ \\
@@ -373,8 +445,6 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 				
 				
 			\end{tabular}
-		\end{center}
-	\end{table} 
 
 
 	%
@@ -408,6 +478,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 
 	Il valore atteso per $A_M $ è $ 20 \log_{10}(R_2/R_1)$; la frequenza di taglio attesa è $f_H = 1/(2\pi R_2 C)$.
 
+>>>>>>> 944b800a0bd2b2e4b90791e23e008fd61e6c60e8
 	
 	\begin{align*}
 	A_M &= (19.4 )\,\mathrm{dB} & \mathrm{atteso} &:\,(20  )\, \mathrm{dB}  \\
@@ -415,19 +486,18 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	{\mathrm{d}A_V}/{\mathrm{d}f} &= (-20.1 )\,\mathrm{dB/decade} & \mathrm{atteso} &:\,(-20  )\, \mathrm{dB/decade}  \\
 	\end{align*}
 	
-	
+	\clearpage
 	%
 	\subsection*{Risposta ad un'~onda quadra}
-	Si invia all'~ingresso un'~onda quadra di frequenza $\sim xxx\,kHz$ e ampiezza $\sim xxx\,V$.
+	Si invia all'~ingresso un'~onda quadra di frequenza $\sim 10.0\pm0.7 \,kHz$ e ampiezza $\sim 1.40\pm 0.05\,V$.
 	Si riporta in Fig. \ref{fig:oscinte} le forme d'~onda acquisite all'~oscillografo per l'~ingresso
 	e l'~uscita. 
-	
-	\rem{Commentare se che il circuito si comporta come un integratore.}
+	Come atteso per un integratore, l'uscita è costituita da onde triangolari.
 	%
 	\begin{figure}[htb]
 		\begin{center}
-			\framebox(200,200){Inserire screenshot oscillografo per integratore}
-			%\includegraphics[0.45\textwidth]{}
+
+			\includegraphics[scale=0.8]{zanna.png}
 		\end{center}
 		\caption{\small Ingresso (in alto) ed uscita (in basso) del circuito integratore per un'~onda quadra.}
 		\label{fig:oscinte}
@@ -436,16 +506,39 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	
 	Si misura l'~ampiezza dell'~onda  in uscita e si confronta il valore atteso.
 	
-	\rem{Indicare brevemente come sono stati ottenuti i valori attesi}
 	\begin{align*}
-	V_{out} &= (\exn )\,\mathrm{V} & \mathrm{atteso} &:\,(\exn  )\, \mathrm{V}  \\
+	V_{out pp} &= (0.66\pm 0.03 )\,\mathrm{V} & \mathrm{atteso} &:\,(0.67\pm 0.05 )\, \mathrm{V}  \\
 	\end{align*}
-	
-	\rem{Inserire commento sulla dipendenza dell'~uscita dalla frequenza.}
+ 	Ci si aspetta infatti, per un'onda quadra in ingresso, con un integratore perfetto (trascurando cioè l'effetto di $R_2$),una relazione del tipo: \[V_{out}=\frac{V_{in}}{4fR_{1}C}\]
 	%
-	
+	\clearpage
 	\subsection{Discussione}
 	
+<<<<<<< HEAD
+	Si è poi provato a variare la frequenza fino a valori intorno, e sotto, la frequenza di taglio. A questo punto il segnale in uscita risultava distorto rispetto all'onda triangolare. Per frequenze al di sotto la frequenza di taglio, il segnale in uscita è costituito sostanzialmente dalle scariche del condensatore, come riportato ad esempio in Figura \ref{fig:scariche}.
+	Per frequenze ancora al di sotto, come in Figura \ref{fig:lowf} si osserva un segnale discontinuo in uscita, il che è sorprendente dato che il segnale che si osserva è sostanzialmente proporzionale alla carica sul condensatore, e quindi lo si aspetta continuo.  In realtà quello che succede è che, dato che il segnale è molto amplificato, al cambio di polarità dell'onda quadra, il condensatore si scarica su $R_1$, anzichè su $R_2$, e, dato che $R_1$ è 10 volte più piccola, lo fa con una velocità 10 volte più grande rispetto al solito, il che sembra un processo istantaneo, per la scala dei tempi a cui è impostato l'oscilloscopio, . Finita la scarica su $R_1$ si osserva quella solita su $R_2$. 
+	\begin{figure}[h]
+
+			\centering
+			\includegraphics[scale=1]{scariche.png}
+
+			\caption{segnale a "pinna di squalo"}
+						\label{fig:scariche}
+
+	\end{figure}
+	\begin{figure}[h]
+\centering
+		\includegraphics[scale=1]{lowf.png}
+					\caption{segnale a bassa frequenza}
+		\label{fig:lowf}
+		
+	\end{figure}
+	%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	
+	
+	
+=======
 	\rem{Inserire commenti su quanto osservato ed eventuali deviazioni. 
 		In particolare: attenuazione ad alte frequenze, dipendenza della fase dalla frequenza, funzione di $R_2$. }
 
@@ -459,4 +552,5 @@ Per basse frequenze i dati hanno una evidente deviazione da quanto atteso; quest
 
 \end{tabular}
 
+>>>>>>> 944b800a0bd2b2e4b90791e23e008fd61e6c60e8
 \end{document}          
