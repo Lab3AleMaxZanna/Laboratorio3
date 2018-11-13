@@ -3,7 +3,7 @@
 \usepackage[italian]{babel}
 \usepackage{amsmath}
 \usepackage{xcolor}
-
+\usepackage{circuitikz}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -45,6 +45,19 @@
 	
 	\subsection{Montaggio circuito}
 	Il circuito è stato montato nella basetta come riportato in figura.
+	\begin{center}
+		\begin{circuitikz}\draw
+			(3,-0.5) node[op amp] (opamp) {}
+			(opamp.-) to[R=R1] (0,-0)
+			(2,0) --	(2,2) to[R=R2] (4.15,2) to(opamp.out) -- (6,-0.5) node[right] {$v_{out}$}
+			(0,0) node[left] {\textnormal{$v_{in}$}}
+			(opamp.up) --++(0,1) node[circ]{15\,\textnormal{V}}
+			(opamp.down) --++(0,-2) node[circ] {} node[left]{  -15\,\textnormal{V}}
+			
+			(opamp.+) to (0,-1) node[ground] {};	
+		\end{circuitikz}
+	\end{center}
+	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\subsection{Linearit\`a e misura del guadagno}
 	Si fissa la frequenza del segnale ad $f_{in} = (2.597 \pm 0.011)$ kHz e si invia all'~ingresso dell'~amplificatore.	L'uscita dell'~amplificatore \`e mostrata qualitativativamente in Fig. \ref{fig:oscinv} per due 
@@ -359,19 +372,17 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	\end{table} 
 
 
-\begin{table}[h]
-		\caption{ fase dell'~integratore invertente in funzione della frequenza.}
-		\label{tab:bodefase}
-		\begin{center}
 <<<<<<< HEAD
 		
-	\includegraphics[scale=0.5]{esempio.png}
 
-		\end{center}
+
+\begin{figure}
 		\caption{\small andamento dei punti sperimentali e modello per la fase in funzione della frequenza.}
-		
-		\label{esempio}
-
+	
+	\label{esempio}
+	\includegraphics[scale=0.5]{esempio.png}
+\end{figure}
+	
 
 	%
 	
@@ -381,6 +392,12 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	L'andamento della fase pure è quello che ci si aspetta, dato che per alte frequenze lo sfasamento deve essere di 90 $^{\circ}$ (domina l'impedenza del condensatore che sfasa di j), mentre per basse frequenze è quella solita di 180$^{\circ}$ di un amplificatore invertente. L'andamento teorico può essere descritto da una formula del tipo:\[\Delta\phi=180^{\circ}-arctan(f/f_t)\]. usando il valore di $f_t$ stimato prima si può notare un discreto accordo con i dati, come riportato in figura \ref{esempio}
 	
 =======
+	
+	\begin{table}[h]
+		\caption{ fase dell'~integratore invertente in funzione della frequenza.}
+		\label{tab:bodefase}
+\centering
+		
 			\begin{tabular}{|c|c|c|}
 				\hline
 				$f_{in}$ (kHz)  & $\Delta t (\mu s)$ & $\phi \,(\,\,^\circ)$ \\
@@ -445,10 +462,11 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 				
 				
 			\end{tabular}
+\end{table}
 
 
 	%
-	\begin{figure}[h]
+\begin{figure}[h]
 		\begin{center}
 			
 			\includegraphics[width=0.7\textwidth]{bodeint}
@@ -456,7 +474,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	\end{center}
 		\caption{\small Plot di Bode dell' ampiezza  per il circuito integratore.}
 		\label{fig:bodeinte}
-	\end{figure}
+\end{figure}
 
          \begin{figure}[h]
                                        
