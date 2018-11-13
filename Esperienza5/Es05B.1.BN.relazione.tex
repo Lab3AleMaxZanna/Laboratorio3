@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 \usepackage{amsmath}
-\usepackage{circuitikz}
+
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -32,18 +32,6 @@
 	la massa.
 	
 	\rem{Indicare i criteri di scelta delle resistenze ed i valori desiderati}\\
-\begin{center}
-	\begin{circuitikz}\draw
-	(3,-0.5) node[op amp] (opamp) {}
-	(opamp.-) to[R=R1] (0,-0)
-	(2,0) --	(2,2) to[R=R2] (4.15,2) to(opamp.out) -- (6,-0.5) node[right] {$v_{out}$}
-	(0,0) node[left] {\textnormal{$v_{in}$}}
-	(opamp.up) --++(0,1) node[circ]{15\,\textnormal{V}}
-		(opamp.down) --++(0,-2) node[circ] {} node[left]{  -15\,\textnormal{V}}
-
-	(opamp.+) to (0,-1) node[ground] {};	
-	\end{circuitikz}
-\end{center}
 
 	
 	Le resistenze selezionate hanno i seguenti valori, misurati con il multimetro digitale, con il corrispondente valore atteso 
@@ -158,53 +146,62 @@
 	%
 	\section{Risposta in frequenza e \emph{slew rate}}
 	\subsection{Risposta in frequenza del circuito}
-	Si misura la risposta in frequenza del circuito, riportando i dati  in Tab. \ref{tab:bodeinv} e
-	in un grafico di Bode in Fig. \ref{fig:bodeinv}, stimando la frequenza di taglio inferiore e 
-	superiore \rem{indicare in che modo}.
+	Non siamo riusciti a vedere la frequenza di taglio inferiore, che tuttavia deve essere   $\l 10\mathrm{Hz}$ visto che per questa frequenza  non si ha una sensibile diminuzione del guadagno.
+
+ Per la frequenza di taglio superiore abbiamo campionato il guadagno per frequenze tra $1\mathrm{kHz}$ e $ 1\mathrm{MHz}.$
+Abbiamo abbassato $V_{in}$ per alte frequenze per evitare per evitare  possibili Slew Rate.
+
+La frequenza di taglio è stata ricavata come l'intersezione delle due rette fittate rispettivamente a bassa e ad alta frequenza.
+(Figura 4)
+
+
+	
 	\[
-	V_{in} = (\exn \pm \exn )\,\mathrm{V}
-	\]
-	\[
-	f_L = (\exn \pm \exn )\,\mathrm{Hz}\;\;\;\;\;f_H = (\exn \pm \exn \;)\,\mathrm{kHz}
+	f_H = (167.7 \pm \exn \;)\,\mathrm{kHz}
 	\]
 	\begin{table}[h]
 		\caption{\small Guadagno dell'~amplificatore invertente in funzione della frequenza.}
 		\label{tab:bodeinv}
 		\begin{center}
-			\begin{tabular}{|c|c|c|}	\hline
-				$f_{in}$ (kHz) & $V_{out}$ (V) & $A$ (dB) \\
+			\begin{tabular}{|c|c|c|c|}	\hline
+				$f_{in}$ (kHz) & $V_{in}$ (V) & $V_{out}$ (V) & $A$ (dB) \\
 				\hline
-				$\exn0.753 \pm \exn $ & $\exn10.4 \pm \exn $ & $\exn 1.01\pm \exn $\\
+				$\exn0.753 \pm0.015 \exn $ & $\exn1.02 \pm 0.03\exn$ & $\exn10.4 \pm 0.3 \exn $ & $\exn 20.2\pm 0.26\exn $\\
 				\hline
-				$\exn 1.76\pm \exn $ & $\exn 10.5\pm \exn $ & $\exn 1.01\pm \exn $\\
+				$\exn 1.76\pm 0.04\exn $ & $\exn1.03\pm 0.03\exn$ & $\exn 10.5\pm 0.3\exn $ & $\exn 20.2\pm0.26 \exn $\\
+\hline
+
+
 				\hline
-				$\exn 2.90\pm \exn $ & $\exn 10.5\pm \exn $ & $\exn 1.01\pm \exn $\\
+				$\exn 2.90\pm0.06 \exn $ & $\exn1.03 \pm 0.03\exn$ & $\exn 10.5\pm 0.3 \exn $ & $\exn 20.2\pm0.26 \exn $\\
 				\hline
-				$\exn 6.22\pm \exn $ & $\exn 10.7\pm \exn $ & $\exn 1.01\pm \exn $\\
+				$\exn 6.22\pm0.12 \exn $ & $\exn1.05 \pm0.03 \exn $& $\exn 10.7\pm 0.3 \exn $ & $\exn 20.2\pm0.26 \exn $\\
 				\hline
-				$\exn 12.2\pm \exn $ & $\exn 10.7\pm \exn $ & $\exn 1.00\pm \exn $\\
+				$\exn 12.2\pm 0.2\exn $  & $\exn1.06 \pm0.03 \exn$& $\exn 10.7\pm 0.3 \exn $ & $\exn 20.1\pm0.26 \exn $\\
 				\hline
-				$\exn22.5 \pm \exn $ & $\exn 10.6\pm \exn $ & $\exn1.00\pm \exn $\\
+				$\exn22.5 \pm 0.4\exn $ & $\exn1.05\pm0.03 \exn $& $\exn 10.6\pm 0.3 \exn $ & $\exn20.1\pm0.26 \exn $\\
 				\hline
-				$\exn44.9 \pm \exn $ & $\exn10.5 \pm \exn $ & $\exn 1.00\pm \exn $\\
+				$\exn44.9 \pm0.9 \exn $ & $\exn1.05 \pm 0.03\exn$ & $\exn10.5 \pm 0.3 \exn $ & $\exn 20.0\pm0.26 \exn $\\
 				\hline
-				$\exn 86.7\pm \exn $ & $\exn9.92 \pm \exn $ & $\exn 0.971 \pm \exn $\\
+				$\exn 86.7\pm1.7 \exn $ & $\exn1.06 \pm 0.03\exn$ & $\exn9.92 \pm 0.3 \exn $ & $\exn 19.4\pm0.26 \exn $\\
 				\hline
-				$\exn 166\pm \exn $ & $\exn8.48 \pm \exn $ & $\exn 0.903 \pm \exn $\\
+				$\exn 166\pm 3\exn $  & $\exn1.06 \pm 0.03\exn$& $\exn8.48 \pm 0.3 \exn $ & $\exn 18.1 \pm0.26 \exn $\\
+  \hline
+				$\exn212\pm  4\exn $ & $\exn 0.688\pm 0.02 \exn$ & $\exn4.96 \pm 0.15\exn $ & $\exn 17.2\pm 0.26 \exn $\\
+
+\hline
+				$\exn251 \pm 5 \exn $  & $\exn0.680 \pm 0.02\exn$& $\exn4.44 \pm0.14 \exn $ & $\exn 16.3\pm 0.26 \exn $\\
 				\hline
-				$\exn 350\pm \exn $ & $\exn 4.02\pm \exn $ & $\exn0.714\pm \exn $\\
+				$\exn 350\pm 7\exn $  & $\exn0.776 \pm 0.02\exn$& $\exn 4.02\pm 0.13\exn $ & $\exn14.3\pm0.26 \exn $\\
 				\hline
-				$\exn 435\pm \exn $ & $\exn 3\pm \exn $ & $\exn 0.639\pm \exn $\\
+				$\exn 435\pm 9 \exn $ & $\exn0.688\pm0.02 \exn$ & $\exn 3.00\pm 0.09 \exn $ & $\exn 12.8\pm0.26 \exn $\\
 				\hline
-				$\exn555 \pm \exn $ & $\exn2.44 \pm \exn $ & $\exn 0.545 \pm \exn $\\
+				$\exn555 \pm 10  \exn $ & $\exn0.696 \pm0.02 \exn$ & $\exn2.44 \pm 0.08\exn $ & $\exn 10.9 \pm0.26 \exn $\\
 				\hline
-				$\exn 729\pm \exn $ & $\exn 2.22\pm \exn $ & $\exn 0.452 \pm \exn $\\
+				$\exn 729 \pm  14\exn $ & $\exn0.784\pm0.02 \exn$ & $\exn 2.22\pm 0.07\exn $ & $\exn 9.04 \pm0.26 \exn $\\
 				\hline
-				$\exn 1220\pm \exn $ & $\exn 1.38\pm \exn $ & $\exn 0.237\pm \exn $\\
-				\hline
-				$\exn212\pm \exn $ & $\exn4.96 \pm \exn $ & $\exn 0.858 \pm \exn $\\
-				\hline
-				$\exn251 \pm \exn $ & $\exn4.44 \pm \exn $ & $\exn 0.815\pm \exn $\\
+				$\exn 1220\pm 24\exn $  & $\exn 0.800 \pm 0.03\exn$& $\exn 1.38\pm 0.05\exn $ & $\exn 4.74\pm0.26 \exn $\\
+				
 
 				\hline
 			\end{tabular}
@@ -224,13 +221,27 @@
 	%
 	\subsection{Misura dello \emph{slew-rate}}
 	Si misura direttamente lo \emph{slew-rate} dell'op-amp inviando in ingresso un'~onda quadra 
-	di frequenza di $\sim 0.9$~kHz e di ampiezza $2.08$~V. Si ottiene:
+	di frequenza intorno ai $\sim 0.9$~kHz e di ampiezza $2.08$~V. Si ottiene:
 	\[
 	SR_\mathrm{misurato} = (12.5 \pm 0.5 )\,\mathrm{V/\mu s} \quad \mathrm{valore \; tipico}\, (13 )\,\mathrm{V/\mu s}\
 	\]
+<<<<<<< HEAD
 Abbiamo misurato nel  punto a pendenza massima di $V_{out}$, che si trova proprio all'inizio dell'onda quadra, subito dopo la pendenza diminuisce di circa 0.5 $ \mathrm{V/\mu s}$
 
 	%
+=======
+Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova proprio  in corrispondenza dell' inizio dell'onda quadra, subito dopo la pendenza diminuisce di circa 0.5 $ \mathrm{V/\mu s}$
+
+\begin{figure}[h]
+		\begin{center}
+			
+			\includegraphics[width=0.7\textwidth]{slewrate}
+			\caption{\small Segnale onda quadra (azzurro) e $V_{in}$ (arancio)}
+			\label{fig:Slew  Rate}
+		\end{center}
+	\end{figure}
+
+\clearpage
 	\section{Circuito integratore}
 	Si monta il circuito integratore con i seguenti valori  dei componenti indicati: 
 	\[
@@ -246,7 +257,16 @@ Abbiamo misurato nel  punto a pendenza massima di $V_{out}$, che si trova propri
 	\[
 	V_{in} = (\exn \pm \exn )\,\mathrm{V}
 	\]
-	\rem{La fase pu\'o essere indicata in gradi, radianti, oppure come frazione $\phi/2\pi$}
+	\begin{figure}[h]
+	\begin{center}
+		
+		\includegraphics[scale=0.5]{bodefrequenza.png}		\includegraphics[scale=0.5]{fase.png}
+		
+		
+	\end{center}
+	\caption{\small Plot di Bode in ampiezza (a sinistra) e fase (a destra) per il circuito integratore.}
+	\label{fig:bodeinte}
+\end{figure}
 	%
 	\begin{table}[h]
 		\caption{Guadagno e fase dell'~integratore invertente in funzione della frequenza.}
@@ -277,18 +297,21 @@ Abbiamo misurato nel  punto a pendenza massima di $V_{out}$, che si trova propri
 	\begin{figure}[htb]
 		\begin{center}
 		
-			\includegraphics[0.45]{bodefrequenza.png}
-			\includegraphics[0.45]{fase.png}
+	\includegraphics[scale=0.5]{esempio.png}
+
 		\end{center}
-		\caption{\small Plot di Bode in ampiezza (a sinistra) e fase (a destra) per il circuito integratore.}
-		\label{fig:bodeinte}
+		\caption{\small andamento dei punti sperimentali e modello per la fase in funzione della frequenza.}
+		
+		\label{esempio}
 	\end{figure}
+
 	%
 	
 	Si ricava una stima delle caratteristiche principali dell'andamento (guadagno a bassa frequenza, frequenza di taglio, e pendenza ad alta frequenza)
 	e si confrontano con quanto atteso. Non si effettua la stima degli errori, trattandosi di misure qualitative.
+	La frequenza di taglio viene stimata come al solito con l'intesezione delle due rette; una delle due è stata determinata con un fit lineare, mentre per disegnare la retta del guadagno massimo si è usato il valore misurato in precedenza di $A\approx10.26$. Il valore della frequenza di taglio così ottenuto è $f_t\approx0.32 kHz$, in accordo con la frequenza di taglio che ci si aspetterebbe $f_t=\frac{1}{2\pi R_2C}=0.32\pm0.01 kHz$. Si può trascurare del tutto la frequenza di taglio del'opamp,che è tre decadi più avanti.
+	L'andamento della fase pure è quello che ci si aspetta, dato che per alte frequenze lo sfasamento deve essere di 90 $^{\circ}$ (domina l'impedenza del condensatore che sfasa di j), mentre per basse frequenze è quella solita di 180$^{\circ}$ di un amplificatore invertente. L'andamento teorico può essere descritto da una formula del tipo:\[\Delta\phi=180^{\circ}-arctan(f/f_t)\]. usando il valore di $f_t$ stimato prima si può notare un discreto accordo con i dati, come riportato in figura \ref{esempio}
 	
-	\rem{Indicare brevemente come sono stati ottenuti i valori attesi}
 	
 	\begin{align*}
 	A_M &= (\exn )\,\mathrm{dB} & \mathrm{atteso} &:\,(\exn  )\, \mathrm{dB}  \\
@@ -296,19 +319,18 @@ Abbiamo misurato nel  punto a pendenza massima di $V_{out}$, che si trova propri
 	{\mathrm{d}A_V}/{\mathrm{d}f} &= (\exn )\,\mathrm{dB/decade} & \mathrm{atteso} &:\,(\exn  )\, \mathrm{dB/decade}  \\
 	\end{align*}
 	
-	
+	\clearpage
 	%
 	\subsection*{Risposta ad un'~onda quadra}
-	Si invia all'~ingresso un'~onda quadra di frequenza $\sim xxx\,kHz$ e ampiezza $\sim xxx\,V$.
+	Si invia all'~ingresso un'~onda quadra di frequenza $\sim 10.0\pm0.7 \,kHz$ e ampiezza $\sim 1.40\pm 0.05\,V$.
 	Si riporta in Fig. \ref{fig:oscinte} le forme d'~onda acquisite all'~oscillografo per l'~ingresso
 	e l'~uscita. 
-	
-	\rem{Commentare se che il circuito si comporta come un integratore.}
+	Come atteso per un integratore, l'uscita è costituita da onde triangolari.
 	%
 	\begin{figure}[htb]
 		\begin{center}
-			\framebox(200,200){Inserire screenshot oscillografo per integratore}
-			%\includegraphics[0.45\textwidth]{}
+
+			\includegraphics[scale=0.8]{zanna.png}
 		\end{center}
 		\caption{\small Ingresso (in alto) ed uscita (in basso) del circuito integratore per un'~onda quadra.}
 		\label{fig:oscinte}
@@ -317,19 +339,35 @@ Abbiamo misurato nel  punto a pendenza massima di $V_{out}$, che si trova propri
 	
 	Si misura l'~ampiezza dell'~onda  in uscita e si confronta il valore atteso.
 	
-	\rem{Indicare brevemente come sono stati ottenuti i valori attesi}
 	\begin{align*}
-	V_{out} &= (\exn )\,\mathrm{V} & \mathrm{atteso} &:\,(\exn  )\, \mathrm{V}  \\
+	V_{out pp} &= (0.66\pm 0.03 )\,\mathrm{V} & \mathrm{atteso} &:\,(0.67\pm 0.05 )\, \mathrm{V}  \\
 	\end{align*}
-	
-	\rem{Inserire commento sulla dipendenza dell'~uscita dalla frequenza.}
+ 	Ci si aspetta infatti, per un'onda quadra in ingresso, con un integratore perfetto (trascurando cioè l'effetto di $R_2$),una relazione del tipo: \[V_{out}=\frac{V_{in}}{4fR_{1}C}\]
 	%
-	
+	\clearpage
 	\subsection{Discussione}
 	
-	\rem{Inserire commenti su quanto osservato ed eventuali deviazioni. 
-		In particolare: attenuazione ad alte frequenze, dipendenza della fase dalla frequenza, funzione di $R_2$. }
-	
+	Si è poi provato a variare la frequenza fino a valori intorno, e sotto, la frequenza di taglio. A questo punto il segnale in uscita risultava distorto rispetto all'onda triangolare. Per frequenze al di sotto la frequenza di taglio, il segnale in uscita è costituito sostanzialmente dalle scariche del condensatore, come riportato ad esempio in Figura \ref{fig:scariche}.
+	Per frequenze ancora al di sotto, come in Figura \ref{fig:lowf} si osserva un segnale discontinuo in uscita, il che è sorprendente dato che il segnale che si osserva è sostanzialmente proporzionale alla carica sul condensatore, e quindi lo si aspetta continuo.  In realtà quello che succede è che, dato che il segnale è molto amplificato, al cambio di polarità dell'onda quadra, il condensatore si scarica su $R_1$, anzichè su $R_2$, e, dato che $R_1$ è 10 volte più piccola, lo fa con una velocità 10 volte più grande rispetto al solito, il che sembra un processo istantaneo, per la scala dei tempi a cui è impostato l'oscilloscopio, . Finita la scarica su $R_1$ si osserva quella solita su $R_2$. 
+	\begin{figure}[h]
+
+			\centering
+			\includegraphics[scale=1]{scariche.png}
+
+			\caption{segnale a "pinna di squalo"}
+						\label{fig:scariche}
+
+	\end{figure}
+	\begin{figure}[h]
+\centering
+		\includegraphics[scale=1]{lowf.png}
+					\caption{segnale a bassa frequenza}
+		\label{fig:lowf}
+		
+	\end{figure}
 	%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	
+	
 	
 \end{document}          
