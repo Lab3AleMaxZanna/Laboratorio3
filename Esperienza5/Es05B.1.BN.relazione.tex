@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 \usepackage{amsmath}
+\usepackage{xcolor}
 
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -31,7 +32,7 @@
 	distribuzione verde per la tensione negativa, quella rosso per la tensione positiva, e quella nera per 
 	la massa.
 	
-	\rem{Indicare i criteri di scelta delle resistenze ed i valori desiderati}\\
+
 
 	
 	Le resistenze selezionate hanno i seguenti valori, misurati con il multimetro digitale, con il corrispondente valore atteso 
@@ -39,7 +40,7 @@
 	\[
 	R_1 = ( 1.466 \pm 0.012) \,\mathrm{k}\Omega, \quad 
 	R_2 = (15.24  \pm 0.12) \,\mathrm{k}\Omega, \quad 
-	A_{exp} = ( -10.39 \pm 0.11)
+	A_{exp} = -(10.39 \pm 0.11)
 	\]
 	
 	\subsection{Montaggio circuito}
@@ -146,14 +147,15 @@
 	%
 	\section{Risposta in frequenza e \emph{slew rate}}
 	\subsection{Risposta in frequenza del circuito}
-	Non siamo riusciti a vedere la frequenza di taglio inferiore, che tuttavia deve essere   $\l 10\mathrm{Hz}$ visto che per questa frequenza  non si ha una sensibile diminuzione del guadagno.
+	Non siamo riusciti a vedere la frequenza di taglio inferiore, che tuttavia deve essere   $ <10\mathrm{Hz}$ visto che per questa frequenza  non si ha una sensibile diminuzione del guadagno.
 
  Per la frequenza di taglio superiore abbiamo campionato il guadagno per frequenze tra $1\mathrm{kHz}$ e $ 1\mathrm{MHz}.$
 Abbiamo abbassato $V_{in}$ per alte frequenze per evitare per evitare  possibili Slew Rate.
 
 La frequenza di taglio è stata ricavata come l'intersezione delle due rette fittate rispettivamente a bassa e ad alta frequenza.
-(Figura 4)
+(Figura \ref{fig:bodeinv})
 
+\textcolor{red}{errore su fH e dire pendenza per grandi omega}
 
 	
 	\[
@@ -172,7 +174,7 @@ La frequenza di taglio è stata ricavata come l'intersezione delle due rette fit
 \hline
 
 
-				\hline
+			
 				$\exn 2.90\pm0.06 \exn $ & $\exn1.03 \pm 0.03\exn$ & $\exn 10.5\pm 0.3 \exn $ & $\exn 20.2\pm0.26 \exn $\\
 				\hline
 				$\exn 6.22\pm0.12 \exn $ & $\exn1.05 \pm0.03 \exn $& $\exn 10.7\pm 0.3 \exn $ & $\exn 20.2\pm0.26 \exn $\\
@@ -252,6 +254,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	
 	\subsection{Risposta in frequenza}
 	
+<<<<<<< HEAD
 	Si invia un'~onda sinusoidale e si misura la risposta in frequenza dell'~amplificazione e della fase riportandoli 
 	nella tabella \ref{tab:bodeinte} e in un diagramma di Bode in Fig. \ref{fig:bodeinte}. 
 	\[
@@ -267,35 +270,100 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	\caption{\small Plot di Bode in ampiezza (a sinistra) e fase (a destra) per il circuito integratore.}
 	\label{fig:bodeinte}
 \end{figure}
+=======
+	Si invia un'~onda sinusoidale e si misura la risposta in frequenza dell'~amplificazione e della fase.
+	I dati sono riportati in tabella \ref{tab:bodeinte} e \ref{tab:bodefase}.
+
+         Si vedano le figure \ref{fig:bodeinte} e 7, per i plot di Bode dell'integratore relativi ad ampiezza e fase.
+>>>>>>> 944b800a0bd2b2e4b90791e23e008fd61e6c60e8
 	%
+
+
+
+
+
 	\begin{table}[h]
-		\caption{Guadagno e fase dell'~integratore invertente in funzione della frequenza.}
+		\caption{Guadagno  dell'~integratore invertente in funzione della frequenza.}
 		\label{tab:bodeinte}
 		\begin{center}
-			\begin{tabular}{|c|c|c|c|c|}
+			\begin{tabular}{|c|c|c|c|}
 				\hline
-				$f_{in}$ (kHz) & $V_{out}$ (V) & $A$ (dB) & $\Delta t (\mu s)$ & $\phi$ \\
+				$f_{in}$ (kHz) &$V_{in}$(V) & $V_{out}$ (V) & $A$ (dB)  \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+
+
+
+
+
+
+
+
+
+				$\exn(1.56 \pm0.03)\cdot 10^{-2} \exn $ &$\exn0.580 \pm 0.017\exn $ & $\exn5.12 \pm 0.15\exn $ & $\exn 18.9\pm0.26 \exn $ \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$\exn ( 2.57\pm0.05)\cdot 10^{-2} \exn $ &$\exn0.580 \pm 0.017 \exn $ & $\exn5.44 \pm0.15 \exn $ & $\exn 19.4\pm 0.26\exn $ \\
+
+					
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$\exn(2.87 \pm0.06)\cdot 10^{-2} \exn $ &$\exn 0.580\pm0.017\exn $ & $\exn 5.52 \pm0.15 \exn $ & $\exn 19.6\pm0.26 \exn $ \\
+
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$\exn (4.79\pm0.01)\cdot 10^{-2} \exn $ &$\exn1.53 \pm 0.05\exn $ & $\exn 14.6 \pm0.5 \exn $ & $\exn 19.6\pm 0.26\exn $  \\
+				
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$\exn(9.20\pm 0.2)\cdot 10^{-2}\exn $ &$\exn1.54\pm 0.05\exn $ & $\exn 14.3\pm0.4\exn $ & $\exn 19.4\pm 0.26\exn $ \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+
+				$\exn0.172 \pm0.003 \exn $ &$\exn1.54 \pm0.05 \exn $ & $\exn 13.2 \pm 0.4\exn $ & $\exn 18.7\pm0.26 \exn $  \\
 				\hline
-				$\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ & $\exn \pm \exn $ \\
+				$\exn0.306 \pm0.006 \exn $ &$\exn 1.53\pm0.05 \exn $ & $\exn 10.9\pm 0.3\exn $ & $\exn 17.0\pm0.26 \exn $  \\
 				\hline
+				
+				
+				
+				$\exn 0.460\pm0.05 \exn $ &$\exn 0.704 \pm0.021 \exn $ & $\exn3.92 \pm 0.12\exn $ & $\exn14.9 \pm0.26 \exn $  \\
+				\hline
+				$\exn 1.14\pm 0.02\exn $ &$\exn 0.700\pm0.021 \exn $ & $\exn 1.94\pm0.08 \exn $ & $\exn8.85 \pm0.26 \exn $ \\
+				\hline
+				$\exn 1.88\pm0.04 \exn $ &$\exn 0.696 \pm0.020 \exn $ & $\exn1.22 \pm 0.04 \exn $ & $\exn4.87 \pm0.26 \exn $  \\
+				\hline
+				$\exn 3.46\pm 0.07 \exn $ &$\exn 0.704 \pm0.020 \exn $ & $\exn 0.656\pm0.018 \exn $ & $\exn-0.613 \pm 0.26\exn $\\
+				\hline
+				$\exn4.57 \pm0.09 \exn $ &$\exn 1.56\pm 0.05\exn $ & $\exn1.07 \pm 0.3\exn $ & $\exn-3.27 \pm 0.26\exn $ \\
+				\hline
+
+				$\exn 9.14\pm 0.20\exn $ &$\exn 0.712\pm0.021 \exn $ & $\exn0.255 \pm 0.007\exn $ & $\exn -8.92\pm 0.26\exn $  \\
+				\hline
+
+				$\exn 12.9\pm 0.2 \exn $ &$\exn 1.55\pm0.05 \exn $ & $\exn0.380 \pm 0.012\exn $ & $\exn -12.2\pm 0.26\exn $  \\
+				\hline
+				$\exn 17.7\pm 0.3\exn $ &$\exn 3.92\pm0.12 \exn $ & $\exn 0.688\pm 0.020\exn $ & $\exn -15.1\pm 0.26\exn $ \\
+
+				\hline
+				$\exn 33\pm 0.6\exn $ &$\exn 3.92 \pm 0.12\exn $ & $\exn0.380 \pm 0.012\exn $ & $\exn -20.2\pm0.26 \exn $ \\
+				\hline
+				$\exn 56\pm 1 \exn $ &$\exn 0.696\pm0.020 \exn $ & $\exn (4.48\pm0.12)\cdot 10^{-2} \exn $ & $\exn-23.8\pm 0.26\exn $ \\
+				
+				
+				\hline
+				$\exn 66.1\pm 1.2\exn $ &$\exn 3.86\pm 0.12\exn $ & $\exn0.212 \pm0.006 \exn $ & $\exn -25.2\pm0.26 \exn $  \\
+			
+				
+				\hline
+				
+				
+				
+				
 			\end{tabular}
 		\end{center}
 	\end{table} 
-	%
-	\begin{figure}[htb]
+
+
+\begin{table}[h]
+		\caption{ fase dell'~integratore invertente in funzione della frequenza.}
+		\label{tab:bodefase}
 		\begin{center}
+<<<<<<< HEAD
 		
 	\includegraphics[scale=0.5]{esempio.png}
 
@@ -303,7 +371,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 		\caption{\small andamento dei punti sperimentali e modello per la fase in funzione della frequenza.}
 		
 		\label{esempio}
-	\end{figure}
+
 
 	%
 	
@@ -312,11 +380,110 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	La frequenza di taglio viene stimata come al solito con l'intesezione delle due rette; una delle due è stata determinata con un fit lineare, mentre per disegnare la retta del guadagno massimo si è usato il valore misurato in precedenza di $A\approx10.26$. Il valore della frequenza di taglio così ottenuto è $f_t\approx0.32 kHz$, in accordo con la frequenza di taglio che ci si aspetterebbe $f_t=\frac{1}{2\pi R_2C}=0.32\pm0.01 kHz$. Si può trascurare del tutto la frequenza di taglio del'opamp,che è tre decadi più avanti.
 	L'andamento della fase pure è quello che ci si aspetta, dato che per alte frequenze lo sfasamento deve essere di 90 $^{\circ}$ (domina l'impedenza del condensatore che sfasa di j), mentre per basse frequenze è quella solita di 180$^{\circ}$ di un amplificatore invertente. L'andamento teorico può essere descritto da una formula del tipo:\[\Delta\phi=180^{\circ}-arctan(f/f_t)\]. usando il valore di $f_t$ stimato prima si può notare un discreto accordo con i dati, come riportato in figura \ref{esempio}
 	
+=======
+			\begin{tabular}{|c|c|c|}
+				\hline
+				$f_{in}$ (kHz)  & $\Delta t (\mu s)$ & $\phi \,(\,\,^\circ)$ \\
+				\hline
+
+
+				$\exn(1.56 \pm0.03)\cdot 10^{-2} \exn $& $\exn (28.4\pm 1.1)\cdot 10^3  \exn $ & $\exn160 \pm6\exn $ \\
+				\hline
+				$\exn( 2.57\pm0.05)\cdot 10^{-2} \exn $ &$\exn (18.2\pm 0.7)\cdot 10^3  \exn $ & $\exn169 \pm 7 \exn $ \\
+
+					
+				\hline
+				$\exn(2.87 \pm0.06)\cdot 10^{-2} \exn $  & $\exn(16.4 \pm   0.7)\cdot 10^3 \exn $ & $\exn 170\pm 7\exn $ \\
+
+				\hline
+				$\exn (4.79\pm0.01)\cdot 10^{-2} \exn $ & $\exn(10.4 \pm 0.4)\cdot 10^3 \exn $ & $\exn 180\pm 7 \exn $ \\
+				
+				\hline
+				$\exn (9.20\pm 0.2)\cdot 10^{-2}\exn $  & $\exn (5.1\pm 0.2)\cdot 10^3 \exn $ & $\exn169\pm7\exn $ \\
+				\hline
+
+				$\exn0.172 \pm0.003 \exn $  & $\exn (2.49\pm   0.1)\cdot 10^3   \exn $ & $\exn 154\pm6 \exn $ \\
+				\hline
+				$\exn0.306 \pm0.006 \exn $  & $\exn (1.25 \pm 0.05)\cdot 10^3  \exn $ & $\exn138 \pm 6\exn $ \\
+				\hline
+				
+				
+				
+				$\exn 0.460\pm0.05 \exn $& $\exn785 \pm 30 \exn $ & $\exn130 \pm5  \exn $ \\
+				\hline
+				$\exn 1.14\pm 0.02\exn $  & $\exn258 \pm  10  \exn $ & $\exn106 \pm 4\exn $ \\
+				\hline
+				$\exn 1.88\pm0.04 \exn $  & $\exn 149 \pm  6 \exn $ & $\exn101 \pm 4 \exn $ \\
+				\hline
+				$\exn 3.46\pm 0.07 \exn $  & $\exn 76.3 \pm3
+   \exn $ & $\exn95 \pm 4\exn $ \\
+				\hline
+				$\exn4.57 \pm0.09 \exn $  & $\exn 57.1 \pm  2.3    \exn $ & $\exn94 \pm4\exn $ \\
+				\hline
+
+				$\exn 9.14\pm 0.20\exn $ & $\exn28.2 \pm 1.1   \exn $ & $\exn 93 \pm 4 \exn $ \\
+				\hline
+
+				$\exn 12.9\pm 0.2 \exn $  & $\exn 19.6 \pm 0.8 \exn $ & $\exn 91 \pm  4\exn $ \\
+				\hline
+				$\exn 17.7\pm 0.3\exn $ & $\exn14.4\pm 0.6 \exn $ & $\exn 92\pm4\exn $ \\
+
+				\hline
+				$\exn 33\pm 0.6\exn $& $\exn7.58 \pm  0.3
+   \exn $ & $\exn90 \pm 4 \exn $ \\
+				\hline
+				$\exn 56\pm 1 \exn $  & $\exn 4.47\pm0.18   \exn $ & $\exn 90\pm 4\exn $ \\
+				
+				
+				\hline
+				$\exn 66.1\pm 1.2\exn $ & $\exn3.76 \pm  0.15 \exn $ & $\exn90 \pm 4\exn $ \\
+			
+				
+				\hline
+				
+				
+				
+				
+			\end{tabular}
+
+
+	%
+	\begin{figure}[h]
+		\begin{center}
+			
+			\includegraphics[width=0.7\textwidth]{bodeint}
+			
+	\end{center}
+		\caption{\small Plot di Bode dell' ampiezza  per il circuito integratore.}
+		\label{fig:bodeinte}
+	\end{figure}
+
+         \begin{figure}[h]
+                                       
+		\begin{center}
+			\includegraphics[width=0.7\textwidth]{fase}
+			 \label{fig:fase}
+		\end{center}
+		\caption{\small Plot di Bode della fase per il circuito integratore}
+		
+	\end{figure}
+	%
+	 
+	Per la stima del guadagno massimo, si è presa la media dei guadagni delle prime quattro frequenze.
+
+
+	Guardando per quale $f$ il guadagno fosse  $A_M - 3 $dB si è ottenuta una stima della frequenza di taglio.
+
+	Per la pendenza abbiamo preso una media delle pendenze delle rette passanti per coppie di punti ad alte frequenze.
+
+	Il valore atteso per $A_M $ è $ 20 \log_{10}(R_2/R_1)$; la frequenza di taglio attesa è $f_H = 1/(2\pi R_2 C)$.
+
+>>>>>>> 944b800a0bd2b2e4b90791e23e008fd61e6c60e8
 	
 	\begin{align*}
-	A_M &= (\exn )\,\mathrm{dB} & \mathrm{atteso} &:\,(\exn  )\, \mathrm{dB}  \\
-	f_H &= (\exn )\,\mathrm{Hz} & \mathrm{atteso} &:\,(\exn  )\, \mathrm{Hz} \\
-	{\mathrm{d}A_V}/{\mathrm{d}f} &= (\exn )\,\mathrm{dB/decade} & \mathrm{atteso} &:\,(\exn  )\, \mathrm{dB/decade}  \\
+	A_M &= (19.4 )\,\mathrm{dB} & \mathrm{atteso} &:\,(20  )\, \mathrm{dB}  \\
+	f_H &= (330 )\,\mathrm{Hz} & \mathrm{atteso} &:\,(318  )\, \mathrm{Hz} \\
+	{\mathrm{d}A_V}/{\mathrm{d}f} &= (-20.1 )\,\mathrm{dB/decade} & \mathrm{atteso} &:\,(-20  )\, \mathrm{dB/decade}  \\
 	\end{align*}
 	
 	\clearpage
@@ -347,6 +514,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	\clearpage
 	\subsection{Discussione}
 	
+<<<<<<< HEAD
 	Si è poi provato a variare la frequenza fino a valori intorno, e sotto, la frequenza di taglio. A questo punto il segnale in uscita risultava distorto rispetto all'onda triangolare. Per frequenze al di sotto la frequenza di taglio, il segnale in uscita è costituito sostanzialmente dalle scariche del condensatore, come riportato ad esempio in Figura \ref{fig:scariche}.
 	Per frequenze ancora al di sotto, come in Figura \ref{fig:lowf} si osserva un segnale discontinuo in uscita, il che è sorprendente dato che il segnale che si osserva è sostanzialmente proporzionale alla carica sul condensatore, e quindi lo si aspetta continuo.  In realtà quello che succede è che, dato che il segnale è molto amplificato, al cambio di polarità dell'onda quadra, il condensatore si scarica su $R_1$, anzichè su $R_2$, e, dato che $R_1$ è 10 volte più piccola, lo fa con una velocità 10 volte più grande rispetto al solito, il che sembra un processo istantaneo, per la scala dei tempi a cui è impostato l'oscilloscopio, . Finita la scarica su $R_1$ si osserva quella solita su $R_2$. 
 	\begin{figure}[h]
@@ -370,4 +538,19 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	
 	
 	
+=======
+	\rem{Inserire commenti su quanto osservato ed eventuali deviazioni. 
+		In particolare: attenuazione ad alte frequenze, dipendenza della fase dalla frequenza, funzione di $R_2$. }
+
+ Per i valori teorici attesi abbiamo usato $V_{out}= -\frac{Z_2}{Z_1} V_{in}$ e quindi implicitamente abbiamo considerato valida anche ad alte  frequenze l'approssimazione $A_d \gg |\frac{Z_2}{Z_1}|$. Effettivamente per grandi $f$  $A_d\propto 1/f$ (punto 2.a) ma anche l'impedenza del condensatore decresce come $1/f$, di conseguenza l'approssimazione resta valida.
+	In figura 7  la linea arancione rappresenta il comportamento teorico della fase; che è descritto dalla funzione \[ \phi = 360/(2\pi)[\pi - \arctan(\exp{(\log f -\log f_t)})\] 
+
+Per basse frequenze i dati hanno una evidente deviazione da quanto atteso; questo è sicuramente dovuto a un nostro errore di presa dati.
+
+	%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{tabular}{cc}
+
+\end{tabular}
+
+>>>>>>> 944b800a0bd2b2e4b90791e23e008fd61e6c60e8
 \end{document}          
