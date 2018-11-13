@@ -359,11 +359,11 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	\end{table} 
 
 
-\begin{table}[h]
+\begin{figure}[h]
 		\caption{ fase dell'~integratore invertente in funzione della frequenza.}
 		\label{tab:bodefase}
 		\begin{center}
-<<<<<<< HEAD
+
 		
 	\includegraphics[scale=0.5]{esempio.png}
 
@@ -371,7 +371,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 		\caption{\small andamento dei punti sperimentali e modello per la fase in funzione della frequenza.}
 		
 		\label{esempio}
-
+\end{figure}
 
 	%
 	
@@ -380,7 +380,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	La frequenza di taglio viene stimata come al solito con l'intesezione delle due rette; una delle due è stata determinata con un fit lineare, mentre per disegnare la retta del guadagno massimo si è usato il valore misurato in precedenza di $A\approx10.26$. Il valore della frequenza di taglio così ottenuto è $f_t\approx0.32 kHz$, in accordo con la frequenza di taglio che ci si aspetterebbe $f_t=\frac{1}{2\pi R_2C}=0.32\pm0.01 kHz$. Si può trascurare del tutto la frequenza di taglio del'opamp,che è tre decadi più avanti.
 	L'andamento della fase pure è quello che ci si aspetta, dato che per alte frequenze lo sfasamento deve essere di 90 $^{\circ}$ (domina l'impedenza del condensatore che sfasa di j), mentre per basse frequenze è quella solita di 180$^{\circ}$ di un amplificatore invertente. L'andamento teorico può essere descritto da una formula del tipo:\[\Delta\phi=180^{\circ}-arctan(f/f_t)\]. usando il valore di $f_t$ stimato prima si può notare un discreto accordo con i dati, come riportato in figura \ref{esempio}
 	
-=======
+
 			\begin{tabular}{|c|c|c|}
 				\hline
 				$f_{in}$ (kHz)  & $\Delta t (\mu s)$ & $\phi \,(\,\,^\circ)$ \\
@@ -478,7 +478,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 
 	Il valore atteso per $A_M $ è $ 20 \log_{10}(R_2/R_1)$; la frequenza di taglio attesa è $f_H = 1/(2\pi R_2 C)$.
 
->>>>>>> 944b800a0bd2b2e4b90791e23e008fd61e6c60e8
+
 	
 	\begin{align*}
 	A_M &= (19.4 )\,\mathrm{dB} & \mathrm{atteso} &:\,(20  )\, \mathrm{dB}  \\
@@ -514,7 +514,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	\clearpage
 	\subsection{Discussione}
 	
-<<<<<<< HEAD
+
 	Si è poi provato a variare la frequenza fino a valori intorno, e sotto, la frequenza di taglio. A questo punto il segnale in uscita risultava distorto rispetto all'onda triangolare. Per frequenze al di sotto la frequenza di taglio, il segnale in uscita è costituito sostanzialmente dalle scariche del condensatore, come riportato ad esempio in Figura \ref{fig:scariche}.
 	Per frequenze ancora al di sotto, come in Figura \ref{fig:lowf} si osserva un segnale discontinuo in uscita, il che è sorprendente dato che il segnale che si osserva è sostanzialmente proporzionale alla carica sul condensatore, e quindi lo si aspetta continuo.  In realtà quello che succede è che, dato che il segnale è molto amplificato, al cambio di polarità dell'onda quadra, il condensatore si scarica su $R_1$, anzichè su $R_2$, e, dato che $R_1$ è 10 volte più piccola, lo fa con una velocità 10 volte più grande rispetto al solito, il che sembra un processo istantaneo, per la scala dei tempi a cui è impostato l'oscilloscopio, . Finita la scarica su $R_1$ si osserva quella solita su $R_2$. 
 	\begin{figure}[h]
@@ -538,7 +538,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	
 	
 	
-=======
+
 	\rem{Inserire commenti su quanto osservato ed eventuali deviazioni. 
 		In particolare: attenuazione ad alte frequenze, dipendenza della fase dalla frequenza, funzione di $R_2$. }
 
@@ -552,5 +552,5 @@ Per basse frequenze i dati hanno una evidente deviazione da quanto atteso; quest
 
 \end{tabular}
 
->>>>>>> 944b800a0bd2b2e4b90791e23e008fd61e6c60e8
+
 \end{document}          
