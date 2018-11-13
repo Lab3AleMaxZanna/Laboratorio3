@@ -3,7 +3,7 @@
 \usepackage[italian]{babel}
 \usepackage{amsmath}
 \usepackage{xcolor}
-
+\usepackage{circuitikz}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -45,6 +45,19 @@
 	
 	\subsection{Montaggio circuito}
 	Il circuito è stato montato nella basetta come riportato in figura.
+	\begin{center}
+		\begin{circuitikz}\draw
+			(3,-0.5) node[op amp] (opamp) {}
+			(opamp.-) to[R=R1] (0,-0)
+			(2,0) --	(2,2) to[R=R2] (4.15,2) to(opamp.out) -- (6,-0.5) node[right] {$v_{out}$}
+			(0,0) node[left] {\textnormal{$v_{in}$}}
+			(opamp.up) --++(0,1) node[circ]{15\,\textnormal{V}}
+			(opamp.down) --++(0,-2) node[circ] {} node[left]{  -15\,\textnormal{V}}
+			
+			(opamp.+) to (0,-1) node[ground] {};	
+		\end{circuitikz}
+	\end{center}
+	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\subsection{Linearit\`a e misura del guadagno}
 	Si fissa la frequenza del segnale ad $f_{in} = (2.597 \pm 0.011)$ kHz e si invia all'~ingresso dell'~amplificatore.	L'uscita dell'~amplificatore \`e mostrata qualitativativamente in Fig. \ref{fig:oscinv} per due 
@@ -227,11 +240,7 @@ La frequenza di taglio è stata ricavata come l'intersezione delle due rette fit
 	\[
 	SR_\mathrm{misurato} = (12.5 \pm 0.5 )\,\mathrm{V/\mu s} \quad \mathrm{valore \; tipico}\, (13 )\,\mathrm{V/\mu s}\
 	\]
-<<<<<<< HEAD
-Abbiamo misurato nel  punto a pendenza massima di $V_{out}$, che si trova proprio all'inizio dell'onda quadra, subito dopo la pendenza diminuisce di circa 0.5 $ \mathrm{V/\mu s}$
 
-	%
-=======
 Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova proprio  in corrispondenza dell' inizio dell'onda quadra, subito dopo la pendenza diminuisce di circa 0.5 $ \mathrm{V/\mu s}$
 
 \begin{figure}[h]
@@ -254,12 +263,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	
 	\subsection{Risposta in frequenza}
 	
-<<<<<<< HEAD
-	Si invia un'~onda sinusoidale e si misura la risposta in frequenza dell'~amplificazione e della fase riportandoli 
-	nella tabella \ref{tab:bodeinte} e in un diagramma di Bode in Fig. \ref{fig:bodeinte}. 
-	\[
-	V_{in} = (\exn \pm \exn )\,\mathrm{V}
-	\]
+
 	\begin{figure}[h]
 	\begin{center}
 		
@@ -270,12 +274,12 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	\caption{\small Plot di Bode in ampiezza (a sinistra) e fase (a destra) per il circuito integratore.}
 	\label{fig:bodeinte}
 \end{figure}
-=======
+
 	Si invia un'~onda sinusoidale e si misura la risposta in frequenza dell'~amplificazione e della fase.
 	I dati sono riportati in tabella \ref{tab:bodeinte} e \ref{tab:bodefase}.
 
          Si vedano le figure \ref{fig:bodeinte} e 7, per i plot di Bode dell'integratore relativi ad ampiezza e fase.
->>>>>>> 944b800a0bd2b2e4b90791e23e008fd61e6c60e8
+
 	%
 
 
@@ -359,19 +363,17 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	\end{table} 
 
 
-\begin{figure}[h]
-		\caption{ fase dell'~integratore invertente in funzione della frequenza.}
-		\label{tab:bodefase}
-		\begin{center}
 
-		
-	\includegraphics[scale=0.5]{esempio.png}
 
-		\end{center}
+
+\begin{figure}
 		\caption{\small andamento dei punti sperimentali e modello per la fase in funzione della frequenza.}
-		
-		\label{esempio}
+	
+	\label{esempio}
+	\includegraphics[scale=0.5]{esempio.png}
 \end{figure}
+	
+
 
 	%
 	
@@ -380,6 +382,13 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	La frequenza di taglio viene stimata come al solito con l'intesezione delle due rette; una delle due è stata determinata con un fit lineare, mentre per disegnare la retta del guadagno massimo si è usato il valore misurato in precedenza di $A\approx10.26$. Il valore della frequenza di taglio così ottenuto è $f_t\approx0.32 kHz$, in accordo con la frequenza di taglio che ci si aspetterebbe $f_t=\frac{1}{2\pi R_2C}=0.32\pm0.01 kHz$. Si può trascurare del tutto la frequenza di taglio del'opamp,che è tre decadi più avanti.
 	L'andamento della fase pure è quello che ci si aspetta, dato che per alte frequenze lo sfasamento deve essere di 90 $^{\circ}$ (domina l'impedenza del condensatore che sfasa di j), mentre per basse frequenze è quella solita di 180$^{\circ}$ di un amplificatore invertente. L'andamento teorico può essere descritto da una formula del tipo:\[\Delta\phi=180^{\circ}-arctan(f/f_t)\]. usando il valore di $f_t$ stimato prima si può notare un discreto accordo con i dati, come riportato in figura \ref{esempio}
 	
+
+	
+	\begin{table}[h]
+		\caption{ fase dell'~integratore invertente in funzione della frequenza.}
+		\label{tab:bodefase}
+\centering
+		
 
 			\begin{tabular}{|c|c|c|}
 				\hline
@@ -445,10 +454,11 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 				
 				
 			\end{tabular}
+\end{table}
 
 
 	%
-	\begin{figure}[h]
+\begin{figure}[h]
 		\begin{center}
 			
 			\includegraphics[width=0.7\textwidth]{bodeint}
@@ -456,7 +466,7 @@ Abbiamo misurato la  pendenza massima del segnale $V_{out}$, che si trova propri
 	\end{center}
 		\caption{\small Plot di Bode dell' ampiezza  per il circuito integratore.}
 		\label{fig:bodeinte}
-	\end{figure}
+\end{figure}
 
          \begin{figure}[h]
                                        
