@@ -35,22 +35,18 @@
 \section{ MULTIVIBRATORI }
 
 
-\subsection{Multivibratore astabile}
+\subsection{Funzionamento}
 I valori misurati di $R_1$, $R_2$ e $R_3$ sono:
 \[ R_1 = (9.75\pm 0.08)\si{\kilo\ohm} \qquad  R_2 = (9.98 \pm 0.08)\si{\kilo\ohm} \qquad   R_3 = ( 0.994 \pm0.001 ) \si{\kilo\ohm}\]
-
-a)  Il circuito ha 2 stati possibili: condensatore carico e condensatore scarico. L'OpAmp è configrato come un invertitore e quindi nessuno dei due stati è stabile: quando il voltaggio al capo del condensatore ha raggiunto il livello dato dal partitore di tensione $R_1/R_2$ il sistema passa nell'altro stato, con un tempo caratteristico dato dallo slew rate dell'OpAmp, dell'ordine di $10 \si{\volt\per\micro\sec}$. Essendo i voltaggi usati nelle decine di volt non dovrebbe dare problemi fino a frequenze nei megahertz.
+  Il circuito ha 2 stati possibili: condensatore carico e condensatore scarico. L'OpAmp è configrato come un invertitore e quindi nessuno dei due stati è stabile: quando il voltaggio al capo del condensatore ha raggiunto il livello dato dal partitore di tensione $R_1/R_2$ il sistema passa nell'altro stato, con un tempo caratteristico dato dallo slew rate dell'OpAmp, dell'ordine di $10 \si{\volt\per\micro\sec}$. Essendo i voltaggi usati nelle decine di volt non dovrebbe dare problemi fino a frequenze dell'ordine del centinaio di kilohertz.
 Il periodo di oscillazione del circuito è : \[ T = 2 RC \log( 1+ 2 R_2/R_1) \approxeq 2.23 RC\]
-
-
-
-
-
-b) Abbiamo scelto i seguenti valori per la resistenza e la capacità:
+\subsection{Montaggio circuito}
+Per ottenere un periodo di $\approx 2 \si{\milli\second}$ abbiamo scelto i seguenti valori per la resistenza e la capacità:
 \[ R = ( 46.0 \pm0.5 )\si{\kilo\ohm} \qquad   C = (21.3\pm0.9 )\si{\nano \farad}\]
 
 a cui corrisponde un periodo di oscillazione teorico:
 \[T_{att}= (2.18\pm 0.14 )\si{\milli \second}\]
+Inoltre abbiamo aggiunto il resistore variabile in serie a R, lasciandone un pin libero. In questo modo abbiamo potuto variare R a piacimento tra $46 \si{\kilo\ohm}$ e $146 \si{\kilo\ohm}$ per apprezzare la variazione della funzione d'onda risultante.
 
 
 
