@@ -49,8 +49,9 @@ a cui corrisponde un periodo di oscillazione teorico:
 Inoltre abbiamo aggiunto il resistore variabile in serie a R, lasciandone un pin libero. In questo modo abbiamo potuto variare R a piacimento tra $46 \si{\kilo\ohm}$ e $146 \si{\kilo\ohm}$ per apprezzare la variazione della funzione d'onda risultante.
 
 
-
-c) \rem{ foto oscilloscopio Vout v+ e v- , misurare periodo oscill,  vout = ddp clamp morse,v+ e v- insieme per vedere confronto ampiezze}
+\subsection{Osservazioni del circuito}
+ \rem{ foto oscilloscopio Vout v+ e v- , misurare periodo oscill,  vout = ddp clamp morse,v+ e v- insieme per vedere confronto ampiezze}
+ Abbiamo collegato le uscite della basetta a $V_{out}, V_{+}, V_{-}$. Nel seguito potete vedere il segnale in uscita \ref{fig:V_out}
 Le misure picco picco per  segnali  $V_{out}, v_{+}$ e $v_{-}$ sono :
 \[ V_{out,pp}= (13.6\pm 0.2)\si{\kilo\ohm} \qquad  v_{+,pp}= (6.88 \pm 0.12)\si{\kilo\ohm} \qquad   v_{-,pp}= ( 7.04 \pm0.08 ) \si{\kilo\ohm}\]
 Il periodo misurato dell'oscillazione misurato sull'oscilloscopio da come risultato :
@@ -61,27 +62,22 @@ Il periodo misurato dell'oscillazione misurato sull'oscilloscopio da come risult
 
 \begin{figure}[h]
 	\begin{center}
-		
-			\includegraphics[scale=0.8]{v+_v-.png}
-		\caption{\small i segnali $V_+$( in azzurro ) e $ V_-$ ( in arancione )  multivibratore astabile}
-
-		\label{fig:v+v-}
+		\includegraphics[scale=0.8]{vout_punto2.png}
+		\caption{\small segnale $V_{out}$ del multivibratore astabile }
+		\label{fig:V_out}
 	\end{center}
-
+	
 \end{figure}
-
-
 
 \begin{figure}[h]
 	\begin{center}
-		
-			\includegraphics[scale=0.8]{vout_punto2.png}
-		\caption{\small segnale $V_{out}$ del multivibratore astabile }
-
-		\label{fig:v+v-}
+			\includegraphics[scale=0.8]{v+_v-.png}
+		\caption{\small i segnali $V_+$( in azzurro ) e $ V_-$ ( in arancione )  multivibratore astabile}
+		\label{fig:V+V-}
 	\end{center}
 
 \end{figure}
+
 
 
 d) La serie dei due  diodi  Zener limita l'escursione in tensione, infatti deve essere $|V_{out}| \le V_{\gamma} +V_{z} = V_{Max}$.
