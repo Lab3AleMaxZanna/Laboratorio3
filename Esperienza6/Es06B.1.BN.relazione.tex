@@ -7,6 +7,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{siunitx}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \newcommand{\rem}[1]{[\emph{#1}]}
 \newcommand{\exn}{\phantom{xxx}}
@@ -20,9 +21,9 @@
 	
 	
 	\section*{Scopo dell' esperienza}
-<<<<<<< HEAD
+
 	Scopo dell'esperienza è l'analisi di circuiti che fanno usi non lineari dell'Amplificatore Operazionale
-=======
+
 
 
 
@@ -34,23 +35,31 @@
 
 \subsection{Multivibratore astabile}
 I valori misurati di $R_1$, $R_2$ e $R_3$ sono:
-\[ R_1 = ( \pm ) \qquad  R_2 = ( \pm ) \qquad   R_3 = ( \pm ) \]
+\[ R_1 = (9.75\pm 0.08)\si{\kilo\ohm} \qquad  R_2 = (9.98 \pm 0.08)\si{\kilo\ohm} \qquad   R_3 = ( 0.994 \pm0.001 ) \si{\kilo\ohm}\]
 
-a)  Il periodo di oscillazione del circuito in figura è : \[ T = 2 RC \log( 1+ R_2/R_1)\]
+a)  Il periodo di oscillazione del circuito in figura è : \[ T = 2 RC \log( 1+ 2 R_2/R_1)\]
 
 
 
 
 
 b) Abbiamo scelto i seguenti valori per la resistenza e la capacità:
-\[ R = ( \pm ) \qquad   C = (\pm ) \]
+\[ R = ( 46.0 \pm0.5 )\si{\kilo\ohm} \qquad   C = (21.3\pm0.9 )\si{\nano \farad}\]
 
 a cui corrisponde un periodo di oscillazione teorico:
-\[T_{att}= (\pm )\]
+\[T_{att}= (2.18\pm 0.14 )\si{\milli \second}\]
 
 
 
 c) \rem{ foto oscilloscopio Vout v+ e v- , misurare periodo oscill,  vout = ddp clamp morse,v+ e v- insieme per vedere confronto ampiezze}
+Le misure picco picco per  segnali  $V_{out}, v_{+}$ e $v_{-}$ sono :
+\[ V_{out,pp}= (13.6\pm 0.2)\si{\kilo\ohm} \qquad  v_{+,pp}= (6.88 \pm 0.12)\si{\kilo\ohm} \qquad   v_{-,pp}= ( 7.04 \pm0.08 ) \si{\kilo\ohm}\]
+Il periodo misurato dell'oscillazione misurato sull'oscilloscopio da come risultato :
+\[ T = (2.26 \pm 0.02)\]
+
+
+
+
 \begin{figure}[h]
 	\begin{center}
 		
@@ -76,14 +85,14 @@ c) \rem{ foto oscilloscopio Vout v+ e v- , misurare periodo oscill,  vout = ddp 
 \end{figure}
 
 
-d) La serie di  diodi  Zener limita l'escursione in tensione, infatti deve essere $|V_{out}| \le V_{\gamma} +V_{z} = V_{Max}$.
+d) La serie dei due  diodi  Zener limita l'escursione in tensione, infatti deve essere $|V_{out}| \le V_{\gamma} +V_{z} = V_{Max}$.
  Se $V_{1}$ (segnale all'uscita dell'Op-Amp) fosse maggiore dii $V_{max}$ si avrebbe un cortocircuito; per evitare questa eventualità si introduce  una resistenza $R_3$ che limita la corrente.
 
-\rem{mettere ddp morse}
+Dalla misura risulta \[V_{max} = ( 6.8\pm 0.1) \si \volt\]
 
 
 
 
 
->>>>>>> 196e7601a87c9ab1397e3fc01e6dcdce619b8d1c
+
 \end{document}          
