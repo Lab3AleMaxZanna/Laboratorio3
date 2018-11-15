@@ -21,13 +21,20 @@ F= f[f< 82]
 
 vin= Vin[f< 82]
 vout = Vout[f< 82]
+
+
+vin= vin[F>0.04]
+vout = vout[F>0.04]
 dF = np.zeros(len(F)) 
 AdB = 20* np.log10(vout/vin)
 fase = phi[f<82]
+fase = fase[F>0.04]
+F= F[F>0.04]
+F= F *1000
 Dadb = 0.26*np.ones(len(AdB) )
 dfase = 0.04* fase
 plt.errorbar( F,fase,dfase, None ,'.')
-plt.xlabel("log f(kHz)")
+plt.xlabel("log f(Hz)")
 plt.ylabel("$\phi ( ^\circ)$")
 plt.xscale("log")
 plt.show()
@@ -41,7 +48,7 @@ def h( x,a):
 t = np.linspace(0.01,100,100000)
 
 
-plt.plot(t,h(t,-0.481))
+plt.plot(t,h(t,-3* 0.481))
 
 
 

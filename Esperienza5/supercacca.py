@@ -112,7 +112,7 @@ w = 1/sigma**2  # errori dx non trascurabili, gli aggiungi a w, per conoscere f'
 p,covm=curve_fit(h,s,amp,init,sigma,absolute_sigma=False) 
 print(p) 
 
- 
+print(covm) 
 chi2 =( w*(amp-h(s,p[0],p[1]))**2).sum()  
 zz = np.linspace(100,2000,1000)  
 plt.plot(zz,h(zz,p[0],p[1]),color = 'red') 
