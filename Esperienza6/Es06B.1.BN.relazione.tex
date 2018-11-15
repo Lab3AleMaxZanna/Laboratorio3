@@ -4,7 +4,6 @@
 \usepackage{amsmath}
 \usepackage{xcolor}
 \usepackage{siunitx}
-\usepackage{circuitikz}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -40,7 +39,8 @@
 I valori misurati di $R_1$, $R_2$ e $R_3$ sono:
 \[ R_1 = (9.75\pm 0.08)\si{\kilo\ohm} \qquad  R_2 = (9.98 \pm 0.08)\si{\kilo\ohm} \qquad   R_3 = ( 0.994 \pm0.001 ) \si{\kilo\ohm}\]
 
-a)  Il periodo di oscillazione del circuito in figura è : \[ T = 2 RC \log( 1+ 2 R_2/R_1)\]
+a)  Il circuito ha 2 stati possibili: condensatore carico e condensatore scarico. L'OpAmp è configrato come un invertitore e quindi nessuno dei due stati è stabile: quando il voltaggio al capo del condensatore ha raggiunto il livello dato dal partitore di tensione $R_1/R_2$ il sistema passa nell'altro stato, con un tempo caratteristico dato dallo slew rate dell'OpAmp, dell'ordine di $10 \si{\volt\per\micro\sec}$. Essendo i voltaggi usati nelle decine di volt non dovrebbe dare problemi fino a frequenze nei megahertz.
+Il periodo di oscillazione del circuito è : \[ T = 2 RC \log( 1+ 2 R_2/R_1) \approxeq 2.23 RC\]
 
 
 
