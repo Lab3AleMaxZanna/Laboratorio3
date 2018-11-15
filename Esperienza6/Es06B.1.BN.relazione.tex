@@ -3,6 +3,7 @@
 \usepackage[italian]{babel}
 \usepackage{amsmath}
 \usepackage{xcolor}
+\usepackage{siunitx}
 \usepackage{circuitikz}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -20,20 +21,23 @@
 	
 	
 	\section*{Scopo dell' esperienza}
-<<<<<<< HEAD
+
 	Scopo dell'esperienza è l'analisi di circuiti che fanno usi non lineari dell'Amplificatore Operazionale
-=======
 
 
 
-\section{}
 
-
+\section{Ampificatori di Carica}
+	\subsection{Montaggio circuito}
+		per avere la soglia a circa 200 \si{\milli \volt} si imposta il potenziometro a circa $(0.5+0.2/15)=0.51$ volte il suo valore massimo.
+	\subsection{Analisi dei segnali}
+		Studiando il circuito, ci si aspetta, in $V_{disc}$ un'onda quadra di duty cycle variabile e ampiezza data dalle tensioni di alimentazioni dell'op-amp, dove il segnale alto indica quando il segnale in $V_{sh}$ è sopra la soglia.
+		Per quanto riguarda la prima parte del circuito, anzitutto osserviamo che, ad ogni cambio di polarità dell'onda quadra, viene iniettata nel circuito una quantità di carica pari a $Q=V_{pp} C_T$. Questo "impulso" di corrente deve finire sul condensatore $C_F$ dato che sulla resistenza non c'è abbastanza ddP per farlo passare
 \section{ MULTIVIBRATORI }
 
 
 
 
 
->>>>>>> 196e7601a87c9ab1397e3fc01e6dcdce619b8d1c
+
 \end{document}          
