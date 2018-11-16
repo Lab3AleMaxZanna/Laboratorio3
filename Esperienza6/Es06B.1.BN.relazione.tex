@@ -72,11 +72,15 @@ Il periodo misurato dell'oscillazione misurato sull'oscilloscopio da come risult
 in accordo con il periodo teorico calcolato in precedenza.
 
 \subsection{Motivazione degli Zener} 
-La serie dei due  diodi  Zener back-to-back limita l'escursione in tensione, infatti deve essere $|V_{out}| \le V_{\gamma} +V_{z} = V_{Max}$.
- Se $V_{1}$ (segnale all'uscita dell'Op-Amp) fosse maggiore dii $V_{max}$ si avrebbe un cortocircuito; per evitare questa eventualità si introduce  una resistenza $R_3$ che limita la corrente.
+La serie dei due  diodi  Zener back-to-back limita l'escursione in tensione, infatti deve essere $|V_{out}| \le V_{\gamma} +V_{z} = V_{Max}$. In questo modo il voltaggio in uscita ha un plateau a $V_{out} = \pm V_{max}$ generando l'onda quadra misurata. Dato che la resistenza dei diodi è trascurabile si rischia che l'OpAmp superi la sua potenza massima, essendo effettivamente cortocircuitato a terra. $R_3$ evita proprio questo limitando la corrente in uscita.
 
 Dalla misura risulta \[V_{max} = ( 6.8\pm 0.1) \si \volt\]
 
+\subsection{Periodo dell'onda quadra in uscita}
+Il periodo dell'onda quadra in uscita è indipendente dal voltaggio applicato. Infatti sia nel caso in cui il dispositivo sia limitato dai due diodi Zener o in cui sia limitato dalla tensione di alimentazione dell'OpAmp il condensatore si carica con un tempo caratteristico indipendente ($1/RC$) e l'OpAmp sta comparando due tensioni entrambe proporzionali a $V_{out}$
+
+
+\subsection{Massima frequenza}
 
 
 
