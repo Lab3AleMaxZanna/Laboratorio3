@@ -50,37 +50,29 @@ Inoltre abbiamo aggiunto il resistore variabile in serie a R, lasciandone un pin
 
 
 \subsection{Osservazioni del circuito}
- \rem{ foto oscilloscopio Vout v+ e v- , misurare periodo oscill,  vout = ddp clamp morse,v+ e v- insieme per vedere confronto ampiezze}
- Abbiamo collegato le uscite della basetta a $V_{out}, V_{+}, V_{-}$. Nel seguito potete vedere il segnale in uscita \ref{fig:V_out}
+Abbiamo collegato le uscite della basetta a $V_{out}, V_{+}, V_{-}$. Nel seguito potete vedere il segnale in uscita (Figura \ref{fig:V_out}) e un confronto tra $V_{+}$ e $V_{-}$. Notare come il cambio di stato sia quasi istantaneo e avvenga ogni volta che essi son uguali.
+ 
+ \begin{figure}[h]
+ 	\centering
+ 		\includegraphics[scale=0.8]{vout_punto2.png}
+ 		\caption{\small segnale $V_{out}$ del multivibratore astabile }
+ 		\label{fig:V_out}
+ \end{figure}
+ 
+ \begin{figure}[h]
+ 	\centering
+ 		\includegraphics[scale=0.8]{v+_v-.png}
+ 		\caption{\small i segnali $V_+$( in azzurro ) e $ V_-$ ( in arancione )  multivibratore astabile}
+ 		\label{fig:V+V-}
+ \end{figure}
 Le misure picco picco per  segnali  $V_{out}, v_{+}$ e $v_{-}$ sono :
 \[ V_{out,pp}= (13.6\pm 0.2)\si{\kilo\ohm} \qquad  v_{+,pp}= (6.88 \pm 0.12)\si{\kilo\ohm} \qquad   v_{-,pp}= ( 7.04 \pm0.08 ) \si{\kilo\ohm}\]
 Il periodo misurato dell'oscillazione misurato sull'oscilloscopio da come risultato :
 \[ T = (2.26 \pm 0.02)\]
+in accordo con il periodo teorico calcolato in precedenza.
 
-
-
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[scale=0.8]{vout_punto2.png}
-		\caption{\small segnale $V_{out}$ del multivibratore astabile }
-		\label{fig:V_out}
-	\end{center}
-	
-\end{figure}
-
-\begin{figure}[h]
-	\begin{center}
-			\includegraphics[scale=0.8]{v+_v-.png}
-		\caption{\small i segnali $V_+$( in azzurro ) e $ V_-$ ( in arancione )  multivibratore astabile}
-		\label{fig:V+V-}
-	\end{center}
-
-\end{figure}
-
-
-
-d) La serie dei due  diodi  Zener limita l'escursione in tensione, infatti deve essere $|V_{out}| \le V_{\gamma} +V_{z} = V_{Max}$.
+\subsection{Motivazione degli Zener} 
+La serie dei due  diodi  Zener back-to-back limita l'escursione in tensione, infatti deve essere $|V_{out}| \le V_{\gamma} +V_{z} = V_{Max}$.
  Se $V_{1}$ (segnale all'uscita dell'Op-Amp) fosse maggiore dii $V_{max}$ si avrebbe un cortocircuito; per evitare questa eventualità si introduce  una resistenza $R_3$ che limita la corrente.
 
 Dalla misura risulta \[V_{max} = ( 6.8\pm 0.1) \si \volt\]
