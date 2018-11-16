@@ -38,7 +38,7 @@
 \subsection{Funzionamento}
 I valori misurati di $R_1$, $R_2$ e $R_3$ sono:
 \[ R_1 = (9.75\pm 0.08)\si{\kilo\ohm} \qquad  R_2 = (9.98 \pm 0.08)\si{\kilo\ohm} \qquad   R_3 = ( 0.994 \pm0.001 ) \si{\kilo\ohm}\]
-  Il circuito ha 2 stati possibili: condensatore carico e condensatore scarico. L'OpAmp è configrato come un invertitore e quindi nessuno dei due stati è stabile: quando il voltaggio al capo del condensatore ha raggiunto il livello dato dal partitore di tensione $R_1/R_2$ il sistema passa nell'altro stato, con un tempo caratteristico dato dallo slew rate dell'OpAmp, dell'ordine di $10 \si{\volt\per\micro\sec}$. Essendo i voltaggi usati nelle decine di volt non dovrebbe dare problemi fino a frequenze dell'ordine del centinaio di kilohertz.
+  Il circuito ha 2 stati possibili: condensatore carico e condensatore scarico. L'OpAmp è configrato come un invertitore e quindi nessuno dei due stati è stabile: quando il voltaggio al capo del condensatore ha raggiunto il livello dato dal partitore di tensione $R_1/R_2$ il sistema passa nell'altro stato, con un tempo caratteristico dato dallo slew rate dell'OpAmp, dell'ordine di $10 \si{\volt\per\micro\second}$. Essendo i voltaggi usati nelle decine di volt non dovrebbe dare problemi fino a frequenze dell'ordine del centinaio di kilohertz.\label{slew_rate_count}
 Il periodo di oscillazione del circuito è : \[ T = 2 RC \log( 1+ 2 R_2/R_1) \approxeq 2.23 RC\]
 \subsection{Montaggio circuito}
 Per ottenere un periodo di $\approx 2 \si{\milli\second}$ abbiamo scelto i seguenti valori per la resistenza e la capacità:
@@ -77,13 +77,21 @@ La serie dei due  diodi  Zener back-to-back limita l'escursione in tensione, inf
 Dalla misura risulta \[V_{max} = ( 6.8\pm 0.1) \si \volt\]
 
 \subsection{Periodo dell'onda quadra in uscita}
-Il periodo dell'onda quadra in uscita è indipendente dal voltaggio applicato. Infatti sia nel caso in cui il dispositivo sia limitato dai due diodi Zener o in cui sia limitato dalla tensione di alimentazione dell'OpAmp il condensatore si carica con un tempo caratteristico indipendente ($1/RC$) e l'OpAmp sta comparando due tensioni entrambe proporzionali a $V_{out}$
-
+Il periodo dell'onda quadra in uscita è indipendente dal voltaggio applicato. Infatti sia nel caso in cui il dispositivo sia limitato dai due diodi Zener o in cui sia limitato dalla tensione di alimentazione dell'OpAmp il condensatore si carica con un tempo caratteristico indipendente dall'ampiezza ($1/RC$). L'OpAmp scatta quando $V_- < V_+$, ovvero:
+\[V_{out} e^{\frac{t}{RC}} = (1+ 2 R_2/R_1) V_{out}\]
+condizione che è indipendente dall'ampiezza di $V_{out}$, che sarà uguale a $V_{in}$ o $V_{max}$ a seconda di quale sia minore.
+Una dipendenza dall'ampiezza appare solo in caso che lo slew-rate non sia trascurabile. In tal caso $V_-$ non è costante nel tempo e il tempo di carica del condensatore dipende anche da $R_{slew rate} / V_{out}$ (vedi figura \ref{fig:slew_rate}). 
 
 \subsection{Massima frequenza}
+Dal grafico sembrerebbe che non ci sia limite teorico a quanto possiamo rendere piccolo $RC$, e quindi alta la frequenza. Tuttavia due effetti entrano in gioco a limitare questa possibilità: lo slew-rate dell'OpAmp e la capacità e resistenza della basetta. Come fatto notare in \ref{slew_rate_count} lo slew rate non è apprezzabile fino a valori di $1/RC$ nelle centinaia di kilohertz. Arrivati nei megaohm il segnale in uscita non presenta più alcuna caratterisca delle onde quadre.
 
+ \begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.8]{freqRbassa.png}
+	\caption{\small i segnali $V_+$( in azzurro ) e $V_-$ ( in arancione )  in caso di $RC$ molto basso}
+	\label{fig:slew_rate}
+\end{figure}
 
-
-
+Un'altro effetto limitante la frequenza è l'impossibilità di abbassare RC a piacere, a causa della capacità della basetta. Tentando infatti di abbassare $C$ la frequenza non sale all'infinito ma ha un comportamento asintotico. Inoltre per bassi valori di $C$ il dispositivo diventa tanto sensibile all'ambiente che è possibile cambiare la frequenza in modo significativo solo passando una mano sopra di esso.
 
 \end{document}          
