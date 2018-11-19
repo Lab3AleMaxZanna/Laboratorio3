@@ -28,11 +28,23 @@
 
 
 \section{Ampificatori di Carica}
-	\subsection{Montaggio circuito}
-		per avere la soglia a circa 200 \si{\milli \volt} si imposta il potenziometro a circa $(0.5+0.2/15)=0.51$ volte il suo valore massimo.
+	\subsection{Montaggio circuito e valore delle componenti}
+		Si monta il circuito sulla basetta.
+		I valori delle varie componenti sono i seguenti:
+		\\$C_T=0.967\pm 0.04$ \si{\nano\farad}\\$C_f=0.958\pm 0.04$ \si{\nano\farad}\\$R_2=99.9\pm 0.9 $ \si{\ohm}\\$R_1=0.392 \pm0.03   $ \si{\mega \ohm}\\
+				Il potenziometro, invece, ha una resistenza massima di circa 1\si{\mega\ohm}
 	\subsection{Analisi dei segnali}
 		Studiando il circuito, ci si aspetta, in $V_{disc}$ un'onda quadra di duty cycle variabile e ampiezza data dalle tensioni di alimentazioni dell'op-amp, dove il segnale alto indica quando il segnale in $V_{sh}$ è sopra la soglia.
-		Per quanto riguarda la prima parte del circuito, anzitutto osserviamo che, ad ogni cambio di polarità dell'onda quadra, viene iniettata nel circuito una quantità di carica pari a $Q=V_{pp} C_T$. Questo "impulso" di corrente deve finire sul condensatore $C_F$ dato che sulla resistenza non c'è abbastanza ddP per farlo passare
+		Per quanto riguarda la prima parte del circuito, anzitutto osserviamo che, ad ogni cambio di polarità dell'onda quadra, viene iniettata nel circuito una quantità di carica pari a $Q=V_{pp} C_T$. Questo "impulso" di corrente deve tutto sul condensatore $C_F$ dato che sulla resistenza non c'è abbastanza ddP per farlo passare.
+		Dopo che il condensatore riceve la carica inizia a scaricarsi. Ci si aspetta, quindi, come ampiezza massima del segnale $V_{sh}$, $V_{max}=\frac{Q}{C_F}=2 V_{in} \frac{C_T}{C_F}\approx 2 V_{in} $ dato che le capacità sono più o meno uguali. Infatti, con un'onda quadra in ingresso $V_in\approx3V$ si osserva il segnale $V_{sh}$ riportato in Figura \ref{fig:sample}, di ampiezza $\approx 6V$.
+		\begin{figure}
+			\centering
+			\includegraphics{sample.png}
+			\caption{segnale $V_{sh}$}
+			\label{fig:sample}
+		\end{figure}
+	
+\clearpage	
 \section{ MULTIVIBRATORI }
 
 
