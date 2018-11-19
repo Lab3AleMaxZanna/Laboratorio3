@@ -4,7 +4,6 @@
 \usepackage{amsmath}
 \usepackage{xcolor}
 \usepackage{siunitx}
-\usepackage{circuitikz}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -48,66 +47,63 @@
 \section{ MULTIVIBRATORI }
 
 
-\subsection{Multivibratore astabile}
+\subsection{Funzionamento}
 I valori misurati di $R_1$, $R_2$ e $R_3$ sono:
 \[ R_1 = (9.75\pm 0.08)\si{\kilo\ohm} \qquad  R_2 = (9.98 \pm 0.08)\si{\kilo\ohm} \qquad   R_3 = ( 0.994 \pm0.001 ) \si{\kilo\ohm}\]
-
-a)  Il periodo di oscillazione del circuito in figura è : \[ T = 2 RC \log( 1+ 2 R_2/R_1)\]
-
-
-
-
-
-b) Abbiamo scelto i seguenti valori per la resistenza e la capacità:
+  Il circuito ha 2 stati possibili: condensatore carico e condensatore scarico. L'OpAmp è configrato come un invertitore e quindi nessuno dei due stati è stabile: quando il voltaggio al capo del condensatore ha raggiunto il livello dato dal partitore di tensione $R_1/R_2$ il sistema passa nell'altro stato, con un tempo caratteristico dato dallo slew rate dell'OpAmp, dell'ordine di $10 \si{\volt\per\micro\second}$. Essendo i voltaggi usati nelle decine di volt non dovrebbe dare problemi fino a frequenze dell'ordine del centinaio di kilohertz.\label{slew_rate_count}
+Il periodo di oscillazione del circuito è : \[ T = 2 RC \log( 1+ 2 R_2/R_1) \approxeq 2.23 RC\]
+\subsection{Montaggio circuito}
+Per ottenere un periodo di $\approx 2 \si{\milli\second}$ abbiamo scelto i seguenti valori per la resistenza e la capacità:
 \[ R = ( 46.0 \pm0.5 )\si{\kilo\ohm} \qquad   C = (21.3\pm0.9 )\si{\nano \farad}\]
 
 a cui corrisponde un periodo di oscillazione teorico:
 \[T_{att}= (2.18\pm 0.14 )\si{\milli \second}\]
+Inoltre abbiamo aggiunto il resistore variabile in serie a R, lasciandone un pin libero. In questo modo abbiamo potuto variare R a piacimento tra $46 \si{\kilo\ohm}$ e $146 \si{\kilo\ohm}$ per apprezzare la variazione della funzione d'onda risultante.
 
 
-
-c) \rem{ foto oscilloscopio Vout v+ e v- , misurare periodo oscill,  vout = ddp clamp morse,v+ e v- insieme per vedere confronto ampiezze}
+\subsection{Osservazioni del circuito}
+Abbiamo collegato le uscite della basetta a $V_{out}, V_{+}, V_{-}$. Nel seguito potete vedere il segnale in uscita (Figura \ref{fig:V_out}) e un confronto tra $V_{+}$ e $V_{-}$. Notare come il cambio di stato sia quasi istantaneo e avvenga ogni volta che essi son uguali.
+ 
+ \begin{figure}[h]
+ 	\centering
+ 		\includegraphics[scale=0.8]{vout_punto2.png}
+ 		\caption{\small segnale $V_{out}$ del multivibratore astabile }
+ 		\label{fig:V_out}
+ \end{figure}
+ 
+ \begin{figure}[h]
+ 	\centering
+ 		\includegraphics[scale=0.8]{v+_v-.png}
+ 		\caption{\small i segnali $V_+$( in azzurro ) e $ V_-$ ( in arancione )  multivibratore astabile}
+ 		\label{fig:V+V-}
+ \end{figure}
 Le misure picco picco per  segnali  $V_{out}, v_{+}$ e $v_{-}$ sono :
 \[ V_{out,pp}= (13.6\pm 0.2)\si{\kilo\ohm} \qquad  v_{+,pp}= (6.88 \pm 0.12)\si{\kilo\ohm} \qquad   v_{-,pp}= ( 7.04 \pm0.08 ) \si{\kilo\ohm}\]
 Il periodo misurato dell'oscillazione misurato sull'oscilloscopio da come risultato :
 \[ T = (2.26 \pm 0.02)\]
+in accordo con il periodo teorico calcolato in precedenza.
 
-
-
-
-\begin{figure}[h]
-	\begin{center}
-		
-			\includegraphics[scale=0.8]{v+_v-.png}
-		\caption{\small i segnali $V_+$( in azzurro ) e $ V_-$ ( in arancione )  multivibratore astabile}
-
-		\label{fig:v+v-}
-	\end{center}
-
-\end{figure}
-
-
-
-\begin{figure}[h]
-	\begin{center}
-		
-			\includegraphics[scale=0.8]{vout_punto2.png}
-		\caption{\small segnale $V_{out}$ del multivibratore astabile }
-
-		\label{fig:v+v-}
-	\end{center}
-
-\end{figure}
-
-
-d) La serie dei due  diodi  Zener limita l'escursione in tensione, infatti deve essere $|V_{out}| \le V_{\gamma} +V_{z} = V_{Max}$.
- Se $V_{1}$ (segnale all'uscita dell'Op-Amp) fosse maggiore dii $V_{max}$ si avrebbe un cortocircuito; per evitare questa eventualità si introduce  una resistenza $R_3$ che limita la corrente.
+\subsection{Motivazione degli Zener} 
+La serie dei due  diodi  Zener back-to-back limita l'escursione in tensione, infatti deve essere $|V_{out}| \le V_{\gamma} +V_{z} = V_{Max}$. In questo modo il voltaggio in uscita ha un plateau a $V_{out} = \pm V_{max}$ generando l'onda quadra misurata. Dato che la resistenza dei diodi è trascurabile si rischia che l'OpAmp superi la sua potenza massima, essendo effettivamente cortocircuitato a terra. $R_3$ evita proprio questo limitando la corrente in uscita.
 
 Dalla misura risulta \[V_{max} = ( 6.8\pm 0.1) \si \volt\]
 
+\subsection{Periodo dell'onda quadra in uscita}
+Il periodo dell'onda quadra in uscita è indipendente dal voltaggio applicato. Infatti sia nel caso in cui il dispositivo sia limitato dai due diodi Zener o in cui sia limitato dalla tensione di alimentazione dell'OpAmp il condensatore si carica con un tempo caratteristico indipendente dall'ampiezza ($1/RC$). L'OpAmp scatta quando $V_- < V_+$, ovvero:
+\[V_{out} e^{\frac{t}{RC}} = (1+ 2 R_2/R_1) V_{out}\]
+condizione che è indipendente dall'ampiezza di $V_{out}$, che sarà uguale a $V_{in}$ o $V_{max}$ a seconda di quale sia minore.
+Una dipendenza dall'ampiezza appare solo in caso che lo slew-rate non sia trascurabile. In tal caso $V_-$ non è costante nel tempo e il tempo di carica del condensatore dipende anche da $R_{slew rate} / V_{out}$ (vedi figura \ref{fig:slew_rate}). 
 
+\subsection{Massima frequenza}
+Dal grafico sembrerebbe che non ci sia limite teorico a quanto possiamo rendere piccolo $RC$, e quindi alta la frequenza. Tuttavia due effetti entrano in gioco a limitare questa possibilità: lo slew-rate dell'OpAmp e la capacità e resistenza della basetta. Come fatto notare in \ref{slew_rate_count} lo slew rate non è apprezzabile fino a valori di $1/RC$ nelle centinaia di kilohertz. Arrivati nei megaohm il segnale in uscita non presenta più alcuna caratterisca delle onde quadre.
 
+ \begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.8]{freqRbassa.png}
+	\caption{\small i segnali $V_+$( in azzurro ) e $V_-$ ( in arancione )  in caso di $RC$ molto basso}
+	\label{fig:slew_rate}
+\end{figure}
 
-
+Un'altro effetto limitante la frequenza è l'impossibilità di abbassare RC a piacere, a causa della capacità della basetta. Tentando infatti di abbassare $C$ la frequenza non sale all'infinito ma ha un comportamento asintotico. Inoltre per bassi valori di $C$ il dispositivo diventa tanto sensibile all'ambiente che è possibile cambiare la frequenza in modo significativo solo passando una mano sopra di esso.
 
 \end{document}          
