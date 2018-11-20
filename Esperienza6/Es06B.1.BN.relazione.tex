@@ -32,18 +32,66 @@
 		I valori delle varie componenti sono i seguenti:
 		\\$C_T=0.967\pm 0.04$ \si{\nano\farad}\\$C_f=0.958\pm 0.04$ \si{\nano\farad}\\$R_2=99.9\pm 0.9 $ \si{\ohm}\\$R_1=0.392 \pm0.03   $ \si{\mega \ohm}\\
 				Il potenziometro, invece, ha una resistenza massima di circa 1\si{\mega\ohm}
-	\subsection{Analisi dei segnali}
+		Nel montaggio, si è preferito l'utilizzo di una resistenza $R_1$ circa 4 volte maggiore del valore consigliato, per poter rallentare il processo di scarica e prolungare la durata del segnale alto in uscita.
+		Questo infatti, era parzialmente deformato dallo slew rate dell'amplificatore, riducendo la precisione delle misure di tempi riportate in Sezione \ref{Output} .
+	\subsection{Segnale $V_{sh}$}
 		Studiando il circuito, ci si aspetta, in $V_{disc}$ un'onda quadra di duty cycle variabile e ampiezza data dalle tensioni di alimentazioni dell'op-amp, dove il segnale alto indica quando il segnale in $V_{sh}$ è sopra la soglia.
 		Per quanto riguarda la prima parte del circuito, anzitutto osserviamo che, ad ogni cambio di polarità dell'onda quadra, viene iniettata nel circuito una quantità di carica pari a $Q=V_{pp} C_T$. Questo "impulso" di corrente deve tutto sul condensatore $C_F$ dato che sulla resistenza non c'è abbastanza ddP per farlo passare.
 		Dopo che il condensatore riceve la carica inizia a scaricarsi. Ci si aspetta, quindi, come ampiezza massima del segnale $V_{sh}$, $V_{max}=\frac{Q}{C_F}=2 V_{in} \frac{C_T}{C_F}\approx 2 V_{in} $ dato che le capacità sono più o meno uguali. Infatti, con un'onda quadra in ingresso $V_in\approx3V$ si osserva il segnale $V_{sh}$ riportato in Figura \ref{fig:sample}, di ampiezza $\approx 6V$.
+		
 		\begin{figure}
 			\centering
-			\includegraphics{sample.png}
+			\includegraphics[scale=0.85]{sample.png}
 			\caption{segnale $V_{sh}$}
 			\label{fig:sample}
 		\end{figure}
+	\subsection{Output} \label{Output}
 	
-\clearpage	
+		Il segnale che si osserva come output esce da un comparatore.
+		All'ingresso $V_-$ del comparatore c'è un segnale di soglia  ottenuto per mezzo di un partitore di tensione variabile. Detta $x$ la resistenza variabile del potenziometro, vale $V_{soglia}=\frac{V_E x+V_C(R_3-x)}{R_3}$ che quindi può variare fra gli estremi $V_E$  e $ V_C$.
+		Il segnale sarà in alto quando vale :\[V_{soglia}\le V_{sh}=2V_{in} \frac{C_T}{C_F} \exp(-t/(R_1 C_F))\]
+		\[t_{alto}=R_1 C_F \ln(\frac{2 V_{in} C_T}{V_{soglia} C_F})\] 
+		Quindi si osserverà segnale alto solo se $V_{soglia} < 2 V{in}
+$.
+\\In particolare, ci si aspetta anche una dipendenza logaritmica per $t_{alto}$ da $V_{in}$ e $V_{soglia}$, la prima di queste è stata verificata con le seguenti misure:
+\begin{center}
+\begin{tabular}{|c|c|}
+	
+	\hline 
+	$\Delta t [ms]$ & $V_{in}[V]$ \\ 
+	\hline 
+	$1.26\pm 0.02$ & $2.76\pm0.04$ \\ 
+	\hline 
+	$1.13\pm0.01$ & $2.00\pm0.04$ \\ 
+	\hline 
+	$1.56\pm0.02$ & $6.16\pm0.12$ \\ 
+	\hline 
+	$1.72\pm0.02$ & $9.20\pm0.15$ \\ 
+	\hline 
+	$1.64\pm0.02$ & $7.60\pm0.16$ \\ 
+	\hline 
+	$1.38\pm0.02$ & $3.80\pm0.08$ \\ 
+	\hline 
+\end{tabular} 
+\end{center}
+
+\begin{figure}[h] \centering
+	\includegraphics[scale=0.7]{Figure_1.png}
+\end{figure}.\\
+Come si vede, le misure hanno l'andamento predetto. \\Un fit rozzo (ci sono solo sei dati) restituisce i valori di \[R_1 C_F=0.3839 \pm0.0025 ms \] \[(R_1 C_F)_{expected}=0.376\pm0.015 ms\] 
+\[V_{soglia}=104.7\pm2.5 mV\]
+
+
+\subsection{Opamp non ideale}
+	Si è voluto verificare che l'uscita va in basso nel momento in cui i due ingressi dell'amplificatore sono allo stesso potenziale. Per far questo si è guardato sull'oscilloscopio l'intersezione fra uscita e $V_{sh}$, come riportato in Figura \ref{220mv}.
+\begin{figure} \centering
+	\includegraphics[scale=0.7]{220mv_1.png}
+		\caption{$V_{sh}$ è in arancio, $V_{out}$ in blu}
+	\label{220mv}
+
+\end{figure}
+Come si può vedere, l'uscita passa in basso per $V_{sh}\approx220mV$ (Cursore 1). Tuttavia la tensione di alimentazione misurata (sempre con l'oscilloscopio), riportava un valore superiore di circa $20mV$ e non compatibile con l'errore di misura.\\ Questo si può giustificare considerando lo slew rate dell'amplificatore, che sposta l'intersezione col segnale $V_{sh} $ più a destra, riducendone il valore.
+
 \section{ MULTIVIBRATORI }
 
 
