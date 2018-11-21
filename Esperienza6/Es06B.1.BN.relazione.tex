@@ -1,3 +1,5 @@
+
+
 \documentclass[10pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
@@ -30,7 +32,16 @@
 	\subsection{Montaggio circuito e valore delle componenti}
 		Si monta il circuito sulla basetta.
 		I valori delle varie componenti sono i seguenti:
-		\\$C_T=0.967\pm 0.04$ \si{\nano\farad}\\$C_F=0.958\pm 0.04$ \si{\nano\farad}\\$R_2=99.9\pm 0.9 $ \si{\ohm}\\$R_1=0.392 \pm0.03   $ \si{\mega \ohm}\\
+
+
+
+$C_T=0.967\pm 0.04$ \si{\nano\farad} \\
+
+
+$C_F=0.958\pm 0.04$ \si{\nano\farad}\\
+
+
+$R_2=99.9\pm 0.9 $ \si{\ohm}\\$R_1=0.392 \pm0.03   $ \si{\mega \ohm}\\
 				
 Il potenziometro ha una resistenza massima di circa 1\si{\mega\ohm}.
 
@@ -154,21 +165,56 @@ La serie dei due  diodi  Zener back-to-back limita l'escursione in tensione, inf
 Dalla misura risulta \[V_{max} = ( 6.8\pm 0.1) \si \volt\]
 
 \subsection{Periodo dell'onda quadra in uscita}
-Il periodo dell'onda quadra in uscita è indipendente dal voltaggio applicato. Infatti sia nel caso in cui il dispositivo sia limitato dai due diodi Zener o in cui sia limitato dalla tensione di alimentazione dell'OpAmp il condensatore si carica con un tempo caratteristico indipendente dall'ampiezza ($1/RC$). L'OpAmp scatta quando $V_- < V_+$, ovvero:
-\[V_{out} e^{\frac{t}{RC}} = (1+ 2 R_2/R_1) V_{out}\]
-condizione che è indipendente dall'ampiezza di $V_{out}$, che sarà uguale a $V_{in}$ o $V_{max}$ a seconda di quale sia minore.
-Una dipendenza dall'ampiezza appare solo in caso che lo slew-rate non sia trascurabile. In tal caso $V_-$ non è costante nel tempo e il tempo di carica del condensatore dipende anche da $R_{slew rate} / V_{out}$ (vedi figura \ref{fig:slew_rate}). 
+
+Notiamo innanzitutto che dimunuendo la tensione di alimentazione diminuiscono i problemi dovuti allo slew-rate, ma questi erano già trascurabili inizialmente visto il grande periodo di oscillazione.
+
+
+Ci sono due casi da trattare:
+
+- Se la tensione di alimentazione rimane superiore a $V_{max}$ il periodo resta invariato, infatti si calcola secondo la formula trovata nel punto 2.a che  dipende solo dai valori delle resistenze e della capacità. 
+
+- Se invece la tensione di alimentazione scende sotto $V_{max}$ quello che succede è che uno dei due diodi Zener va in interdizione e non fa passare corrente per quel ramo . Non è  più vero che $V_{out}$ rimane costante durante  la scarica/carica del condensatore; notiamo però che essendo $R_3 \ll( R_1 +R_2)< R$,  la caduta ai capi di $R_3$ sarà i $\ll V_{Op-Amp}$ ( potenziale all'uscita dell'Op-Amp) e quindi che $V_{out}\approx V_{Op-Amp} = $ costante. In questa approssimazione possiamo riapplicare la formula del punto 2.a e di conseguenza il periodo di oscillazione rimane lo stesso con un errore non superiore al $R_3/( R_1 +R_2) = 5\% $.
 
 \subsection{Massima frequenza}
-  Due effetti entrano in gioco nel  limitare la  possibilità di salire in frequenza: lo slew-rate dell'OpAmp e la capacità e resistenza della basetta. Come fatto notare in \ref{slew_rate_count} lo slew rate non è apprezzabile fino a valori di $1/RC$ nelle centinaia di kilohertz. Arrivati nei megaohm il segnale in uscita non presenta più alcuna caratterisca delle onde quadre.
 
- \begin{figure}[h]
+
+
+ 
+
+
+Per alzare la frequenza  si  cerca di diminuire il prodotto $RC$; i limiti che si presentano sono due: 
+
+la capacità del circuito non può essere abbassata a valori arbitrariamente piccoli perchè c'è in parallelo la capacità della basetta che quindi rappresenta il nostro valore minimo (vedere Figura 5). Inoltre per bassi valori di $C$ il dispositivo diventa tanto sensibile all'ambiente che è possibile cambiare la frequenza in modo significativo solo passando una mano sopra di esso.
+
+
+Anche nel caso di $R$ avremo una resistenza della basetta che però è molto piccola; il problema che si incontra adesso, è che abbassando di molto la resistenza aumente la richiesta in corrente e quindi la potenza che deve fornire il generatore. (vedere Figura 6 )
+
+Quello che si fa è  diminuire contemporaneamente sia $R$ che $C$; in questo modo rendiamo molto piccolo il tratto "orizzontale" di $V_{out}$ che , a causa dello slew-rate,  cessa di essere approssimabile a un'onda quadra  e diventa più simile a un'onda triangolare.
+
+In un periodo il  segnale all'uscita dall' Op-Amp deve passare da $+15\si\volt$ a $-15\si\volt$ per quattro volte, se  assumiamo lo slew-rate di  $13 \si{\volt\per\micro\second}$ questo richiede che il periodo sia maggiore di $T_{min} = 120\si\volt / (13 \si{\volt\per\micro\second) }\approx 10^{-5}\si\second$ e quindi la frequenza di oscillazione minore di $f_{max}\approx 100 \si{\kilo \hertz}$.
+\begin{figure}[h]
 	\centering
 	\includegraphics[scale=0.8]{basetta.png}
-	\caption{\small i segnali $V_+$( in azzurro ) e $V_-$ ( in arancione )  in caso di $RC$ molto basso}
-	\label{fig:slew_rate}
+	\caption{\small è stato levato il condensatore lasciando solo la capacità della basetta, il valore di $R$ è quello iniziale.}
+	\label{fig:basetta}
 \end{figure}
 
-Un'altro effetto limitante la frequenza è l'impossibilità di abbassare RC a piacere, a causa della capacità della basetta. Tentando infatti di abbassare $C$ la frequenza non sale all'infinito ma ha un comportamento asintotico. Inoltre per bassi valori di $C$ il dispositivo diventa tanto sensibile all'ambiente che è possibile cambiare la frequenza in modo significativo solo passando una mano sopra di esso.
+Sapendo la frequenza di oscillazione si è trovato che $C_{basetta} \approx 0.2 \si{\nano \farad}$
+\begin{figure}[h]
 
-\end{document}          
+	\centering
+	\includegraphics[scale=0.8]{freqRbassa.png}
+	\caption{\small Si è abbassata la resistenza a un valore di circa $\sim 50 \si \ohm$, lasciando $C$ uguale al valore iniziale}
+	\label{fig: resbassa }
+
+\end{figure}
+
+
+
+
+
+
+
+
+
+\end{document}  
