@@ -29,17 +29,41 @@
 \maketitle
 	
 	\section{Caratteristiche statiche}
-	Si monta il circuito come in figura,, utilizzando i resistenze con valori nominali:\[R_2=100\Omega \]
-	$R_1\approx2080(scala 20k)\Omega$ ha un ingresso variabile che permettere di utilizzarla come partitore variabile di tensione (e quindi di mettere l'ingresso ad H/L).
-	Per misurare VIL, VOH vario il potenziometro finchè non vedo il valore in uscita variare bruscamente. Analogamente con VIH, VOL (solo che abbasso la tensione in ingresso finchè non osservo variazioni brusche).
-	\\Ottengo, come stima:
-	\begin{enumerate}
-		\item $V_{IL}\approx0.9 V,~V_{IL~nominale}=$
-		\item $V_{IH}		\approx 1.5V,~V_{IH~nominale}=$
-		\item $V_{OL}\approx0.1V,~V_{OL~nominale}=$
-		\item $V_{OH}\approx5V,~V_{OH~nominale}=$
-	\end{enumerate}
-	Successivamente si è tracciato un grafico $V_{in}/V_{out}$ con i dati riportati nella seguente tabella:
+	Si monta il circuito come in figura,, utilizzando resistenze con valori  $R_{2~nominale}=100\Omega $,~
+	$R_{1~meas}\approx2.08\pm0.01 k \Omega$ è la resistenza massima del potenziometro che ci permette di variare la tensione in ingresso al componente (e quindi di mettere l'ingresso ad H/L).\\
+	\includegraphics[scale=0.9]{Cattura.png}\centering
+\\Si sono prese varie della tensione in ingresso/ uscita,  ottenute variando la posizione del potenziometro,e sono riportate nella seguente tabella. Si è poi tracciato un grafico $V_{in}/V_{out}$ con i dati raccolti. \\
+	
+	\begin{center}
+\begin{tabular}{|c|c|c|c|}
+	\hline 
+	$V_{in}$ & $\sigma(V_{in})$ & $V_{out}$ & $\sigma(V_{out})$ \\ 
+	\hline 
+	0.04&0.06&5.0&0.1\\ \hline
+	0.28&0.05&5.0&0.1\\ \hline
+	0.6&0.07&5.0&0.1\\ \hline
+	1.0&0.06&4.96&0.1\\ \hline
+	1.06&0.06&4.7&0.1\\ \hline
+	1.18&0.06&3.88&0.08\\ \hline
+	1.27&0.07&2.92&0.08\\ \hline
+	1.4&0.08&1.5&0.08\\ \hline
+	1.4&0.08&1.08&0.08\\ \hline
+	1.48&0.08&0.1&0.08\\ \hline
+	1.9&0.08&0.09&0.08\\ \hline
+	2.4&0.08&0.08&0.07\\ \hline
+\end{tabular} 
+	\end{center}
+\includegraphics[scale=0.5]{gain.png}\centering
+\\Come si può vedere, il comportamento del componente è quasi quello di una funzione a gradino, piuttosto piatta fino a un certo punto, e poi con una brusca variazione.
+Osservando i punti del grafico dove inizia e finisce la variazione, posso stimare VIL, VOH  VIH, VOL , valori da confrontare con quelli sul datasheet.
+\\Ottengo, come stima:
+\begin{enumerate}
+	\item $V_{IL}\approx0.9 V,~V_{IL~nominale}=0.7V$
+	\item $V_{IH}		\approx 1.5V,~V_{IH~nominale}=2V$
+	\item $V_{OL}\approx0.1V,~V_{OL~nominale}=0.5V$
+	\item $V_{OH}\approx5V,~V_{OH~nominale}=2.5V$
+\end{enumerate}
+
 	\section{Caratteristiche dinamiche}
 \textcolor{red}{correggere in base all'immagine l'ampiezza dell'onda quadra, aggiungere erroe ai tempi, confronto finale può essere colpa del generatore che non è abbastanza veloce a cambiare}
 Abbiamo inviato un'onda quadra con valori  $0-5 \si{\volt}$ in ingresso. Nelle figure compaiono l'ingresso (arancio) e l'uscita (blu) rispettivamente negli istanti in cui l'ingresso passa da basso ad alto e da alto a basso.
