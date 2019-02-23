@@ -25,8 +25,8 @@
 \usetikzlibrary{shapes.geometric,calc,matrix,arrows,snakes,shapes,patterns}
 \title{Esercitazione 10B: Caratteristiche porte logiche e semplici circuiti logici}
 \author{Massimo Bilancioni, Alessandro Foligno}
-\begin{document}
-	\maketitle
+\begin{document}	
+\maketitle
 	
 	\section{Caratteristiche statiche}
 	Si monta il circuito come in figura,, utilizzando resistenze con valori  $R_{2~nominale}=100\Omega $,~
@@ -65,4 +65,11 @@ Osservando i punti del grafico dove inizia e finisce la variazione, posso stimar
 \end{enumerate}
 
 	\section{Caratteristiche dinamiche}
+\textcolor{red}{correggere in base all'immagine l'ampiezza dell'onda quadra, aggiungere erroe ai tempi, confronto finale può essere colpa del generatore che non è abbastanza veloce a cambiare}
+Abbiamo inviato un'onda quadra con valori  $0-5 \si{\volt}$ in ingresso. Nelle figure compaiono l'ingresso (arancio) e l'uscita (blu) rispettivamente negli istanti in cui l'ingresso passa da basso ad alto e da alto a basso.
+Nel primo caso misuriamo $t_{PHL}= 20 \si{\nano\second}$ nel secondo  misuriamo $t_{PLH} = 40\si{\nano \second}$.
+Nel datasheet sono riportati i valori tipici: $t_{PHL}= 10 \si{\nano\second}$, $t_{PLH} = 9\si{\nano \second}$ e quello massimo $t_{PHL}^{MAX}= t_{PLH}^{MAX}= 15 \si{\nano\second}$.
+
+
+
 \end{document}
