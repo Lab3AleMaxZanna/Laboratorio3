@@ -47,5 +47,36 @@ Nel primo caso misuriamo $t_{PHL}= 20 \si{\nano\second}$ nel secondo  misuriamo 
 Nel datasheet sono riportati i valori tipici: $t_{PHL}= 10 \si{\nano\second}$, $t_{PLH} = 9\si{\nano \second}$ e quello massimo $t_{PHL}^{MAX}= t_{PLH}^{MAX}= 15 \si{\nano\second}$.
 
 
+\section{Costruzione di circuiti logici elementari}
+Si è verificato il comportamento della porta NAND tramite i led con il circuito mostrato in \textcolor{red}{figura}.
 
+Il circuito AND è stato costruito con due porte NAND secondo lo schema mostrato in Figura (\ref{fig:and}).
+
+\begin{figure}
+			\centering
+			\includegraphics[scale=0.60]{and}
+			\caption{schema porta AND}
+			\label{fig:and}
+\end{figure}
+Per il circuito OR  si sono usate tre porte NAND, Figura (\ref{fig:or}).
+\begin{figure}
+			\centering
+			\includegraphics[scale=0.85]{or}
+			\caption{schema porta OR}
+			\label{fig:or}
+\end{figure}
+Il circuito XOR  è stato realizzato con quattro porte NAND, Figura (\ref{fig:xor}).
+\begin{figure}
+			\centering
+			\includegraphics[scale=0.55]{xor}
+			\caption{schema porta XOR}
+			\label{fig:xor}
+\end{figure}
+Il sommatore a due bit è stato costruito con cinque porte NAND: una in meno rispetto alla somma AND $+$  XOR perchè una porta era in comune, Figura (\ref{fig:som}).
+\begin{figure}
+			\centering
+			\includegraphics[scale=0.55]{sommatore}
+			\caption{schema sommatore a due bit}
+			\label{fig:som}
+\end{figure}
 \end{document}
