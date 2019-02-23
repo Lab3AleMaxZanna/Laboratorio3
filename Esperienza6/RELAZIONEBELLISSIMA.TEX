@@ -1,0 +1,44 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\newcommand{\rem}[1]{[\emph{#1}]}
+\newcommand{\exn}{\phantom{xxx}}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{siunitx}
+\date{\today}
+\usetikzlibrary{shapes.geometric,calc,matrix,arrows,snakes,shapes,patterns}
+\title{Esercitazione 10B: Caratteristiche porte logiche e semplici circuiti logici}
+\author{Massimo Bilancioni, Alessandro Foligno}
+\begin{document}
+	\maketitle
+	
+	\section{Caratteristiche statiche}
+	Si monta il circuito come in figura,, utilizzando i resistenze con valori nominali:\[R_2=100\Omega \]
+	$R_1\approx2080(scala 20k)\Omega$ ha un ingresso variabile che permettere di utilizzarla come partitore variabile di tensione (e quindi di mettere l'ingresso ad H/L).
+	Per misurare VIL, VOH vario il potenziometro finchè non vedo il valore in uscita variare bruscamente. Analogamente con VIH, VOL (solo che abbasso la tensione in ingresso finchè non osservo variazioni brusche).
+	\\Ottengo, come stima:
+	\begin{enumerate}
+		\item $V_{IL}\approx0.9 V,~V_{IL~nominale}=$
+		\item $V_{IH}		\approx 1.5V,~V_{IH~nominale}=$
+		\item $V_{OL}\approx0.1V,~V_{OL~nominale}=$
+		\item $V_{OH}\approx5V,~V_{OH~nominale}=$
+	\end{enumerate}
+	Successivamente si è tracciato un grafico $V_{in}/V_{out}$ con i dati riportati nella seguente tabella:
+	\section{Caratteristiche dinamiche}
+\end{document}
