@@ -29,48 +29,62 @@
 \maketitle
 	
 	\section{Caratteristiche statiche}
-	Si monta il circuito come in figura,, utilizzando resistenze con valori  $R_{2~nominale}=100\Omega $,~
-	$R_{1~meas}\approx2.08\pm0.01 k \Omega$ è la resistenza massima del potenziometro che ci permette di variare la tensione in ingresso al componente (e quindi di mettere l'ingresso ad H/L).\\
+	Si monta il circuito come in figura,, utilizzando resistenze con valori  $R\ped{2~nominale}=100\Omega $,~
+	$R\ped{1~meas}\approx2.08\pm0.01 k \Omega$, l'ultima è la resistenza massima del potenziometro che ci permette di variare la tensione all'ingresso del componente (e quindi di mettere l'ingresso  H/L).\\
 	\includegraphics[scale=0.9]{Cattura.png}\centering
-\\Si sono prese varie della tensione in ingresso/ uscita,  ottenute variando la posizione del potenziometro,e sono riportate nella seguente tabella. Si è poi tracciato un grafico $V_{in}/V_{out}$ con i dati raccolti. \\
+\\Si sono prese varie misure della tensione in ingresso/uscita,  ottenute variando la posizione del potenziometro; queste  sono riportate nella seguente tabella. Si è poi tracciato un grafico $V_{in}/V_{out}$ con i dati raccolti. \\
 	
 	\begin{center}
 \begin{tabular}{|c|c|c|c|}
 	\hline 
-	$V_{in}$ & $\sigma(V_{in})$ & $V_{out}$ & $\sigma(V_{out})$ \\ 
+	$V_{in}(\si{\volt})$ & $\sigma(V_{in}) (\si{\volt})$ & $V_{out} (\si{\volt})$ & $\sigma(V_{out}) (\si{\volt})$ \\ 
 	\hline 
 	0.04&0.06&5.0&0.1\\ \hline
 	0.28&0.05&5.0&0.1\\ \hline
-	0.6&0.07&5.0&0.1\\ \hline
-	1.0&0.06&4.96&0.1\\ \hline
+	0.60&0.07&5.0&0.1\\ \hline
+	1.00&0.06&4.9&0.1\\ \hline
 	1.06&0.06&4.7&0.1\\ \hline
 	1.18&0.06&3.88&0.08\\ \hline
 	1.27&0.07&2.92&0.08\\ \hline
-	1.4&0.08&1.5&0.08\\ \hline
-	1.4&0.08&1.08&0.08\\ \hline
-	1.48&0.08&0.1&0.08\\ \hline
-	1.9&0.08&0.09&0.08\\ \hline
-	2.4&0.08&0.08&0.07\\ \hline
+	1.40&0.08&1.50&0.08\\ \hline
+	1.40&0.08&1.08&0.08\\ \hline
+	1.48&0.08&0.10&0.08\\ \hline
+	1.90&0.08&0.09&0.08\\ \hline
+	2.40&0.08&0.08&0.07\\ \hline
 \end{tabular} 
 	\end{center}
 \includegraphics[scale=0.5]{gain.png}\centering
 \\Come si può vedere, il comportamento del componente è quasi quello di una funzione a gradino, piuttosto piatta fino a un certo punto, e poi con una brusca variazione.
-Osservando i punti del grafico dove inizia e finisce la variazione, posso stimare VIL, VOH  VIH, VOL , valori da confrontare con quelli sul datasheet.
-\\Ottengo, come stima:
+Osservando i punti del grafico, è possibile  stimare VIL, VOH  VIH, VOL e confrontare questi  con i valori riportati sul datasheet. In particolare le stime si  ottengono da i due punti subito prima e subito dopo la brusca variazione, che sono stati selezionati come punti limite per cui alzando/abbassando $V\ped{in}$ il segnale in uscita restava "costante".
+\\
+
+Si ottiene:
 \begin{enumerate}
-	\item $V_{IL}\approx0.9 V,~V_{IL~nominale}=0.7V$
+	\item $V_{IL}\approx0.9 V,~V_{IL~nominale}=0.8V$
 	\item $V_{IH}		\approx 1.5V,~V_{IH~nominale}=2V$
 	\item $V_{OL}\approx0.1V,~V_{OL~nominale}=0.5V$
-	\item $V_{OH}\approx5V,~V_{OH~nominale}=2.5V$
+	\item $V_{OH}\approx5V,~V_{OH~nominale}=2.7V$
 \end{enumerate}
+questi  risultati sono in linea con la formulazione "difensiva" del datasheet, infatti per i valori in ingresso il datasheet è meno elastico mentre per quelli in uscita dà delle condizione meno restrittive.
 
 	\section{Caratteristiche dinamiche}
-\textcolor{red}{correggere in base all'immagine l'ampiezza dell'onda quadra, aggiungere erroe ai tempi, confronto finale può essere colpa del generatore che non è abbastanza veloce a cambiare}
-Abbiamo inviato un'onda quadra con valori  $0-5 \si{\volt}$ in ingresso. Nelle figure compaiono l'ingresso (arancio) e l'uscita (blu) rispettivamente negli istanti in cui l'ingresso passa da basso ad alto e da alto a basso.
-Nel primo caso misuriamo $t_{PHL}= 20 \si{\nano\second}$ nel secondo  misuriamo $t_{PLH} = 40\si{\nano \second}$.
-Nel datasheet sono riportati i valori tipici: $t_{PHL}= 10 \si{\nano\second}$, $t_{PLH} = 9\si{\nano \second}$ e quello massimo $t_{PHL}^{MAX}= t_{PLH}^{MAX}= 15 \si{\nano\second}$.
 
-
+Abbiamo inviato in ingresso un'onda quadra con valore minimo $0 \si{\volt}$  e valore massimo circa $3 \si{\volt}$. Nelle Figure \ref{fig:phl},\ref{fig:plh}  compaiono l'ingresso (in arancio) e l'uscita (in blu) rispettivamente negli istanti in cui l'ingresso passa da basso ad alto e da alto a basso.
+Nel primo caso misuriamo $t_{PHL}= (20\pm 2 )\si{\nano\second}$ nel secondo  misuriamo $t_{PLH} = (40\pm 4)\si{\nano \second}$.
+Nel datasheet sono riportati i valori tipici: $t_{PHL}= 10 \,\si{\nano\second}$, $t_{PLH} = 9\,\si{\nano \second}$ e quello massimo $t_{PHL}^{MAX}= t_{PLH}^{MAX}= 15\, \si{\nano\second}$ che è quindi in disaccordo con il valore misurato. Ipotizziamo  che la discrepanza sia dovuta alla lentezza del generatore di onde quadre che impiega un certo tempo a passare da alto a basso.
+Secondo le due Figure questo tempo è di circa $\sim 100 \, \si {\nano\second}$, a causa di questo due fatti incidono sulla misura del tempo di propagazione: il primo è che per un intervallo dell'ordine delle decine di nanosecondi l'input non è né alto né basso ma compreso nella zona intermedia e questo può modificare la velocità con cui varia l'output; il secondo, secondo noi più rilevante, è che finchè $V\ped{in}$ non supera $V\ped{IL}$ nel primo caso (o scende sotto $V\ped{IH}$ nel secondo) l'uscita rimane invariata; il  tempo che  impiega l'input a raggiungere $V\ped{IL}$ (o  $V\ped{IH}$) non è una caratteristica del circuito integrato di conseguneza andrebbe non considerato nella misura del tempo di propagazione, inoltre come si vede dalle Figure è causa  dell'asimmetriatra tra le due misure  $t_{PHL}$ e  $t_{PLH}$.
+\begin{figure}
+			\centering
+			\includegraphics[scale=0.85]{schifo1}
+			\caption{tempo di propagazione, misura di $t\ped{PHL}$}
+			\label{fig:phl}
+\end{figure}
+\begin{figure}
+			\centering
+			\includegraphics[scale=0.85]{schifo2}
+			\caption{tempo di propagazione, misura di $t\ped{PLH}$}
+			\label{fig:plh}
+\end{figure}
 \section{Costruzione di circuiti logici elementari}
 Si è verificato il comportamento della porta NAND tramite il led e l'interruttore con il circuito mostrato in \textcolor{red}{figura}.
 
