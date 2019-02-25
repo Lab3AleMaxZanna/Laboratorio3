@@ -55,7 +55,7 @@
 	\end{center}
 \includegraphics[scale=0.5]{gain.png}\centering
 \\Come si può vedere, il comportamento del componente è quasi quello di una funzione a gradino, piuttosto piatta fino a un certo punto, e poi con una brusca variazione.
-Osservando i punti del grafico, è possibile  stimare VIL, VOH  VIH, VOL e confrontare questi  con i valori riportati sul datasheet. In particolare le stime si  ottengono da i due punti subito prima e subito dopo la brusca variazione, che sono stati selezionati come punti limite per cui alzando/abbassando $V\ped{in}$ il segnale in uscita restava "costante".
+Osservando le coordinate degli "spigoli" del gradino, è possibile  stimare VIL, VOH  VIH, VOL e confrontare questi  con i valori riportati sul datasheet. In particolare le stime si  ottengono da i due punti subito prima e subito dopo la brusca variazione, che sono stati selezionati come punti limite per cui alzando/abbassando $V\ped{in}$ il segnale in uscita restava "costante".
 \\
 
 Si ottiene:
@@ -73,44 +73,69 @@ Abbiamo inviato in ingresso un'onda quadra con valore minimo $0 \si{\volt}$  e v
 Nel primo caso misuriamo $t_{PHL}= (20\pm 2 )\si{\nano\second}$ nel secondo  misuriamo $t_{PLH} = (40\pm 4)\si{\nano \second}$.
 Nel datasheet sono riportati i valori tipici: $t_{PHL}= 10 \,\si{\nano\second}$, $t_{PLH} = 9\,\si{\nano \second}$ e quello massimo $t_{PHL}^{MAX}= t_{PLH}^{MAX}= 15\, \si{\nano\second}$ che è quindi in disaccordo con il valore misurato. Ipotizziamo  che la discrepanza sia dovuta alla lentezza del generatore di onde quadre che impiega un certo tempo a passare da alto a basso.
 Secondo le due Figure questo tempo è di circa $\sim 100 \, \si {\nano\second}$, a causa di questo due fatti incidono sulla misura del tempo di propagazione: il primo è che per un intervallo dell'ordine delle decine di nanosecondi l'input non è né alto né basso ma compreso nella zona intermedia e questo può modificare la velocità con cui varia l'output; il secondo, secondo noi più rilevante, è che finchè $V\ped{in}$ non supera $V\ped{IL}$ nel primo caso (o scende sotto $V\ped{IH}$ nel secondo) l'uscita rimane invariata; il  tempo che  impiega l'input a raggiungere $V\ped{IL}$ (o  $V\ped{IH}$) non è una caratteristica del circuito integrato di conseguneza andrebbe non considerato nella misura del tempo di propagazione, inoltre come si vede dalle Figure è causa  dell'asimmetriatra tra le due misure  $t_{PHL}$ e  $t_{PLH}$.
-\begin{figure}
+\begin{figure}[h]
 			\centering
 			\includegraphics[scale=0.85]{schifo1}
 			\caption{tempo di propagazione, misura di $t\ped{PHL}$}
 			\label{fig:phl}
 \end{figure}
-\begin{figure}
+\begin{figure}[h]
 			\centering
 			\includegraphics[scale=0.85]{schifo2}
 			\caption{tempo di propagazione, misura di $t\ped{PLH}$}
 			\label{fig:plh}
-\end{figure}
+\end{figure}\clearpage
 \section{Costruzione di circuiti logici elementari}
-Si è verificato il comportamento della porta NAND tramite il led e l'interruttore con il circuito mostrato in \textcolor{red}{figura}.
+Si è verificato il comportamento della porta NAND tramite il led e l'interruttore con il circuito mostrato in figura \ref{NAND}.\\
+\begin{figure}[h]\centering
 
-Il circuito AND è stato costruito con due porte NAND secondo lo schema mostrato in Figura (\ref{fig:and}).
+\includegraphics[scale=0.04]{20190221_164815.jpg}\label{NAND}
+\caption{immagine del circuito realizzato per il NAND }
+\end{figure}
+Il circuito AND è stato costruito con due porte NAND secondo lo schema mostrato in Figura (\ref{fig:and}),il circuito realizzato è in Figura \ref{AND}.
+\begin{figure}[h]\centering
+	
+	\includegraphics[scale=0.04]{20190221_165301.jpg}\label{AND}
+	\caption{immagine del circuito AND }
+\end{figure}\\
 
-\begin{figure}
-			\centering
-			\includegraphics[scale=0.60]{and}
-			\caption{schema porta AND}
-			\label{fig:and}
+Per il circuito OR  si sono usate tre porte NAND, Figura (\ref{fig:or}), il risultato è riportato in figura \ref{OR}.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.07]{20190221_170024.jpg}
+	\caption{circuito OR realizzato}
+	\label{OR}
 \end{figure}
-Per il circuito OR  si sono usate tre porte NAND, Figura (\ref{fig:or}).
-\begin{figure}
+\\
+
+
+Il circuito XOR  è stato realizzato con quattro porte NAND, Figura (\ref{fig:xor}),in Figura (\ref{XOR})  è riportata la realizzazione, (in realtà quello che è riportato è un sommatore a due bit, ma basta ignorare un output e un AND e resta uno XOR).
+
+\begin{figure}[h]
 			\centering
-			\includegraphics[scale=0.85]{or}
-			\caption{schema porta OR}
-			\label{fig:or}
+			\includegraphics[scale=0.05]{20190221_180923.jpg}
+			\caption{realizzazione sommatore a due bit (include lo XOR)}
+			\label{XOR}
 \end{figure}
-Il circuito XOR  è stato realizzato con quattro porte NAND, Figura (\ref{fig:xor}).
 \begin{figure}
-			\centering
-			\includegraphics[scale=0.55]{xor}
-			\caption{schema porta XOR}
-			\label{fig:xor}
+	\centering
+	\includegraphics[scale=0.60]{and}
+	\caption{schema porta AND}
+	\label{fig:and}
 \end{figure}
-Il sommatore a due bit è stato costruito con cinque porte NAND: una in meno rispetto alla somma AND $+$  XOR perchè una porta era in comune, Figura (\ref{fig:som}).
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.85]{or}
+	\caption{schema porta OR}
+	\label{fig:or}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.55]{xor}
+	\caption{schema porta XOR}
+	\label{fig:xor}
+\end{figure}
+Il sommatore a due bit è stato costruito con cinque porte NAND: una in meno rispetto alla somma AND $+$  XOR perchè una porta era in comune, Figura (\ref{fig:som}), guardare Figura \ref{XOR} per la realizzazione.
 \begin{figure}
 			\centering
 			\includegraphics[scale=0.55]{sommatore}
