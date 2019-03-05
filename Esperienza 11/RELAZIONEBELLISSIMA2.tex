@@ -100,11 +100,16 @@ Sul datasheet è riportato come tempo di propagazione massimo dal clock all'outp
 \end{figure}
 
 
-Per resettare il circuito a $10$  abbiamo collegato i segnali $Q1$ e $Q3$ a una porta NAND e l'uscita della porta  al $\overline{\mathrm{CLR}}$ del contatore a $4$-bit di modo che appena entrmabi fossero stati alti il conteggio si sarebbe resettato.
-
+Per resettare il circuito a $10$  abbiamo collegato i segnali $Q1$ e $Q3$ a una porta NAND e l'uscita della porta,  al $\overline{\mathrm{CLR}}$ del contatore di modo che appena entrmabi fossero stati alti il conteggio si sarebbe resettato. 
+In Figura \ref{fig:dec} compare il segnale $Q1$ in giallo  e il segnale $Q3$ in blu, quando diventano entrambi alti, cioè quando il contatore è a 10 si vede che dopo un tempo pari al periodo del clock si resetta e  i due segnali diventano bassi. Se osservo l'uscita del NAND questa è bassa per un periodo del clock ogni 11 e quindi ha frequenza 1/11 di CLK. Per ottenere la frequenza di 1/10 come rischiesto dal testo avremmo dovuto resettare il contatore a 9 usando come ingressi del NAND $Q0$ e $Q3$.
 \section{Shift register con D-Latch}
 I led si accendono in sequenza, partendo dal primo e scorrendo fino all'ultimo, il
-
+\begin{figure}[h]
+			\centering
+			\includegraphics[scale=0.85]{decadico}
+			\caption{contatore che si resetta a 10, cioè quando $Q1$ (in blu) e $Q3$ (in giallo) sono entrambi alti}
+			\label{fig:dec}
+\end{figure}
 
 \begin{figure}[h]
 	\centering
