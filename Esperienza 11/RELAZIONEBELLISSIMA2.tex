@@ -20,6 +20,7 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{enumitem}
+\usepackage{subcaption}
 \usepackage{siunitx}
 \date{\today}
 \usetikzlibrary{shapes.geometric,calc,matrix,arrows,snakes,shapes,patterns}
@@ -98,9 +99,30 @@ Sul datasheet è riportato come tempo di propagazione massimo dal clock all'outp
 			\label{fig:q0q1}
 \end{figure}
 
-Per resettare il circuito a $10$  abbiamo collegato i segnali $Q1$ e $Q3$ a una porta NAND e l'uscita della porta  al $\overline{\mathrm{CLR}}$ del contatore a $4$-bit di modo che appena entrmabi fossero stati alti il conteggio si sarebbe resettato.
-\section{ Shift register con D-Latch}
 
+Per resettare il circuito a $10$  abbiamo collegato i segnali $Q1$ e $Q3$ a una porta NAND e l'uscita della porta  al $\overline{\mathrm{CLR}}$ del contatore a $4$-bit di modo che appena entrmabi fossero stati alti il conteggio si sarebbe resettato.
+
+\section{Shift register con D-Latch}
+I led si accendono in sequenza, partendo dal primo e scorrendo fino all'ultimo, il
+
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.4\linewidth}
+		\includegraphics[width=\linewidth]{q0q1periodo sr.png}
+		\caption{Confronto tra Q0 e Q1, visibile più di un periodo}
+	\end{subfigure}
+	\newline
+	\begin{subfigure}[b]{0.4\linewidth}
+		\includegraphics[width=\linewidth]{q0q2 sr.png}
+		\caption{Q0 e Q2, sfasamento alla salita}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.4\linewidth}
+		\includegraphics[width=\linewidth]{q0q3 sr.png}
+		\caption{Q0 e Q3, sfasamento alla salita}
+	\end{subfigure}
+	\caption{Shift register con feedback negato}
+\end{figure}
 
 
 \end{document}

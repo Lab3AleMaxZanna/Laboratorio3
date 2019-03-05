@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+
 Vin,Vout,f,phi,dphi=np.loadtxt("C:\\Users\\alexf\OneDrive\Desktop\laboratorio\Laboratorio3\Esperienza5\integratorefrequenza.txt", unpack=True)
 f=f*1000
 Vin=Vin[f<100000]
