@@ -49,9 +49,10 @@ Si verifica che quando l'interruttore è aperto ($En=1$), il circuito copia il v
 		\label{dlatch}
 \end{figure} 
 La differenza di tempi fra salita e discesa può essere spiegata dando un'occhiata al circuito. Quando $D$ va in alto, il nuovo segnale deve passare attraverso il primo NAND e dare FALSE, dopodichè il NAND successivo restituirà immediatamente TRUE, indipendentemente dal segnale su $\bar{Q}$. Invece, quando $D$ diventa FALSE,il NAND che restituisce $Q$ avrà ad un ingresso TRUE e all'altro $\bar{Q}$, quindi affinchè il segnale su $Q$ sia quello giusto, deve prima arrivare il segnale corretto su $\bar{Q}$ e quindi bisogna passare attraverso altri due NAND, con un ritardo di circa $10 ns$ ciascuno. Questo spiega anche perchè il segnale sull'oscilloscopio(arancione) è così diverso da quello in ingresso (quello blu).
-\section{ Divisori di frequenza }
-Si è montato il circuito in figura come mostrato nell'immagine \textcolor{red}{AGGIUNGERE IMMAGINE}.
-Si è verificato il corretto funzionamento del contatore con un impulso a bassa frequenza.
+
+\textcolor{red}{NON SO SE DEVI ANCORA FINIRE IN OGNI CASO AGGIUNGI L'ENABLE LA FIGURA}
+l'immagine \textcolor{red}{AGGIUNGERE IMMAGINE}.
+Si è verificato il corretto funzionamento del contatore con un impulso a bassa frequenza.                                                                                                                                                                                                                                                   
 
 Abbiamo inviato un clock a una frequenza di circa $f\simeq 50 \si{\kilo \hertz}$; nelle immagini che seguono compaiono  rispettivamente $Q0$, $Q1$, $Q2$ e $Q3$ \textcolor{red}{AGGIUNGERE IMMAGINE} (in giallo) sovrapposti al clock (in blu), dalle figure si vede che le frequenze sono effettivamente $1/2$, $1/4$, $1/8$, $1/16$ di $f$.
 \begin{figure}[h]
@@ -97,12 +98,14 @@ Per gli altri tre i ritardi sono gli stessi di $Q0$  nei due casi, infatti le qu
 			\label{fig:q0q1}
 \end{figure}
 \section{Shift register con D-Latch}
-\subsection{Montaggio}
+\subsection{Montaggio e funzionamento}
 \begin{figure}[h]
 	\includegraphics[scale=1]{circuito3.png}
-	\caption{Shift register}
-\end{figure}
-I led si accendono in sequenza, partendo dal primo e scorrendo fino all'ultimo, l'accensione di uno sfasata di un periodo di clock rispetto all'accensione del successivo. Il primo segue il DIP switch, con un ritardo di al massimo un periodo di clock.
+	\caption{Shiftregister}                                  \end{figure}
+I led si accendono in sequenza, partendo dal primo e scorrendo fino all'ultimo, l'accensione di uno sfasata di un periodo di clock rispetto all'accensione del successivo. Il primo segue il DIP switch, con un ritardo di al massimo un periodo di clock. Dopo aver premuto il bottone di preset le luci sono tutte accese (il pin è negato)
+
+\subsection{Feedback negato}
+Collegando l'uscita negata Q3 all'input del primo FF il circuito inizia a oscillare con una frequenza pari a un quarto di quella di clock. I led si accendono in successione da Q0 a Q3 per poi spegnersi nello stesso ordine
 
 \begin{figure}[h]
 	\centering
@@ -122,5 +125,6 @@ I led si accendono in sequenza, partendo dal primo e scorrendo fino all'ultimo, 
 	\caption{Shift register con feedback negato}
 \end{figure}
 
+Nelle figure si può  vedere un confronto tra le onde quadre emesse su ogni piedino e Q0. Si può osservare facilmente lo sfasamento di 1,2,3 tempi di clock.
 
 \end{document}
