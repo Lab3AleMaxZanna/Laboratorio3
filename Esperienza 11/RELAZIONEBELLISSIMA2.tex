@@ -29,8 +29,25 @@
 \maketitle
 	
 \section{ Flip-Flop D-Latch}
+\subsection{Montaggio}
+ Si monta il circuito come in Figura \ref{circ}; per attivare a piacimento l'Enable lo si collega con un interruttore a terra in modo tale che quando l'interruttore è aperto, Enable è in alto, quando è chiuso Enable è a terra.
+ \begin{figure}[h]
+ 	\label{circ}
+ 	\includegraphics[scale=1]{circuito.png}
 
+ 	\caption{schema del circuito realizzato}
+ \end{figure}
+\subsection{Tempi di ritardo}
+Si verifica che quando l'interruttore è aperto ($En=1$), il circuito copia il valore di $D$ su $Q$, nel caso opposto, il valore di $Q$ resta costante. Tenendo il valore di $En$ alto, si manda in ingresso su $D$ un'onda quadra, per misurare il tempo di ritardo. \\Le misure ricavate sono(i segnali osservati sono riportati in Figura \ref{dlatch}):\\ $\Delta t_{salita}\approx40 ns$
+\\$\Delta t_{discesa}\approx60 ns$\\
+\begin{figure}[h]
 
+	\includegraphics[scale=0.7]{ritardo2.png}
+	\includegraphics[scale=0.7]{ritardodiscesa2.png}
+	\caption{D-Latch con Enable on e in ingresso un'onda quadra: tempo di ritardo in salita e discesa}
+		\label{dlatch}
+\end{figure} 
+La differenza di tempi fra salita e discesa può essere spiegata dando un'occhiata al circuito. Quando $D$ va in alto, il nuovo segnale deve passare attraverso il primo NAND e dare FALSE, dopodichè il NAND successivo restituirà immediatamente TRUE, indipendentemente dal segnale su $\bar{Q}$. Invece, quando $D$ diventa FALSE,il NAND che restituisce $Q$ avrà ad un ingresso TRUE e all'altro $\bar{Q}$, quindi affinchè il segnale su $Q$ sia quello giusto, deve prima arrivare il segnale corretto su $\bar{Q}$ e quindi bisogna passare attraverso altri due NAND, con un ritardo di circa $10 ns$ ciascuno. Questo spiega anche perchè il segnale sull'oscilloscopio(arancione) è così diverso da quello in ingresso (quello blu).
 \section{ Divisori di frequenza }
 Si è montato il circuito in figura come mostrato nell'immagine \textcolor{red}{AGGIUNGERE IMMAGINE}.
 Si è verificato il corretto funzionamento del contatore con un impulso a bassa frequenza.
