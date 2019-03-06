@@ -165,9 +165,10 @@ In Figura \ref{fig:dec} compare il segnale $Q1$ in giallo  e il segnale $Q3$ in 
 Il circuito è stato montato come in figura. I pin CLR sono stati collegati tramite una resistenza di pull-up ai 5V. Il pulsante è stato usato come un deviatore, in modo da riferire anche i preset.
 \begin{figure}[h]
 	\includegraphics[scale=1]{circuito3.png}
-	\caption{Shiftregister}                                
+	\caption{Shiftregister} 
+	\label{fig:9}                               
 \end{figure}
-Di default i led sono tutti accesi, se a un dato istante non lo sono  attivando il DIP SWITCH di preset si riaccendono tutti (il pin è negato). I led si accendono in sequenza, partendo dal primo e scorrendo fino all'ultimo, l'accensione di uno sfasata di un periodo di clock rispetto all'accensione del successivo. , con un ritardo di al massimo un periodo di clock. premuto il bottone di preset le luci sono tutte accese (il pin è negato)
+Di default i led sono tutti accesi, se a un dato istante non lo sono  premendo il pulsante di preset si riaccendono tutti (il pin è negato). Il circuito funziona nel seguente modo, ad ogni colpo di clock gli stati dei led in quell'istante  scorrono di uno verso il basso (con riferimento alla figura \ref{fig:9}); lo stato che si inserisce di volta in volta nel primo led, dipende da come è posizionato l'interruttore DIP SWITCH, se ad esempio questo è basso e abbiamo appena premuto il pulsante di preset    i led si spengono in sequenza, partendo dal primo e scorrendo fino all'ultimo con lo spegnimento di uno sfasato di un periodo di clock rispetto allo spegnimento del successivo. 
 
 \subsection{Feedback negato}
 Collegando l'uscita negata Q3 all'input del primo FF il circuito inizia a oscillare con una frequenza pari a un ottavo di quella di clock. I led si accendono in successione da Q0 a Q3 per poi spegnersi nello stesso ordine
@@ -194,6 +195,6 @@ Collegando l'uscita negata Q3 all'input del primo FF il circuito inizia a oscill
 	\caption{Shift register con feedback negato Q0 nelle quattro immagini è il segnale blu mentre in giallo compaiono Q1,Q2,Q3}
 \end{figure}
 
-Nelle figure si può  vedere un confronto tra le onde quadre emesse su ogni piedino e Q0. Si può osservare facilmente lo sfasamento di 1,2,3 tempi di clock.
+Nelle figure si può  vedere un confronto tra le onde quadre emesse su ogni piedino e Q0. Si può osservare  lo sfasamento di 1,2,3 tempi di clock.
 
 \end{document}
