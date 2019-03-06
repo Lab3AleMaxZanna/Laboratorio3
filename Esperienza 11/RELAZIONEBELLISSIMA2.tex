@@ -51,52 +51,115 @@ Si verifica che quando l'interruttore è aperto ($En=1$), il circuito copia il v
 La differenza di tempi fra salita e discesa può essere spiegata dando un'occhiata al circuito. Quando $D$ va in alto, il nuovo segnale deve passare attraverso il primo NAND e dare FALSE, dopodichè il NAND successivo restituirà immediatamente TRUE, indipendentemente dal segnale su $\bar{Q}$. Invece, quando $D$ diventa FALSE,il NAND che restituisce $Q$ avrà ad un ingresso TRUE e all'altro $\bar{Q}$, quindi affinchè il segnale su $Q$ sia quello giusto, deve prima arrivare il segnale corretto su $\bar{Q}$ e quindi bisogna passare attraverso altri due NAND, con un ritardo di circa $10 ns$ ciascuno. Questo spiega anche perchè il segnale sull'oscilloscopio(arancione) è così diverso da quello in ingresso (quello blu).
 
 \textcolor{red}{NON SO SE DEVI ANCORA FINIRE IN OGNI CASO AGGIUNGI L'ENABLE LA FIGURA}
-l'immagine \textcolor{red}{AGGIUNGERE IMMAGINE}.
-Si è verificato il corretto funzionamento del contatore con un impulso a bassa frequenza.                                                                                                                                                                                                                                                   
 
-Abbiamo inviato un clock a una frequenza di circa $f\simeq 50 \si{\kilo \hertz}$; nelle immagini che seguono compaiono  rispettivamente $Q0$, $Q1$, $Q2$ e $Q3$ \textcolor{red}{AGGIUNGERE IMMAGINE} (in giallo) sovrapposti al clock (in blu), dalle figure si vede che le frequenze sono effettivamente $1/2$, $1/4$, $1/8$, $1/16$ di $f$.
+
+
+\section{ Divisori di frequenza }
+
+Si è montato il circuito e si è verificato il corretto funzionamento del contatore con un impulso a bassa frequenza.
+
+
+
+Abbiamo inviato un clock a una frequenza di circa $f\simeq 50 \si{\kilo \hertz}$; nelle immagini che seguono compaiono  rispettivamente $Q0$, $Q1$, $Q2$  (in giallo) sovrapposti al clock (in blu), dalle figure si vede che le frequenze sono effettivamente $1/2$, $1/4$, $1/8$ di $f$. Per $Q3$, segnale di cui non compare l'immagine è stato verificato che la sua frequenza fosse $1/16$ di quella del clock.
+
 \begin{figure}[h]
+
 			\centering
+
 			\includegraphics[scale=0.85]{1mezzo}
+
 			\caption{sengale $Q0$ in blu}
+
 			\label{fig:plh}
-\end{figure}
-\begin{figure}[h]
-			\centering
-			\includegraphics[scale=0.85]{1quarto}
-			\caption{sengale $Q1$ in blu}
-			\label{fig:plh}
-\end{figure}
-\begin{figure}[h]
-			\centering
-			\includegraphics[scale=0.85]{1ottavo}
-			\caption{sengale $Q2$ in blu}
-			\label{fig:plh}
-\end{figure}
-Tramite l'oscilloscopio si è poi misurato il ritardo tra la transizione del clock e quella di $Q0$, $Q1$, $Q2$ e $Q3$; in particolare si è misurato l'intervallo temporale che intercorreva da quando la tensione in ingresso passava per il $50\%$ del valore massimo a quando l'uscita passava per  il $50\%$ del valore massimo. Nelle Figure \ref{fig:t1} e \ref{fig:t2} sono mostrati il segnale di clock (in blu) e $Q0$ (in giallo) rispettivamente quando il segnale  $Q0$ passa da alto a basso e da basso ad alto. I ritardi misurati per questa uscita 
-sono nel primo caso $t\ped{discesa} = (150 \pm 5)\si{\nano\second}$ e nel secondo  $t\ped{salita} = (30 \pm 5)\si{\nano\second}$.\textcolor{red}{CONTROLLARE COERENZA ERRORI NEI RITARDI PUNTO 2-3}
-Per gli altri tre i ritardi sono gli stessi di $Q0$  nei due casi, infatti le quattro uscite sono quasi perfettamente sincrone tra loro; come esempio  mostriamo  i segnali $Q0$ e $Q1$ nella transizione da alto a basso in Figura \ref{fig:q0q1}.
-\textcolor{red}{SINCRONIA TRA TRANSIZIONE MISTA?BOH!}
-\textcolor{red}{CONFRONTARE TEMPI CON DATASHIIIIIT NON TORNA NULLA!}
-\begin{figure}[h]
-			\centering
-			\includegraphics[scale=0.85]{tcounter}
-			\caption{ritardo di $Q0$ nel passare da alto a basso}
-			\label{fig:t1}
-\end{figure}
-\begin{figure}[h]
-			\centering
-			\includegraphics[scale=0.85]{tcounter_1}
-			\caption{ritardo di $Q0$ nel passare da basso ad alto}
-			\label{fig:t2}
+
 \end{figure}
 
 \begin{figure}[h]
+
 			\centering
-			\includegraphics[scale=0.85]{Q0Q1sincroni}
-			\caption{quasi perfetta sincronia tra i segnali $Q0$ e $Q1$ quando entrambi diventano bassi}
-			\label{fig:q0q1}
+
+			\includegraphics[scale=0.85]{1quarto}
+
+			\caption{sengale $Q1$ in blu}
+
+			\label{fig:plh}
+
 \end{figure}
+
+\begin{figure}[h]
+
+			\centering
+
+			\includegraphics[scale=0.85]{1ottavo}
+
+			\caption{sengale $Q2$ in blu}
+
+			\label{fig:plh}
+
+\end{figure}
+
+Tramite l'oscilloscopio si è poi misurato il ritardo tra la transizione del clock e quella di $Q0$, $Q1$, $Q2$ e $Q3$; in particolare si è misurato l'intervallo temporale che intercorreva da quando la tensione in ingresso passava per il $50\%$ del valore massimo a quando l'uscita passava per  il $50\%$ del valore massimo. Nelle Figure \ref{fig:t1} e \ref{fig:t2} sono mostrati il segnale di clock (in blu) e $Q0$ (in giallo) rispettivamente quando il segnale  $Q0$ passa da alto a basso e da basso ad alto. I ritardi misurati per questa uscita 
+
+sono nel primo caso $t\ped{discesa} = (150 \pm 5)\si{\nano\second}$ e nel secondo  $t\ped{salita} = (30 \pm 5)\si{\nano\second}$.\textcolor{red}{NEL PRIMO PUNTO NON HAI MESSO GLI ERRORI SUI RITARDI, PUOI ANCHE TOGLIERLI QUA MA UNIFORMALI}
+
+Per gli altri tre i ritardi sono gli stessi di $Q0$  nei due casi, infatti le quattro uscite sono quasi perfettamente sincrone tra loro; come esempio  di questa sincronia mostriamo  i segnali $Q0$ e $Q1$ nella transizione da alto a basso in Figura \ref{fig:q0q1}.
+
+Sul datasheet è riportato come tempo di propagazione massimo dal clock all'output (una qualsiasi delle $Q$) $t\ped{max} = 15\si{\nano\second}$ sia per la transizione $HL$ che $LH$. La discrepanza può essere dovuta al tempo di salita del generatore (clock) che avviene in un tempo di circa $50 \si{\nano\second}$, questo potrebbe giustificare il risultato ottenuto per $t\ped{salita} $ tuttavia non giustifica l'asimmetria dei due risultati e il valore misurato per $t\ped{discesa}$.
+
+
+
+\begin{figure}[h]
+
+			\centering
+
+			\includegraphics[scale=0.85]{tcounter}
+
+			\caption{ritardo di $Q0$ nel passare da alto a basso}
+
+			\label{fig:t1}
+
+\end{figure}
+
+\begin{figure}[h]
+
+			\centering
+
+			\includegraphics[scale=0.85]{tcounter_1}
+
+			\caption{ritardo di $Q0$ nel passare da basso ad alto}
+
+			\label{fig:t2}
+
+\end{figure}
+
+
+
+\begin{figure}[h]
+
+			\centering
+
+			\includegraphics[scale=0.85]{Q0Q1sincroni}
+
+			\caption{quasi perfetta sincronia tra i segnali $Q0$ e $Q1$ quando entrambi diventano bassi}
+
+			\label{fig:q0q1}
+
+\end{figure}
+
+
+
+
+
+Per resettare il circuito a $10$  abbiamo collegato i segnali $Q1$ e $Q3$ a una porta NAND e l'uscita della porta,  al $\overline{\mathrm{CLR}}$ del contatore di modo che appena entrmabi fossero stati alti il conteggio si sarebbe resettato. 
+
+In Figura \ref{fig:dec} compare il segnale $Q1$ in giallo  e il segnale $Q3$ in blu, quando diventano entrambi alti, cioè quando il contatore è a 10 si vede che dopo un tempo pari al periodo del clock si resetta e  i due segnali diventano bassi. Se osservo l'uscita del NAND questa è bassa per un periodo del clock ogni 11 e quindi ha frequenza 1/11 di CLK. Per ottenere la frequenza di 1/10 come rischiesto dal testo avremmo dovuto resettare il contatore a 9 usando come ingressi del NAND $Q0$ e $Q3$.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.85]{decadico.png}
+	\caption{contatore che si resetta arrivato a 10}            
+	\label{fig:dec}                    
+\end{figure}
+
 \section{Shift register con D-Latch}
 \subsection{Montaggio e funzionamento}
 Il circuito è stato montato come in figura. I pin CLR sono stati collegati tramite una resistenza di pull-up ai 5V. Il pulsante è stato usato come un deviatore, in modo da riferire anche i preset.
@@ -104,10 +167,10 @@ Il circuito è stato montato come in figura. I pin CLR sono stati collegati tram
 	\includegraphics[scale=1]{circuito3.png}
 	\caption{Shiftregister}                                
 \end{figure}
-I led si accendono in sequenza, partendo dal primo e scorrendo fino all'ultimo, l'accensione di uno sfasata di un periodo di clock rispetto all'accensione del successivo. Il primo segue il DIP switch, con un ritardo di al massimo un periodo di clock. Dopo aver premuto il bottone di preset le luci sono tutte accese (il pin è negato)
+Di default i led sono tutti accesi, se a un dato istante non lo sono  attivando il DIP SWITCH di preset si riaccendono tutti (il pin è negato). I led si accendono in sequenza, partendo dal primo e scorrendo fino all'ultimo, l'accensione di uno sfasata di un periodo di clock rispetto all'accensione del successivo. , con un ritardo di al massimo un periodo di clock. premuto il bottone di preset le luci sono tutte accese (il pin è negato)
 
 \subsection{Feedback negato}
-Collegando l'uscita negata Q3 all'input del primo FF il circuito inizia a oscillare con una frequenza pari a un quarto di quella di clock. I led si accendono in successione da Q0 a Q3 per poi spegnersi nello stesso ordine
+Collegando l'uscita negata Q3 all'input del primo FF il circuito inizia a oscillare con una frequenza pari a un ottavo di quella di clock. I led si accendono in successione da Q0 a Q3 per poi spegnersi nello stesso ordine
 
 \begin{figure}[h]
 	\centering
@@ -128,7 +191,7 @@ Collegando l'uscita negata Q3 all'input del primo FF il circuito inizia a oscill
 		\includegraphics[width=\linewidth]{q0q3sr.png}
 		\caption{Q0 e Q3, sfasamento alla salita}
 	\end{subfigure}
-	\caption{Shift register con feedback negato}
+	\caption{Shift register con feedback negato Q0 nelle quattro immagini è il segnale blu mentre in giallo compaiono Q1,Q2,Q3}
 \end{figure}
 
 Nelle figure si può  vedere un confronto tra le onde quadre emesse su ogni piedino e Q0. Si può osservare facilmente lo sfasamento di 1,2,3 tempi di clock.
