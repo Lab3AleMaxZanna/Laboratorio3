@@ -28,12 +28,12 @@
 \author{Massimo Bilancioni, Alessandro Foligno, Giuseppe Zanichelli}
 \begin{document}	
 \maketitle
-Si decide arbitrariamente di assegnare vari stati di $Q_0$ e $Q_1$ ad altrettante posizioni del semaforo. In particolare, la corrispondenza scelta è:\\
+Si decide arbitrariamente di assegnare i vari stati di $Q_0$ e $Q_1$ ad altrettante posizioni del semaforo. In particolare, la corrispondenza scelta è:\\
 \begin{enumerate}
 	\item Lo stato (0,0) corrisponde al Verde
 	\item Lo stato (0,1) corrisponde al Giallo+Verde
 	\item Lo stato (1,0) corrisponde al Rosso
-	\item Lo stato (1,1) corrisponde ad uno stato a caso (non fa parte del ciclo)
+	\item Lo stato (1,1) corrisponde allo stato non desiderato che non rientra del ciclo (in termini di colori per semplificare la  logica  l'abbiamo fatto corrispondere al Rosso+Giallo)
 \end{enumerate}
 Utilizzando questa corrispondenza, lo schema della transizione è riportato nella seguente tabella (insieme con i valori corrispondenti dei led)\
 \begin{table}[h]\centering
@@ -53,9 +53,20 @@ Utilizzando questa corrispondenza, lo schema della transizione è riportato nell
 \caption{Tabella di transizione per $Q_0$ e $Q_1$}
 \end{table}
 \\
-osservando la tabella si vede che il segnale su Verde è proprio $\bar{Q_0}$, quello su Giallo è $Q_1$, quello su Rosso è $Q_0$.
-Si riporta lo schema del circuito realizzato.
+osservando la tabella si vede che il segnale su Verde è proprio $\overline{Q_0}$ (ponendo $x =0$), quello su Giallo è $Q_1$ (ponendo $x= 1$), quello su Rosso è $Q_0$ (ponendo $x= 1$).
+Si riporta lo schema del circuito realizzato in Figura \ref{fig:circ}
 
+\begin{figure}[h]
+
+			\centering
+
+			\includegraphics[scale=0.85]{circuit}
+
+			\caption{Implementazione semaforo}
+
+			\label{fig:circ}
+
+\end{figure}
 
 
 
