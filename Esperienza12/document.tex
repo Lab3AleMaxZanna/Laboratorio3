@@ -1,0 +1,66 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\newcommand{\rem}[1]{[\emph{#1}]}
+\newcommand{\exn}{\phantom{xxx}}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage{siunitx}
+\date{\today}
+\usetikzlibrary{shapes.geometric,calc,matrix,arrows,snakes,shapes,patterns}
+\title{Esercitazione 12B: Macchine e stati finiti:semaforo}
+\author{Massimo Bilancioni, Alessandro Foligno, Giuseppe Zanichelli}
+\begin{document}	
+\maketitle
+Si decide arbitrariamente di assegnare vari stati di $Q_0$ e $Q_1$ ad altrettante posizioni del semaforo. In particolare, la corrispondenza scelta è:\\
+\begin{enumerate}
+	\item Lo stato (0,0) corrisponde al Verde
+	\item Lo stato (0,1) corrisponde al Giallo+Verde
+	\item Lo stato (1,0) corrisponde al Rosso
+	\item Lo stato (1,1) corrisponde ad uno stato a caso (non fa parte del ciclo)
+\end{enumerate}
+Utilizzando questa corrispondenza, lo schema della transizione è riportato nella seguente tabella (insieme con i valori corrispondenti dei led)\
+\begin{table}[h]\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+	\hline 
+	$Q_0^n$ & $Q_1^n$ & $Q_0^{n+1}$ & $Q_1^{n+1}$ & Verde & Giallo & Rosso \\ 
+	\hline 
+	0 & 0 & 0 & 1 & 1 & 0 & 0 \\ 
+	\hline 
+	0 & 1 & 1 & 0 & 1 & 1 & 0 \\ 
+	\hline 
+	1 & 0 & 0 & 0 & 0 & 0 & 1 \\ 
+	\hline 
+	1 & 1 & x & x & x & x & x \\ 
+	\hline 
+\end{tabular} 	
+\caption{Tabella di transizione per $Q_0$ e $Q_1$}
+\end{table}
+\\
+osservando la tabella si vede che il segnale su Verde è proprio $\bar{Q_0}$, quello su Giallo è $Q_1$, quello su Rosso è $Q_0$.
+Si riporta lo schema del circuito realizzato.
+
+
+
+
+
+
+
+
+\end{document}
