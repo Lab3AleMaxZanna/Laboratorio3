@@ -53,19 +53,32 @@ Utilizzando questa corrispondenza, lo schema della transizione è riportato nell
 \caption{Tabella di transizione per $Q_0$ e $Q_1$}
 \end{table}
 \\
+
 osservando la tabella si vede che il segnale su Verde è proprio $\overline{Q_0}$ (ponendo $x =0$), quello su Giallo è $Q_1$ (ponendo $x= 1$), quello su Rosso è $Q_0$ (ponendo $x= 1$).\\
 Per realizzare le transizioni, imponiamo che sia $Q_0^{n+1}=Q_1^n$ e $Q_1^{n+1}=\bar{Q}_0^n \cdot \bar{Q}_1^n$ (questo fa anche in modo che il valore di $(Q_0,Q_1)=(1,1)$ indesiderato non vada in se stesso.)\\
-Si riporta lo schema del circuito realizzato in Figura \ref{fig:circ}:
 
+Si riporta lo schema del circuito in Figura \ref{fig:circ} e la foto di quello realizzato in Figura \ref{fig:vg}; quest'ultima foto è stata fatta subito dopo aver acceso l'alimentazione e senza clock, come si vede sono accesi il led giallo e quello rosso e ci troviamo inizialmente nello stato indesiderato. 
 \begin{figure}[h]
 
 			\centering
 
 			\includegraphics[scale=0.8]{circuit}
 
-			\caption{Implementazione semaforo}
+			\caption{ Schema circuito per l'implementazione del semaforo}
 
 			\label{fig:circ}
+
+\end{figure}
+
+\begin{figure}[h]
+
+			\centering
+
+			\includegraphics[scale=0.07]{gr}
+
+			\caption{ Realizzazione circuito}
+
+			\label{fig:vg}
 
 \end{figure}
 
