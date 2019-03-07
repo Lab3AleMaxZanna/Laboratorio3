@@ -55,7 +55,7 @@ Utilizzando questa corrispondenza, lo schema della transizione è riportato nell
 \\
 
 osservando la tabella si vede che il segnale su Verde è proprio $\overline{Q_0}$ (ponendo $x =0$), quello su Giallo è $Q_1$ (ponendo $x= 1$), quello su Rosso è $Q_0$ (ponendo $x= 1$).\\
-Per realizzare le transizioni, imponiamo che sia $Q_0^{n+1}=Q_1^n$ e $Q_1^{n+1}=\bar{Q}_0^n \cdot \bar{Q}_1^n$ (questo fa anche in modo che il valore di $(Q_0,Q_1)=(1,1)$ indesiderato non vada in se stesso.)\\
+Per realizzare le transizioni, imponiamo che sia $Q_0^{n+1}=Q_1^n$ (ponendo $x= 1$)  e $Q_1^{n+1}=\overline{Q}_0^n \cdot \overline{Q}_1^n$ (ponendo $x= 0$), questo fa anche in modo che il valore di $(Q_0,Q_1)=(1,1)$ indesiderato non vada in se stesso.\\
 
 Si riporta lo schema del circuito in Figura \ref{fig:circ} e la foto di quello realizzato in Figura \ref{fig:vg}; quest'ultima foto è stata fatta subito dopo aver acceso l'alimentazione e senza clock, come si vede sono accesi il led giallo e quello rosso e ci troviamo inizialmente nello stato indesiderato. 
 \begin{figure}[h]
@@ -83,23 +83,31 @@ Si riporta lo schema del circuito in Figura \ref{fig:circ} e la foto di quello r
 \end{figure}
 
 
-\section{Forme d'onda}
-Si monta il circuito illustrato, e si osservano le seguenti forme d'onda sull'oscilloscopio:
-\begin{figure}\centering
-	\includegraphics[scale=0.7]{green.png}
-	\caption{forma d'onda del segnale sul led Verde (arancione), notare come il tempo in cui sta acceso sia il doppio di quello in cui è spento, in blu è riportato il clock}
-	
-\end{figure}
-\begin{figure}
-	\includegraphics[scale=0.7]{yellow.png}
-	\includegraphics[scale=0.7]{yellowandgreen.png}
-	\caption{a sinistra: Segnale (in arancio) sul led Giallo, a destra: segnale sul Verde(arancio) e Giallo(blu): notare che il Giallo si accende solo quando il Verde è già acceso }
-	
-\end{figure}
-\begin{figure}
-\includegraphics[scale=0.7]{Red.png}
-\includegraphics[scale=0.7]{GreenandRed.png}
 
+\newpage
+
+
+
+\section{Forme d'onda}
+Si osservano le seguenti forme d'onda sull'oscilloscopio:
+\begin{figure}\centering
+	\includegraphics[scale=0.9]{green.png}
+	\caption{forma d'onda del segnale sul led verde (arancione), notare come il tempo in cui sta acceso sia il doppio di quello in cui è spento, in blu è riportato il clock}
+	
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.8]{yellowandgreen.png}
+	\includegraphics[scale=0.8]{yellowandred.png}
+	
+	\caption{il segnale in blu in entrambe le figure corrisponde al led giallo, a sinistra compare il segnale del led verde mentre a destra quello del led rosso (in arancio). Notare che il giallo si accende solo quando il verde è  acceso e che il verde e il rosso sono complementari}
+	
+\end{figure}
+\begin{figure}
+\centering
+
+\includegraphics[scale=0.8]{Q1andQ2}
+\caption{sono mostrati i segnali Q0 e Q1 che compiono come desiderato le transizioni $00\to 01 \to 10 \to 00$}
 \end{figure}
 
 \end{document}
