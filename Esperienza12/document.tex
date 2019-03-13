@@ -53,8 +53,8 @@ Utilizzando questa corrispondenza, lo schema della transizione è riportato nell
 \caption{Tabella di transizione per $Q_0$ e $Q_1$}
 \end{table}
 \\
-
-osservando la tabella si vede che il segnale su Verde è proprio $\overline{Q_0}$ (ponendo $x =0$), quello su Giallo è $Q_1$ (ponendo $x= 1$), quello su Rosso è $Q_0$ (ponendo $x= 1$).\\
+\noindent
+osservando la tabella si vede che il segnale su Verde è proprio $\overline{Q_0}$ (ponendo $x =0$), quello su Giallo è $Q_1$ (ponendo $x= 1$), quello su Rosso è $Q_0$ (ponendo $x= 1$), questo è il motivo per cui abbiamo scelto che (1,1) corrisponde al Giallo+Rosso.\\
 Per realizzare le transizioni, imponiamo che sia $Q_0^{n+1}=Q_1^n$ (ponendo $x= 1$)  e $Q_1^{n+1}=\overline{Q}_0^n \cdot \overline{Q}_1^n$ (ponendo $x= 0$), questo fa anche in modo che il valore di $(Q_0,Q_1)=(1,1)$ indesiderato non vada in se stesso.\\
 
 Si riporta lo schema del circuito in Figura \ref{fig:circ} e la foto di quello realizzato in Figura \ref{fig:vg}; quest'ultima foto è stata fatta subito dopo aver acceso l'alimentazione e senza clock, come si vede sono accesi il led giallo e quello rosso e ci troviamo quindi inizialmente nello stato indesiderato. 
@@ -89,10 +89,10 @@ Si riporta lo schema del circuito in Figura \ref{fig:circ} e la foto di quello r
 
 
 \section{Forme d'onda}
-Si osservano le seguenti forme d'onda sull'oscilloscopio:
+Si osservano le seguenti forme d'onda sull'oscilloscopio (i commenti relativi sono sotto le varie figure):
 \begin{figure}\centering
 	\includegraphics[scale=0.9]{green.png}
-	\caption{ segnale sul led verde (arancione) e del clock (blu), notare come il tempo in cui sta acceso sia il doppio di quello in cui è spento}
+	\caption{ segnale sul led verde (arancione) e del clock (blu), notare come il tempo in cui il verde sta acceso è il doppio di quello in cui è spento}
 	
 \end{figure}
 \begin{figure}
@@ -100,7 +100,7 @@ Si osservano le seguenti forme d'onda sull'oscilloscopio:
 	\includegraphics[scale=0.8]{yellowandgreen.png}
 	\includegraphics[scale=0.8]{yellowandred.png}
 	
-	\caption{il segnale in blu in entrambe  le figure corrisponde al led giallo, in arancio compaiono a sinistra  il segnale del led verde mentre a destra quello del led rosso. Notare che il giallo si accende solo quando il verde è  acceso e che il verde e il rosso sono complementari}
+	\caption{il segnale in blu in entrambe  le figure corrisponde al led giallo, in arancio compaiono a sinistra  il segnale del led verde mentre a destra quello del led rosso. Notare che il giallo si accende solo quando il verde è  acceso e che il verde e il rosso (ovvero i due segnali arancioni) sono complementari}
 	
 \end{figure}
 \begin{figure}
